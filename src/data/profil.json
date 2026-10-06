@@ -1,0 +1,50 @@
+{
+  "nama": "Ahmad Nursyifa",
+  "nim": "2530712",
+  "gelar": "S.Kom.",
+  "prodi": "Pendidikan Profesi Guru (PPG) Prajabatan",
+  "gelombang": "Gelombang 1 Tahun 2026",
+  "bidangStudi": "Informatika",
+  "kelas": "INF A",
+  "kampus": "Universitas Pendidikan Indonesia (UPI)",
+  "kampusKota": "Bandung, Jawa Barat",
+  "sekolahPPL": "SMAN 15 Bandung",
+  "guruPamong": "Andre Dewantara, S.T., Gr.",
+  "dosenPembimbing": "Dr. Wahyudin, M.T.",
+  "foto": "/img/avatar.jpg",
+  "domain": "ppg.ahmadnursyifa.my.id",
+  "email": "ahmadnursyifa@upi.edu",
+  "github": "https://github.com",
+  "linkedin": "https://linkedin.com",
+  "googleDriveFolder": "https://drive.google.com/drive/folders/1ZT1LRBaCJXZfFc1C5wfXKy7mL5NesBkT?usp=sharing",
+  "motto": "Menuntun generasi digital berpikir komputasional, berakhlak mulia, dan siap berkarya untuk masa depan.",
+  "visiPendidikan": "Mewujudkan pendidikan Indonesia yang agamis, inklusif, dan berbasis teknologi untuk membentuk generasi berkarakter, kritis, kreatif, serta siap menghadapi tantangan global.",
+  "visiGuru": {
+    "akronim": "PANDAI",
+    "definisi": "Menjadi guru informatika profesional yang menuntun murid memiliki kecakapan digital abad 21 berlandaskan akhlak mulia.",
+    "pilar": [
+      { "huruf": "P", "kata": "Paham Teknologi", "deskripsi": "Mampu menggunakan teknologi secara bermakna, kritis, dan berfaedah." },
+      { "huruf": "A", "kata": "Akhlaq Mulia", "deskripsi": "Beretika dan berintegritas tinggi dalam kehidupan nyata dan ruang digital." },
+      { "huruf": "N", "kata": "Nalar Kritis", "deskripsi": "Mampu menimbang informasi, berpikir komputasional, dan memecahkan masalah." },
+      { "huruf": "D", "kata": "Disiplin", "deskripsi": "Konsisten dalam belajar, berkarya, mematuhi etika, dan menghargai waktu." },
+      { "huruf": "A", "kata": "Adaptif", "deskripsi": "Cepat beradaptasi terhadap akselerasi teknologi kecerdasan artifisial & transformasi ilmu." },
+      { "huruf": "I", "kata": "Inovatif", "deskripsi": "Menciptakan karya dan solusi digital yang memberikan manfaat konkret bagi masyarakat." }
+    ]
+  },
+  "visiHidup": {
+    "akronim": "TAAT",
+    "pilar": [
+      { "huruf": "T", "kata": "Taqwa", "deskripsi": "Nilai spiritual menjadi kompas utama dalam menuntut ilmu dan beramal." },
+      { "huruf": "A", "kata": "Akhlaq", "deskripsi": "Jujur, peduli, bertanggung jawab, dan memuliakan sesama manusia." },
+      { "huruf": "A", "kata": "Adaptasi", "deskripsi": "Senantiasa luwes menghadapi dinamika sosial, teknologi, dan zaman." },
+      { "huruf": "T", "kata": "Terampil", "deskripsi": "Menguasai kompetensi akademis, praktis, dan profesional secara mendalam." }
+    ]
+  },
+  "statistik": {
+    "semester": 2,
+    "mataKuliah": 16,
+    "totalArtefak": 427,
+    "jamMengajarPPL": "200+ Jam",
+    "sekolahMitra": "SMAN 15 Bandung"
+  }
+}

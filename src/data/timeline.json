@@ -1,0 +1,80 @@
+[
+  {
+    "fase": "Pra-Semester",
+    "faseEn": "Pre-Semester",
+    "tanggal": "Januari 2026",
+    "judul": "Matrikulasi & Orientasi Nasional",
+    "judulEn": "Matriculation & National Orientation",
+    "deskripsi": "Mengawali langkah sebagai calon guru profesional dengan pembekalan hakikat kurikulum, orientasi PPG UPI 2026, dan literasi kesehatan mental.",
+    "deskripsiEn": "Initiating the journey as a professional educator through curriculum studies, national orientation, and mental health literacy.",
+    "icon": "Compass",
+    "badge": "Fondasi Pedagogis",
+    "badgeEn": "Pedagogical Foundation",
+    "color": "#06b6d4"
+  },
+  {
+    "fase": "Semester 1",
+    "faseEn": "Semester 1",
+    "tanggal": "Februari – April 2026",
+    "judul": "Eksplorasi Teori & Diferensiasi Pembelajaran",
+    "judulEn": "Theory Exploration & Differentiated Instruction",
+    "deskripsi": "Mendalami filosofi pendidikan Ki Hadjar Dewantara, merancang modul diferensiasi (PB-4D) di SMAN 15 Bandung, dan membangun kerangka Growth Mindset.",
+    "deskripsiEn": "Studying KHD educational philosophy, designing differentiated learning modules (PB-4D) at SMAN 15 Bandung, and fostering Growth Mindset.",
+    "icon": "Layers",
+    "badge": "Desain Pembelajaran",
+    "badgeEn": "Instructional Design",
+    "color": "#8b5cf6"
+  },
+  {
+    "fase": "Semester 1",
+    "faseEn": "Semester 1",
+    "tanggal": "April – Juni 2026",
+    "judul": "PPL I & Microteaching di SMAN 15 Bandung",
+    "judulEn": "PPL I & Microteaching at SMAN 15 Bandung",
+    "deskripsi": "Praktik langsung mendampingi kelas Informatika XI-5 materi Videografi, simulasi microteaching materi Struktur Data, dan perancangan e-portofolio siklus 1.",
+    "deskripsiEn": "Direct classroom teaching assistance for class XI-5 in Videography, microteaching on Data Structures, and cycle 1 e-portfolio.",
+    "icon": "GraduationCap",
+    "badge": "Praktik Lapangan",
+    "badgeEn": "Field Practice",
+    "color": "#0ea5e9"
+  },
+  {
+    "fase": "Semester 2",
+    "faseEn": "Semester 2",
+    "tanggal": "Juli – Agustus 2026",
+    "judul": "Pembelajaran Sosial Emosional & Inklusif",
+    "judulEn": "Social-Emotional & Inclusive Learning",
+    "deskripsi": "Mengintegrasikan 5 Kompetensi Sosial Emosional (KSE), mindfulness, dan Universal Design for Learning (UDL) agar semua murid terakomodasi dalam coding.",
+    "deskripsiEn": "Integrating 5 SEL competencies, mindfulness, and Universal Design for Learning (UDL) for inclusive coding classes.",
+    "icon": "HeartHandshake",
+    "badge": "Inklusivitas & Empati",
+    "badgeEn": "Inclusivity & Empathy",
+    "color": "#f43f5e"
+  },
+  {
+    "fase": "Semester 2",
+    "faseEn": "Semester 2",
+    "tanggal": "Agustus – September 2026",
+    "judul": "PPL II Mandiri Kelas X-5 & Projek SIDAKAN",
+    "judulEn": "PPL II Independent Teaching & SIDAKAN Project",
+    "deskripsi": "Pengambilan tanggung jawab penuh mengajar di kelas X-5 SMAN 15 Bandung, pemetaan gaya belajar murid, dan perakitan firmware IoT smart-device SIDAKAN.",
+    "deskripsiEn": "Full teaching responsibility for class X-5 at SMAN 15 Bandung, learning style diagnostic profiling, and SIDAKAN IoT firmware engineering.",
+    "icon": "Award",
+    "badge": "Kemandirian Mengajar & IoT",
+    "badgeEn": "Independent Teaching & IoT",
+    "color": "#10b981"
+  },
+  {
+    "fase": "Kulminasi",
+    "faseEn": "Culmination",
+    "tanggal": "September – Oktober 2026",
+    "judul": "Seminar PPG & E-Portofolio Interaktif Digital",
+    "judulEn": "PPG Seminar & Interactive Digital E-Portfolio",
+    "deskripsi": "Refleksi komprehensif 4F, identifikasi profil pendidik PANDAI, dan peluncuran website e-portofolio interaktif berbasis microserver mandiri.",
+    "deskripsiEn": "Comprehensive 4F reflection, PANDAI educator profile formulation, and self-hosted interactive portfolio deployment.",
+    "icon": "Sparkles",
+    "badge": "Guru Profesional",
+    "badgeEn": "Professional Educator",
+    "color": "#f59e0b"
+  }
+]

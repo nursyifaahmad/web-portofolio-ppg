@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="404 — Halaman Tidak Ditemukan | PPG Ahmad Nursyifa"
+  description="Halaman yang Anda tuju tidak ditemukan."
+>
+  <div class="min-h-[75vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 text-center">
+    <div class="tech-card p-8 sm:p-12 max-w-lg w-full relative overflow-hidden">
+      <!-- Glow -->
+      <div class="absolute -top-20 -left-20 w-40 h-40 bg-rose-500/20 rounded-full blur-3xl"></div>
+
+      <div class="w-16 h-16 rounded-2xl bg-rose-950/60 border border-rose-500/40 text-rose-400 font-mono-tech font-bold text-2xl flex items-center justify-center mx-auto mb-4">
+        404
+      </div>
+
+      <span class="tech-badge mb-3">
+        ERROR_NOT_FOUND
+      </span>
+
+      <h1 class="text-2xl font-bold text-white tracking-tight mt-2">
+        Halaman Tidak Ditemukan
+      </h1>
+
+      <p class="text-sm text-slate-300 mt-2 font-mono-tech leading-relaxed">
+        Route atau artefak yang Anda cari tidak tersedia dalam direktori server.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
+        <a
+          href="/"
+          class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-xs transition-all shadow-md"
+        >
+          Kembali ke Beranda
+        </a>
+        <button
+          onclick="window.dispatchEvent(new CustomEvent('open-terminal'))"
+          class="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-cyan-500/40 bg-slate-900 text-cyan-300 font-mono-tech text-xs font-semibold cursor-pointer"
+        >
+          &gt;_ Buka Terminal
+        </button>
+      </div>
+    </div>
+  </div>
+</Layout>

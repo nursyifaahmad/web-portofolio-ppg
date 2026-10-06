@@ -1,0 +1,168 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  isEn?: boolean;
+}
+
+const { isEn = false } = Astro.props;
+const prefix = isEn ? '/en' : '';
+---
+
+<header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-cyan-500/20 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+      
+      <!-- Brand Logo -->
+      <a href={prefix || '/'} class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg p-1">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-mono-tech font-bold text-lg shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform duration-200">
+          &gt;_
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">
+              Ahmad Nursyifa
+            </span>
+            <span class="hidden sm:inline-block text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-mono-tech font-medium">
+              PPG UPI 2026
+            </span>
+          </div>
+          <span class="text-xs text-slate-400 font-mono-tech flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Guru Informatika
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href={`${prefix}/`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Home" : "Beranda"}
+        </a>
+        <a href={`${prefix}/profil`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Profile" : "Profil & Visi"}
+        </a>
+        <a href={`${prefix}/#pra-semester`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Pre-Semester" : "Pra-Semester"}
+        </a>
+        <a href={`${prefix}/#semester-1`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          Semester 1
+        </a>
+        <a href={`${prefix}/#semester-2`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          Semester 2
+        </a>
+        <a href={`${prefix}/galeri`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Gallery" : "Galeri"}
+        </a>
+      </nav>
+
+      <!-- Right Action Tools -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Terminal Trigger Button -->
+        <button
+          id="nav-terminal-btn"
+          type="button"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-cyan-500/30 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-300 font-mono-tech text-xs font-semibold shadow-sm shadow-cyan-950 transition-all cursor-pointer group"
+          title="Buka Terminal CLI (Tekan ` atau Ctrl+K)"
+        >
+          <span class="text-emerald-400 group-hover:translate-x-0.5 transition-transform">&gt;_</span>
+          <span>CLI</span>
+          <kbd class="hidden lg:inline-block px-1.5 py-0.5 text-[10px] bg-slate-900/80 rounded border border-cyan-500/20 text-slate-400">Ctrl+K</kbd>
+        </button>
+
+        <LangSwitch />
+        <ThemeToggle />
+
+        <!-- Mobile Menu Toggle Button -->
+        <button
+          id="mobile-menu-toggle"
+          type="button"
+          aria-label="Buka Menu Navigasi"
+          class="md:hidden p-2 rounded-xl border border-cyan-500/20 bg-slate-900/60 text-slate-300 hover:text-white cursor-pointer"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-cyan-500/20 bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 transition-all duration-300">
+    <div class="flex flex-col gap-2">
+      <a href={`${prefix}/`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Home" : "Beranda"}</span>
+        <span class="text-xs text-slate-500 font-mono-tech">01</span>
+      </a>
+      <a href={`${prefix}/profil`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Profile & Vision" : "Profil & Visi"}</span>
+        <span class="text-xs text-slate-500 font-mono-tech">02</span>
+      </a>
+      <a href={`${prefix}/#pra-semester`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Pre-Semester" : "Pra-Semester"}</span>
+        <span class="text-xs text-slate-500 font-mono-tech">03</span>
+      </a>
+      <a href={`${prefix}/#semester-1`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>Semester 1</span>
+        <span class="text-xs text-slate-500 font-mono-tech">04</span>
+      </a>
+      <a href={`${prefix}/#semester-2`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>Semester 2</span>
+        <span class="text-xs text-slate-500 font-mono-tech">05</span>
+      </a>
+      <a href={`${prefix}/galeri`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Field Gallery (PPL)" : "Galeri PPL"}</span>
+        <span class="text-xs text-slate-500 font-mono-tech">06</span>
+      </a>
+
+      <div class="pt-3 mt-2 border-t border-slate-800 flex gap-2">
+        <button
+          id="mobile-drawer-cli-btn"
+          type="button"
+          class="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-mono-tech font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-900/40"
+        >
+          <span>&gt;_ Buka Terminal CLI</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
+
+    // Close menu when clicking link
+    if (menu) {
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+        });
+      });
+    }
+
+    const drawerCli = document.getElementById('mobile-drawer-cli-btn');
+    if (drawerCli) {
+      drawerCli.addEventListener('click', () => {
+        if (menu) menu.classList.add('hidden');
+        window.dispatchEvent(new CustomEvent('open-terminal'));
+      });
+    }
+
+    const navCli = document.getElementById('nav-terminal-btn');
+    if (navCli) {
+      navCli.addEventListener('click', () => {
+        window.dispatchEvent(new CustomEvent('open-terminal'));
+      });
+    }
+  });
+</script>

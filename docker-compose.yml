@@ -1,0 +1,20 @@
+services:
+  eportfolio-web:
+    build: .
+    container_name: eportfolio-web
+    restart: unless-stopped
+    ports:
+      # Port 3060: safe from Immich (2283/3001) and Wedding Tracker (3050)
+      - "3060:80"
+    volumes:
+      # Optional: persistent artifacts folder on storage2 if files are served directly
+      - /mnt/storage2/eportfolio/artefak:/usr/share/nginx/html/artefak:ro
+    environment:
+      - NODE_ENV=production
+    networks:
+      - eportfolio-net
+
+networks:
+  eportfolio-net:
+    name: eportfolio-net
+    driver: bridge

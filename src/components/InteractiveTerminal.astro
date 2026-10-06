@@ -1,0 +1,430 @@
+---
+import profil from '../data/profil.json';
+import courses from '../data/courses.json';
+---
+
+<!-- Terminal Modal Overlay -->
+<div
+  id="terminal-modal"
+  class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Interactive Terminal CLI"
+>
+  <!-- Terminal Window Container -->
+  <div class="w-full sm:max-w-3xl h-[85dvh] sm:h-[600px] bg-slate-950 border-t sm:border border-cyan-500/40 rounded-t-3xl sm:rounded-2xl shadow-2xl shadow-cyan-950 flex flex-col font-mono-tech overflow-hidden">
+    
+    <!-- Terminal Titlebar -->
+    <div class="px-4 py-3 bg-slate-900/90 border-b border-cyan-500/20 flex items-center justify-between select-none">
+      <div class="flex items-center gap-2">
+        <button id="terminal-close-btn" class="w-3.5 h-3.5 rounded-full bg-rose-500/80 hover:bg-rose-400 cursor-pointer transition-colors" title="Close (Esc)"></button>
+        <button id="terminal-min-btn" class="w-3.5 h-3.5 rounded-full bg-amber-500/80 hover:bg-amber-400 cursor-pointer transition-colors" title="Clear screen"></button>
+        <button id="terminal-max-btn" class="w-3.5 h-3.5 rounded-full bg-emerald-500/80 hover:bg-emerald-400 cursor-pointer transition-colors" title="Maximize"></button>
+        <span class="ml-3 text-xs text-slate-300 font-semibold tracking-wide">
+          syifaserver: ~/ppg-interactive-cli
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2 text-[11px] text-cyan-400/80">
+        <span class="hidden sm:inline">Ketik <kbd class="px-1 py-0.5 bg-slate-800 rounded border border-slate-700">help</kbd></span>
+        <button id="terminal-close-text" class="text-slate-400 hover:text-white p-1 cursor-pointer">✕</button>
+      </div>
+    </div>
+
+    <!-- Quick Command Chips for Mobile & Fast Access -->
+    <div class="px-4 py-2 bg-slate-900/50 border-b border-slate-800/80 flex items-center gap-1.5 overflow-x-auto text-[11px] no-scrollbar">
+      <span class="text-slate-500 text-[10px] shrink-0 uppercase tracking-wider">Cepat:</span>
+      <button class="cmd-chip px-2.5 py-1 rounded-md bg-slate-800/80 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/20 shrink-0 cursor-pointer" data-cmd="help">help</button>
+      <button class="cmd-chip px-2.5 py-1 rounded-md bg-slate-800/80 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/20 shrink-0 cursor-pointer" data-cmd="whoami">whoami</button>
+      <button class="cmd-chip px-2.5 py-1 rounded-md bg-slate-800/80 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/20 shrink-0 cursor-pointer" data-cmd="neofetch">neofetch</button>
+      <button class="cmd-chip px-2.5 py-1 rounded-md bg-slate-800/80 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/20 shrink-0 cursor-pointer" data-cmd="ls">ls</button>
+      <button class="cmd-chip px-2.5 py-1 rounded-md bg-slate-800/80 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/20 shrink-0 cursor-pointer" data-cmd="cat visi.txt">cat visi.txt</button>
+      <button class="cmd-chip px-2.5 py-1 rounded-md bg-slate-800/80 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/20 shrink-0 cursor-pointer" data-cmd="courses">courses</button>
+      <button class="cmd-chip px-2.5 py-1 rounded-md bg-slate-800/80 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/20 shrink-0 cursor-pointer" data-cmd="matrix">matrix</button>
+      <button class="cmd-chip px-2.5 py-1 rounded-md bg-slate-800/80 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/20 shrink-0 cursor-pointer" data-cmd="clear">clear</button>
+    </div>
+
+    <!-- Terminal Output Area -->
+    <div id="terminal-output" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs sm:text-sm text-slate-200 select-text">
+      <!-- Welcome Message -->
+      <div class="text-slate-400">
+        <div class="text-cyan-400 font-bold text-sm sm:text-base">
+          ╔════════════════════════════════════════════════════════╗<br/>
+          ║ &nbsp;PPG PRAJABATAN UPI 2026 — INFORMATIKA TERMINAL CLI &nbsp;║<br/>
+          ╚════════════════════════════════════════════════════════╝
+        </div>
+        <p class="mt-2 text-slate-300">
+          Selamat datang di shell interaktif e-portofolio <strong>Ahmad Nursyifa, S.Kom.</strong><br/>
+          Ketik <span class="text-cyan-300 font-bold">help</span> untuk daftar perintah, atau gunakan tombol cepat di atas.
+        </p>
+      </div>
+    </div>
+
+    <!-- Matrix Animation Canvas (Hidden by default, shown on 'matrix' command) -->
+    <canvas id="terminal-matrix-canvas" class="hidden absolute inset-0 w-full h-full pointer-events-none z-10 opacity-70"></canvas>
+
+    <!-- Terminal Prompt Input -->
+    <form id="terminal-form" class="p-3 bg-slate-900/90 border-t border-cyan-500/20 flex items-center gap-2">
+      <span class="text-emerald-400 font-bold select-none text-sm sm:text-base">ahmad@ppg:~$</span>
+      <input
+        id="terminal-input"
+        type="text"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="ketik perintah..."
+        class="flex-1 bg-transparent text-cyan-300 font-mono-tech text-base sm:text-sm focus:outline-none placeholder-slate-600 caret-cyan-400"
+      />
+      <button type="submit" class="px-3 py-1.5 rounded-lg bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 text-xs font-semibold cursor-pointer">
+        Enter
+      </button>
+    </form>
+
+  </div>
+</div>
+
+<!-- Floating Terminal Launcher for Mobile -->
+<button
+  id="floating-cli-trigger"
+  type="button"
+  aria-label="Buka Terminal Interaktif"
+  class="fixed bottom-20 right-4 z-40 md:hidden w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white flex items-center justify-center font-mono-tech font-bold text-base shadow-xl shadow-cyan-900/60 border border-cyan-300/40 hover:scale-105 active:scale-95 transition-transform"
+>
+  &gt;_
+</button>
+
+<script is:inline define:vars={{ profil, courses }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('terminal-modal');
+    const input = document.getElementById('terminal-input');
+    const output = document.getElementById('terminal-output');
+    const form = document.getElementById('terminal-form');
+    const closeBtn = document.getElementById('terminal-close-btn');
+    const closeText = document.getElementById('terminal-close-text');
+    const minBtn = document.getElementById('terminal-min-btn');
+    const floatBtn = document.getElementById('floating-cli-trigger');
+
+    function openTerminal() {
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        if (input) input.focus();
+      }, 100);
+    }
+
+    function closeTerminal() {
+      if (!modal) return;
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      stopMatrix();
+    }
+
+    // Event listeners
+    window.addEventListener('open-terminal', openTerminal);
+    if (closeBtn) closeBtn.addEventListener('click', closeTerminal);
+    if (closeText) closeText.addEventListener('click', closeTerminal);
+    if (floatBtn) floatBtn.addEventListener('click', openTerminal);
+    if (minBtn) minBtn.addEventListener('click', () => { if (output) output.innerHTML = ''; });
+
+    // Keyboard Shortcuts: ` or Ctrl+K or Esc
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '`' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+        e.preventDefault();
+        modal?.classList.contains('hidden') ? openTerminal() : closeTerminal();
+      } else if (e.key === 'k' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        modal?.classList.contains('hidden') ? openTerminal() : closeTerminal();
+      } else if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+        closeTerminal();
+      }
+    });
+
+    // Close on overlay click
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeTerminal();
+    });
+
+    // Quick Command Chips
+    document.querySelectorAll('.cmd-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const cmd = chip.getAttribute('data-cmd');
+        if (cmd && input) {
+          executeCommand(cmd);
+        }
+      });
+    });
+
+    // Command History
+    const history = [];
+    let historyIdx = -1;
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const cmd = input.value.trim();
+      if (!cmd) return;
+      history.push(cmd);
+      historyIdx = history.length;
+      executeCommand(cmd);
+      input.value = '';
+    });
+
+    input?.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowUp') {
+        if (history.length > 0 && historyIdx > 0) {
+          historyIdx--;
+          input.value = history[historyIdx];
+        }
+      } else if (e.key === 'ArrowDown') {
+        if (historyIdx < history.length - 1) {
+          historyIdx++;
+          input.value = history[historyIdx];
+        } else {
+          historyIdx = history.length;
+          input.value = '';
+        }
+      }
+    });
+
+    function appendOutput(html) {
+      if (!output) return;
+      const row = document.createElement('div');
+      row.className = 'py-1 text-slate-300';
+      row.innerHTML = html;
+      output.appendChild(row);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    // Matrix Rain Effect
+    let matrixInterval = null;
+    function runMatrix() {
+      const canvas = document.getElementById('terminal-matrix-canvas');
+      if (!canvas) return;
+      canvas.classList.remove('hidden');
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.parentElement.offsetWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
+
+      const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*+-/<>~';
+      const fontSize = 14;
+      const columns = Math.floor(canvas.width / fontSize);
+      const drops = Array(columns).fill(1);
+
+      stopMatrix();
+      matrixInterval = setInterval(() => {
+        ctx.fillStyle = 'rgba(2, 6, 23, 0.08)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#10b981';
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = letters.charAt(Math.floor(Math.random() * letters.length));
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }, 35);
+    }
+
+    function stopMatrix() {
+      if (matrixInterval) clearInterval(matrixInterval);
+      matrixInterval = null;
+      const canvas = document.getElementById('terminal-matrix-canvas');
+      if (canvas) canvas.classList.add('hidden');
+    }
+
+    function executeCommand(rawCmd) {
+      appendOutput(`<div class="text-cyan-400 font-semibold">$ ${rawCmd}</div>`);
+      const cmd = rawCmd.toLowerCase().trim();
+
+      switch (cmd) {
+        case 'help':
+          appendOutput(`
+            <div class="space-y-1">
+              <div class="text-amber-300 font-bold mb-1">Perintah Tersedia:</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">whoami</span> : Menampilkan identitas, NIM, prodi, dan pembimbing</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">neofetch</span> : Info sistem server & portofolio PPG</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">ls</span> : Daftar folder perkuliahan & artefak</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">cat visi.txt</span> : Menampilkan Visi Hidup (TAAT) & Visi Guru (PANDAI)</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">courses</span> : Daftar 16 Mata Kuliah PPG Prajabatan</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">sem1</span> : Navigasi cepat ke artefak Semester 1</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">sem2</span> : Navigasi cepat ke artefak Semester 2</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">theme [dark/light]</span> : Mengubah tema tampilan</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">matrix</span> : Efek animasi Matrix digital rain</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">sudo hire-me</span> : Nilai & komitmen profesional keguruan</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">clear</span> : Membersihkan layar terminal</div>
+              <div><span class="text-cyan-400 font-bold w-24 inline-block">exit</span> : Menutup jendela terminal</div>
+            </div>
+          `);
+          break;
+
+        case 'whoami':
+          appendOutput(`
+            <div class="p-3 bg-slate-900 rounded-lg border border-cyan-500/20 space-y-1">
+              <div class="text-white font-bold text-base">${profil.nama}, ${profil.gelar}</div>
+              <div><span class="text-slate-400">NIM :</span> <span class="text-cyan-300">${profil.nim}</span></div>
+              <div><span class="text-slate-400">Prodi :</span> ${profil.prodi} (${profil.gelombang})</div>
+              <div><span class="text-slate-400">Bidang Studi :</span> ${profil.bidangStudi} - Kelas ${profil.kelas}</div>
+              <div><span class="text-slate-400">Kampus :</span> ${profil.kampus}</div>
+              <div><span class="text-slate-400">Sekolah Mitra :</span> ${profil.sekolahPPL}</div>
+              <div><span class="text-slate-400">Guru Pamong :</span> ${profil.guruPamong}</div>
+              <div><span class="text-slate-400">Dosen Pembimbing Lapangan :</span> ${profil.dosenPembimbing}</div>
+            </div>
+          `);
+          break;
+
+        case 'neofetch':
+          appendOutput(`
+            <div class="flex flex-col sm:flex-row gap-4 font-mono-tech text-xs">
+              <pre class="text-cyan-400 select-none hidden sm:block">
+       /\\
+      /  \\
+     / /\\ \\     AHMAD NURSYIFA
+    / /__\\ \\    --------------
+   / /____\\ \\   PPG INFORMATIKA
+  /_/      \\_\\  UPI BANDUNG 2026
+              </pre>
+              <div class="space-y-0.5 text-slate-300">
+                <div><span class="text-cyan-400 font-bold">OS:</span> Ubuntu 24.04 LTS (syifaserver)</div>
+                <div><span class="text-cyan-400 font-bold">Host:</span> ${profil.domain} via Cloudflare Tunnel</div>
+                <div><span class="text-cyan-400 font-bold">Port:</span> 3060 (Docker nginx:alpine)</div>
+                <div><span class="text-cyan-400 font-bold">Uptime:</span> 2 Semesters (Januari - Oktober 2026)</div>
+                <div><span class="text-cyan-400 font-bold">Packages:</span> 16 Courses, 427 Included Artifacts</div>
+                <div><span class="text-cyan-400 font-bold">Shell:</span> Astro v5 + Tailwind v4 + TypeScript</div>
+                <div><span class="text-cyan-400 font-bold">CPU:</span> Growth Mindset @ 100% Pedagogical Commitment</div>
+                <div><span class="text-cyan-400 font-bold">Memory:</span> 427+ Artifacts / 16 SKS PPG</div>
+              </div>
+            </div>
+          `);
+          break;
+
+        case 'ls':
+          appendOutput(`
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-cyan-300 font-semibold">
+              <span class="text-blue-400">📁 pra-semester/</span>
+              <span class="text-blue-400">📁 semester-1/</span>
+              <span class="text-blue-400">📁 semester-2/</span>
+              <span class="text-blue-400">📁 galeri-ppl/</span>
+              <span class="text-amber-300">📄 visi.txt</span>
+              <span class="text-emerald-300">📄 sidakan.ino</span>
+              <span class="text-purple-300">📄 modul-ajar.pdf</span>
+              <span class="text-rose-300">📄 profil.json</span>
+            </div>
+          `);
+          break;
+
+        case 'cat visi.txt':
+          appendOutput(`
+            <div class="space-y-3 p-3 bg-slate-900 rounded-lg border border-cyan-500/20">
+              <div>
+                <div class="text-cyan-400 font-bold text-sm">🌟 VISI PENDIDIK INFORMATIKA: &quot;${profil.visiGuru.akronim}&quot;</div>
+                <div class="text-xs text-slate-400 mt-1">${profil.visiGuru.definisi}</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-2">
+                  ${profil.visiGuru.pilar.map(p => `
+                    <div class="text-xs"><strong class="text-cyan-300">${p.huruf}</strong> - <span class="text-white">${p.kata}:</span> <span class="text-slate-400">${p.deskripsi}</span></div>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="border-t border-slate-800 pt-2">
+                <div class="text-amber-400 font-bold text-sm">🧭 VISI HIDUP: &quot;${profil.visiHidup.akronim}&quot;</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-2">
+                  ${profil.visiHidup.pilar.map(p => `
+                    <div class="text-xs"><strong class="text-amber-300">${p.huruf}</strong> - <span class="text-white">${p.kata}:</span> <span class="text-slate-400">${p.deskripsi}</span></div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `);
+          break;
+
+        case 'courses':
+        case 'matkul':
+          appendOutput(`
+            <div class="space-y-1">
+              <div class="text-amber-300 font-bold mb-2">16 Mata Kuliah PPG Prajabatan:</div>
+              ${courses.map(c => `
+                <div class="text-xs flex items-center justify-between py-1 border-b border-slate-800/60">
+                  <span><strong class="text-cyan-300">${c.kode}</strong>: ${c.title}</span>
+                  <span class="text-[10px] text-slate-500 uppercase px-2 py-0.5 rounded bg-slate-900">${c.semesterLabel}</span>
+                </div>
+              `).join('')}
+            </div>
+          `);
+          break;
+
+        case 'sem1':
+          appendOutput('<div class="text-emerald-400">Navigasi ke Semester 1...</div>');
+          closeTerminal();
+          window.location.hash = 'semester-1';
+          break;
+
+        case 'sem2':
+          appendOutput('<div class="text-emerald-400">Navigasi ke Semester 2...</div>');
+          closeTerminal();
+          window.location.hash = 'semester-2';
+          break;
+
+        case 'matrix':
+          appendOutput('<div class="text-emerald-400">Entering Matrix Mode... Tekan sembarang tombol untuk berhenti.</div>');
+          runMatrix();
+          setTimeout(() => {
+            const stopListener = () => {
+              stopMatrix();
+              window.removeEventListener('keydown', stopListener);
+              window.removeEventListener('click', stopListener);
+            };
+            window.addEventListener('keydown', stopListener);
+            window.addEventListener('click', stopListener);
+          }, 300);
+          break;
+
+        case 'theme dark':
+          localStorage.setItem('site-theme', 'dark');
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+          appendOutput('<div class="text-emerald-400">Tema berhasil diubah ke Dark Mode.</div>');
+          break;
+
+        case 'theme light':
+          localStorage.setItem('site-theme', 'light');
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+          appendOutput('<div class="text-emerald-400">Tema berhasil diubah ke Light Mode.</div>');
+          break;
+
+        case 'sudo hire-me':
+        case 'hire-me':
+          appendOutput(`
+            <div class="p-3 bg-gradient-to-r from-cyan-950/60 to-blue-950/60 rounded-xl border border-cyan-500/30 text-xs space-y-2">
+              <div class="text-amber-300 font-bold text-sm">💡 Komitmen Profesi Calon Guru Informatika:</div>
+              <p class="text-slate-200 leading-relaxed">
+                &quot;Saya siap mengabdikan kompetensi pedagogik dan teknologi untuk mencetak peserta didik yang tidak hanya mampu memakai perangkat digital, tetapi memiliki nalar komputasional, menjunjung tinggi etika siber, dan berkarakter akhlak mulia.&quot;
+              </p>
+              <div class="text-cyan-400">Kontak: ahmadnursyifa@upi.edu | SMAN 15 Bandung</div>
+            </div>
+          `);
+          break;
+
+        case 'clear':
+          if (output) output.innerHTML = '';
+          break;
+
+        case 'exit':
+          closeTerminal();
+          break;
+
+        default:
+          appendOutput(`
+            <div class="text-rose-400">
+              Perintah tidak dikenal: &quot;${rawCmd}&quot;.<br/>
+              Ketik <span class="text-cyan-300 underline font-bold cursor-pointer" onclick="document.getElementById('terminal-input').value='help';">help</span> untuk melihat daftar perintah.
+            </div>
+          `);
+          break;
+      }
+    }
+  });
+</script>

@@ -1,0 +1,90 @@
+---
+interface Props {
+  course: {
+    id: string;
+    semester: string;
+    semesterLabel: string;
+    kode: string;
+    title: string;
+    titleEn?: string;
+    sks: number;
+    icon: string;
+    accent: string;
+    deskripsi: string;
+    deskripsiEn?: string;
+    featuredArtifact: string;
+    topikCount: number;
+  };
+  isEn?: boolean;
+}
+
+const { course, isEn = false } = Astro.props;
+const prefix = isEn ? '/en' : '';
+const displayTitle = isEn && course.titleEn ? course.titleEn : course.title;
+const displayDesc = isEn && course.deskripsiEn ? course.deskripsiEn : course.deskripsi;
+---
+
+<div class="tech-card p-5 sm:p-6 flex flex-col justify-between group relative overflow-hidden h-full">
+  <!-- Accent top border glow -->
+  <div
+    class="absolute top-0 left-0 right-0 h-1 opacity-70 group-hover:opacity-100 transition-opacity"
+    style={`background: ${course.accent}; box-shadow: 0 0 12px ${course.accent};`}
+  ></div>
+
+  <div>
+    <!-- Top Metadata Badges -->
+    <div class="flex items-center justify-between gap-2 mb-3">
+      <span class="text-[11px] font-mono-tech font-bold px-2 py-0.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300">
+        {course.kode}
+      </span>
+      <div class="flex items-center gap-1.5">
+        <span class="text-[11px] font-mono-tech px-2 py-0.5 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+          {course.sks} SKS
+        </span>
+        <span class="text-[11px] font-mono-tech px-2 py-0.5 rounded-md bg-slate-800/80 text-slate-400">
+          {course.topikCount} {isEn ? "Topics" : "Topik"}
+        </span>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug">
+      {displayTitle}
+    </h3>
+
+    <!-- Description -->
+    <p class="text-xs sm:text-sm text-slate-300 mt-2.5 line-clamp-3 leading-relaxed">
+      {displayDesc}
+    </p>
+
+    <!-- Featured Artifact Highlight -->
+    <div class="mt-4 p-2.5 rounded-xl bg-slate-900/80 border border-amber-500/20 flex items-start gap-2">
+      <span class="text-amber-400 text-xs select-none">⭐</span>
+      <div class="flex-1">
+        <span class="text-[10px] uppercase font-mono-tech font-bold text-amber-400/90 block">
+          {isEn ? "Key Artifact" : "Artefak Unggulan"}
+        </span>
+        <span class="text-xs text-slate-200 font-medium line-clamp-2">
+          {course.featuredArtifact}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom CTA Link -->
+  <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+    <span class="text-xs font-mono-tech text-slate-500">
+      {course.semesterLabel}
+    </span>
+    <a
+      href={`${prefix}/matkul/${course.id}`}
+      class="inline-flex items-center gap-1 text-xs font-semibold text-cyan-400 hover:text-cyan-300 group-hover:translate-x-1 transition-all py-1.5 px-3 rounded-lg hover:bg-cyan-500/10"
+      aria-label={`Buka detail mata kuliah ${displayTitle}`}
+    >
+      <span>{isEn ? "View Artifacts" : "Lihat Artefak & Refleksi"}</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+---
+interface Props {
+  refleksi: {
+    facts: string;
+    feelings: string;
+    findings: string;
+    future: string;
+  };
+  isEn?: boolean;
+}
+
+const { refleksi, isEn = false } = Astro.props;
+
+const pillars = [
+  {
+    key: 'facts',
+    title: isEn ? 'Facts (Events)' : 'Facts (Peristiwa)',
+    subtitle: isEn ? 'What happened & activities' : 'Aktivitas & Peristiwa Nyata',
+    content: refleksi.facts,
+    icon: '📌',
+    color: '#06b6d4',
+    bgBadge: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30'
+  },
+  {
+    key: 'feelings',
+    title: isEn ? 'Feelings (Emotions)' : 'Feelings (Perasaan)',
+    subtitle: isEn ? 'Emotions & experiences' : 'Dinamika Emosi & Tantangan',
+    content: refleksi.feelings,
+    icon: '💡',
+    color: '#f59e0b',
+    bgBadge: 'bg-amber-500/10 text-amber-300 border-amber-500/30'
+  },
+  {
+    key: 'findings',
+    title: isEn ? 'Findings (Learnings)' : 'Findings (Pembelajaran)',
+    subtitle: isEn ? 'New insights & paradigms' : 'Wawasan & Pemahaman Baru',
+    content: refleksi.findings,
+    icon: '🌱',
+    color: '#10b981',
+    bgBadge: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30'
+  },
+  {
+    key: 'future',
+    title: isEn ? 'Future (Action Plan)' : 'Future (Penerapan)',
+    subtitle: isEn ? 'Concrete future steps' : 'Aksi Nyata di Kelas Masa Depan',
+    content: refleksi.future,
+    icon: '🚀',
+    color: '#a855f7',
+    bgBadge: 'bg-purple-500/10 text-purple-300 border-purple-500/30'
+  }
+];
+---
+
+<div class="tech-card p-5 sm:p-7 relative overflow-hidden">
+  <div class="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-800">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-mono-tech uppercase font-bold text-cyan-400 tracking-wider">
+          {isEn ? "Reflective Framework" : "Model Refleksi 4F"}
+        </span>
+        <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-950 border border-cyan-500/30 text-cyan-300 font-mono-tech">
+          Dr. Roger Greenaway
+        </span>
+      </div>
+      <h3 class="text-lg sm:text-xl font-bold text-white mt-1">
+        {isEn ? "Reflective Practice: Facts, Feelings, Findings, Future" : "Refleksi Bermakna: Facts, Feelings, Findings, Future"}
+      </h3>
+    </div>
+  </div>
+
+  <!-- 4-Card Responsive Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+    {pillars.map((p) => (
+      <div class="p-4 sm:p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between relative group">
+        <!-- Top accent indicator -->
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <div class="flex items-center gap-2.5">
+            <span class="text-xl select-none">{p.icon}</span>
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
+                {p.title}
+              </h4>
+              <span class="text-[11px] text-slate-400 font-mono-tech">
+                {p.subtitle}
+              </span>
+            </div>
+          </div>
+          <span class={`text-[10px] font-mono-tech font-bold uppercase px-2 py-0.5 rounded border ${p.bgBadge}`}>
+            {p.key}
+          </span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed whitespace-pre-line mt-2">
+          {p.content}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>

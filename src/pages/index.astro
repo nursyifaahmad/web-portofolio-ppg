@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import StatCards from '../components/StatCards.astro';
+import CourseCard from '../components/CourseCard.astro';
+import Timeline from '../components/Timeline.astro';
+import courses from '../data/courses.json';
+import profil from '../data/profil.json';
+
+const praCourses = courses.filter(c => c.semester === 'pra');
+const sem1Courses = courses.filter(c => c.semester === 'sem1');
+const sem2Courses = courses.filter(c => c.semester === 'sem2');
+---
+
+<Layout
+  title={`${profil.nama}, ${profil.gelar} — E-Portofolio PPG Prajabatan UPI 2026`}
+  description={`E-Portofolio Interaktif Perkuliahan PPG Prajabatan Informatika UPI 2026. Lengkap dengan 427+ artefak, LK, modul ajar, dan refleksi 4F.`}
+>
+  <!-- Hero Section -->
+  <Hero />
+
+  <!-- Interactive Stats Counters -->
+  <StatCards />
+
+  <!-- Section Pra-Semester -->
+  <section id="pra-semester" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div>
+        <div class="tech-badge mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+          Tahap Awal
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Pra-Semester: Fondasi & Pengabdian
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+          Matrikulasi kurikulum nasional, pengabdian masyarakat (P2M), dan kesiapan literasi kesehatan mental pendidik.
+        </p>
+      </div>
+      <span class="text-xs font-mono-tech text-cyan-400 font-semibold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 self-start sm:self-auto">
+        3 Mata Kuliah / Program
+      </span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {praCourses.map(course => (
+        <CourseCard course={course} />
+      ))}
+    </div>
+  </section>
+
+  <!-- Section Semester 1 -->
+  <section id="semester-1" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div>
+        <div class="tech-badge mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+          Semester Ganjil
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Semester 1: Teori, Diferensiasi & PPL I
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+          Penguatan filosofi KHD, pemahaman murid, diferensiasi konten/proses/produk, microteaching dan asistensi PPL I di SMAN 15 Bandung.
+        </p>
+      </div>
+      <span class="text-xs font-mono-tech text-cyan-400 font-semibold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 self-start sm:self-auto">
+        6 Mata Kuliah Utama
+      </span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sem1Courses.map(course => (
+        <CourseCard course={course} />
+      ))}
+    </div>
+  </section>
+
+  <!-- Section Semester 2 -->
+  <section id="semester-2" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <div>
+        <div class="tech-badge mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+          Semester Genap
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Semester 2: Inklusivitas, SIDAKAN & Kulminasi PPL II
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+          Pembelajaran sosial emosional, pendidikan inklusif, inovasi IoT SIDAKAN, PPL II mandiri kelas X-5, dan refleksi Seminar PPG.
+        </p>
+      </div>
+      <span class="text-xs font-mono-tech text-cyan-400 font-semibold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 self-start sm:self-auto">
+        7 Mata Kuliah Kulminasi
+      </span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sem2Courses.map(course => (
+        <CourseCard course={course} />
+      ))}
+    </div>
+  </section>
+
+  <!-- Animated Timeline Section -->
+  <Timeline />
+
+  <!-- Quick CTA Banner to Gallery & Terminal -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="tech-card p-8 sm:p-12 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-cyan-950/50 border border-cyan-500/30 text-center">
+      <div class="max-w-2xl mx-auto space-y-4">
+        <span class="tech-badge">
+          Dokumentasi Visual & Interaktif
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">
+          Lihat Dokumentasi Pembelajaran Nyata & Uji CLI
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Eksplorasi galeri foto pengajaran di SMAN 15 Bandung, microteaching, atau buka terminal interaktif dengan shortcut <kbd class="px-2 py-0.5 rounded bg-slate-800 text-cyan-400 font-mono-tech border border-cyan-500/20 text-xs">Ctrl+K</kbd> / <kbd class="px-2 py-0.5 rounded bg-slate-800 text-cyan-400 font-mono-tech border border-cyan-500/20 text-xs">`</kbd>.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <a
+            href="/galeri"
+            class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 transition-all"
+          >
+            Buka Galeri Foto PPL
+          </a>
+          <button
+            onclick="window.dispatchEvent(new CustomEvent('open-terminal'))"
+            class="px-6 py-3 rounded-xl border border-cyan-500/40 bg-slate-900/80 hover:bg-slate-800 text-cyan-300 font-mono-tech font-bold text-sm cursor-pointer transition-all"
+          >
+            &gt;_ Jalankan Terminal CLI
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

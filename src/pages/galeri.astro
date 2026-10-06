@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import galeri from '../data/galeri.json';
+---
+
+<Layout
+  title="Galeri Pembelajaran & Praktik Lapangan (PPL) — SMAN 15 Bandung"
+  description="Dokumentasi visual praktik pembelajaran mandiri, asistensi mengajar, dan bimbingan guru pamong di SMAN 15 Bandung."
+>
+  <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-mono-tech text-slate-400 mb-8">
+      <a href="/" class="hover:text-cyan-400">Beranda</a>
+      <span>/</span>
+      <span class="text-cyan-400">Galeri Foto PPL</span>
+    </nav>
+
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="tech-badge mb-2">Dokumentasi Lapangan</div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Galeri Praktik Mengajar & Kegiatan PPL
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 mt-2 max-w-3xl leading-relaxed">
+        Rekaman visual aktivitas belajar mengajar di laboratorium komputer dan ruang kelas <strong>SMAN 15 Bandung</strong>, bimbingan bersama Guru Pamong <strong>Andre Dewantara, S.T., Gr.</strong>, serta interaksi kolaboratif peserta didik.
+      </p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap items-center gap-2 mb-8">
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-cyan-500 text-slate-950 font-bold shadow-md cursor-pointer" data-filter="all">
+        Semua Foto ({galeri.length})
+      </button>
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/40 cursor-pointer" data-filter="ppl-1">
+        PPL I (Kelas XI)
+      </button>
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/40 cursor-pointer" data-filter="ppl-2">
+        PPL II (Kelas X-5)
+      </button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+      {galeri.map(foto => (
+        <div
+          class="gallery-item tech-card overflow-hidden group cursor-pointer flex flex-col"
+          data-category={foto.kategori}
+          data-url={foto.url}
+          data-title={foto.judul}
+          data-meta={`${foto.lokasi} • ${foto.tanggal}`}
+        >
+          <!-- Image Container with aspect ratio -->
+          <div class="relative aspect-4/3 overflow-hidden bg-slate-950">
+            <img
+              src={foto.url}
+              alt={foto.judul}
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+              <span class="text-[11px] font-mono-tech text-cyan-300 font-semibold flex items-center gap-1">
+                🔍 Klik untuk memperbesar
+              </span>
+            </div>
+            <span class="absolute top-2 left-2 text-[10px] font-mono-tech font-bold uppercase px-2 py-0.5 rounded bg-slate-950/80 backdrop-blur-md border border-cyan-500/30 text-cyan-300">
+              {foto.kategori.toUpperCase()}
+            </span>
+          </div>
+
+          <!-- Caption & Info -->
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-1">
+                {foto.judul}
+              </h3>
+              <p class="text-xs text-slate-400 mt-1 line-clamp-2">
+                {foto.deskripsi}
+              </p>
+            </div>
+
+            <div class="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono-tech text-slate-500">
+              <span>📍 {foto.lokasi}</span>
+              <span>{foto.tanggal}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const items = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update active button styling
+        filterBtns.forEach(b => {
+          b.className = 'gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white cursor-pointer';
+        });
+        btn.className = 'gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-cyan-500 text-slate-950 font-bold shadow-md cursor-pointer';
+
+        // Filter items
+        items.forEach(item => {
+          const cat = item.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Click on photo opens global modal viewer
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const url = item.getAttribute('data-url');
+        const title = item.getAttribute('data-title');
+        const meta = item.getAttribute('data-meta');
+
+        window.dispatchEvent(new CustomEvent('open-artifact', {
+          detail: {
+            url,
+            title,
+            type: 'image',
+            meta
+          }
+        }));
+      });
+    });
+  });
+</script>

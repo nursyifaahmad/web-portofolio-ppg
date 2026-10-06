@@ -1,0 +1,227 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Reflection4F from '../../../components/Reflection4F.astro';
+import courseDetails from '../../../data/course-details.json';
+
+export function getStaticPaths() {
+  return courseDetails.map((course, index) => {
+    const prevCourse = index > 0 ? courseDetails[index - 1] : null;
+    const nextCourse = index < courseDetails.length - 1 ? courseDetails[index + 1] : null;
+    return {
+      params: { id: course.id },
+      props: { course, prevCourse, nextCourse }
+    };
+  });
+}
+
+const { course, prevCourse, nextCourse } = Astro.props;
+const displayTitle = course.titleEn || course.title;
+const displayDesc = course.deskripsiEn || course.deskripsi;
+---
+
+<Layout
+  title={`${displayTitle} — PPG Pre-Service Teacher E-Portfolio UPI`}
+  description={`Course details for ${displayTitle}, authentic artifacts, and 4F reflection by Ahmad Nursyifa.`}
+  isEn={true}
+>
+  <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-mono-tech text-slate-400 mb-8 overflow-x-auto whitespace-nowrap">
+      <a href="/en" class="hover:text-cyan-400">Home</a>
+      <span>/</span>
+      <a href={`/en/#${course.semester === 'pra' ? 'pra-semester' : course.semester === 'sem1' ? 'semester-1' : 'semester-2'}`} class="hover:text-cyan-400">
+        {course.semesterLabel}
+      </a>
+      <span>/</span>
+      <span class="text-cyan-400 truncate">{displayTitle}</span>
+    </nav>
+
+    <!-- Course Header Card -->
+    <div class="tech-card p-6 sm:p-10 mb-10 relative overflow-hidden">
+      <div
+        class="absolute top-0 left-0 right-0 h-1.5 opacity-80"
+        style={`background: ${course.accent}; box-shadow: 0 0 20px ${course.accent};`}
+      ></div>
+
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="tech-badge">
+          {course.semesterLabel}
+        </span>
+        <span class="text-xs font-mono-tech font-bold px-2.5 py-0.5 rounded-full bg-slate-900 border border-slate-800 text-cyan-300">
+          {course.kode}
+        </span>
+        <span class="text-xs font-mono-tech px-2.5 py-0.5 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-500/30">
+          {course.sks} SKS
+        </span>
+        <span class="text-xs font-mono-tech px-2.5 py-0.5 rounded-full bg-purple-950/80 text-purple-300 border border-purple-500/30">
+          {course.totalArtefakCount} Indexed Artifacts
+        </span>
+      </div>
+
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        {displayTitle}
+      </h1>
+
+      <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed max-w-4xl">
+        {displayDesc}
+      </p>
+
+      <!-- Key Artifact Card -->
+      <div class="mt-6 p-4 rounded-2xl bg-slate-950/70 border border-amber-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl select-none">⭐</span>
+          <div>
+            <span class="text-[10px] font-mono-tech uppercase font-bold text-amber-400 block tracking-wider">
+              Featured Course Artifact
+            </span>
+            <span class="text-sm sm:text-base font-bold text-white">
+              {course.featuredArtifact}
+            </span>
+          </div>
+        </div>
+
+        <a
+          href="https://drive.google.com/drive/folders/1ZT1LRBaCJXZfFc1C5wfXKy7mL5NesBkT?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold font-mono-tech flex items-center gap-1.5 transition-colors self-start sm:self-auto"
+        >
+          <span>📂 Access in Google Drive</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Topics and Artifacts Section -->
+    <section class="mb-14">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <div class="tech-badge mb-1">Modules & Evidence</div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white">
+            Curriculum Topics & Artifacts
+          </h2>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        {course.topikList.map((topik, tIdx) => (
+          <div class="tech-card p-5 sm:p-6">
+            <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-cyan-500/20 text-cyan-400 font-mono-tech font-bold text-xs flex items-center justify-center">
+                  {tIdx + 1}
+                </span>
+                <h3 class="text-base sm:text-lg font-bold text-white">
+                  {topik.nama}
+                </h3>
+              </div>
+              <span class="text-xs font-mono-tech text-slate-400">
+                {topik.artefak.length} Documents
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {topik.artefak.map(art => (
+                <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 transition-all flex flex-col justify-between group">
+                  <div class="flex items-start gap-2.5">
+                    <span class="text-lg select-none">
+                      {art.ext === '.pdf' ? '📕' : art.ext === '.docx' || art.ext === '.doc' ? '📘' : art.ext === '.pptx' ? '📙' : '📄'}
+                    </span>
+                    <div class="flex-1 min-w-0">
+                      <h4 class="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-cyan-300 transition-colors line-clamp-2">
+                        {art.name}
+                      </h4>
+                      <div class="flex items-center gap-2 mt-1 text-[11px] font-mono-tech text-slate-500">
+                        <span class="uppercase font-bold text-cyan-400/80">{art.ext.replace('.', '')}</span>
+                        <span>•</span>
+                        <span>{art.size}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-3 pt-2 border-t border-slate-900 flex items-center justify-end gap-2">
+                    <button
+                      type="button"
+                      class="open-doc-btn px-2.5 py-1 rounded-md bg-cyan-950/60 hover:bg-cyan-900/80 text-cyan-300 text-[11px] font-mono-tech font-semibold border border-cyan-500/20 cursor-pointer"
+                      data-name={art.name}
+                      data-ext={art.ext}
+                      data-mk={displayTitle}
+                    >
+                      Preview
+                    </button>
+                    <a
+                      href="https://drive.google.com/drive/folders/1ZT1LRBaCJXZfFc1C5wfXKy7mL5NesBkT?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] font-mono-tech transition-colors"
+                    >
+                      Download
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 4F Reflection Section -->
+    <section class="mb-14">
+      <Reflection4F refleksi={course.refleksi} isEn={true} />
+    </section>
+
+    <!-- Navigation -->
+    <nav class="pt-8 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {prevCourse ? (
+        <a
+          href={`/en/matkul/${prevCourse.id}`}
+          class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 text-left transition-all group"
+        >
+          <span class="text-xs font-mono-tech text-slate-500 flex items-center gap-1 group-hover:text-cyan-400">
+            ← Previous Course
+          </span>
+          <span class="text-sm font-bold text-white block mt-1 line-clamp-1">
+            {prevCourse.titleEn || prevCourse.title}
+          </span>
+        </a>
+      ) : <div />}
+
+      {nextCourse ? (
+        <a
+          href={`/en/matkul/${nextCourse.id}`}
+          class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 text-right transition-all group"
+        >
+          <span class="text-xs font-mono-tech text-slate-500 flex items-center justify-end gap-1 group-hover:text-cyan-400">
+            Next Course →
+          </span>
+          <span class="text-sm font-bold text-white block mt-1 line-clamp-1">
+            {nextCourse.titleEn || nextCourse.title}
+          </span>
+        </a>
+      ) : <div />}
+    </nav>
+
+  </div>
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.open-doc-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        const mk = btn.getAttribute('data-mk');
+        const ext = btn.getAttribute('data-ext');
+        
+        window.dispatchEvent(new CustomEvent('open-artifact', {
+          detail: {
+            title: name,
+            url: 'https://drive.google.com/drive/folders/1ZT1LRBaCJXZfFc1C5wfXKy7mL5NesBkT?usp=sharing',
+            type: ext?.replace('.', '') || 'pdf',
+            meta: `${mk} • PPG Artifact`
+          }
+        }));
+      });
+    });
+  });
+</script>

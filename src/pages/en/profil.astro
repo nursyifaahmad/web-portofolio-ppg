@@ -1,0 +1,135 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import profil from '../../data/profil.json';
+---
+
+<Layout
+  title={`Educator Profile & Vision — ${profil.nama}, ${profil.gelar}`}
+  description={`Comprehensive educator identity, TAAT life values, and PANDAI pedagogical vision of Ahmad Nursyifa, PPG Pre-Service UPI 2026.`}
+  isEn={true}
+>
+  <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-mono-tech text-slate-400 mb-8">
+      <a href="/en" class="hover:text-cyan-400">Home</a>
+      <span>/</span>
+      <span class="text-cyan-400">Profile & Vision</span>
+    </nav>
+
+    <!-- Header Section with Photo & Bio -->
+    <div class="tech-card p-6 sm:p-10 mb-12 relative overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <!-- Photo -->
+        <div class="md:col-span-4 flex justify-center">
+          <div class="relative group">
+            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 opacity-75 blur-md"></div>
+            <img
+              src={profil.foto}
+              alt={profil.nama}
+              class="relative w-48 h-64 object-cover rounded-2xl border-2 border-cyan-400 shadow-2xl"
+            />
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="md:col-span-8 space-y-4">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="tech-badge">Professional Educator Profile</span>
+            <span class="text-xs font-mono-tech px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              UPI Bandung
+            </span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-white">
+            {profil.nama}, {profil.gelar}
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+            Pre-Service Teacher Education (PPG Prajabatan Wave 1 2026) candidate in Informatics at Universitas Pendidikan Indonesia (UPI). Experienced in teaching practice at partner school <strong>{profil.sekolahPPL}</strong> mentored by Senior Teacher <strong>{profil.guruPamong}</strong> and University Field Supervisor <strong>{profil.dosenPembimbing}</strong>.
+          </p>
+
+          <!-- Quick Specs Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs font-mono-tech">
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <span class="text-slate-500 block text-[10px]">Student ID (NIM)</span>
+              <span class="text-cyan-400 font-bold">{profil.nim}</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <span class="text-slate-500 block text-[10px]">Study Program</span>
+              <span class="text-white font-medium">{profil.bidangStudi} ({profil.kelas})</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <span class="text-slate-500 block text-[10px]">Partner School</span>
+              <span class="text-white font-medium">{profil.sekolahPPL}</span>
+            </div>
+          </div>
+
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <a
+              href={profil.googleDriveFolder}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 text-white font-bold text-xs shadow-md transition-all"
+            >
+              <span>📂 Open Master Google Drive Folder</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+            <a
+              href="mailto:ahmadnursyifa@upi.edu"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white text-xs font-semibold transition-all"
+            >
+              ✉️ Contact Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vision for Indonesian Education -->
+    <div class="tech-card p-6 sm:p-8 mb-12 border-l-4 border-l-cyan-400 bg-slate-950/60">
+      <span class="text-xs font-mono-tech uppercase font-bold text-cyan-400 tracking-wider">
+        Personal Vision for Indonesian Education
+      </span>
+      <blockquote class="mt-2 text-base sm:text-xl font-medium text-white italic leading-relaxed">
+        &ldquo;Realizing an inclusive, humanistic, and technology-driven Indonesian education to cultivate students of high integrity, critical computational intellect, and global resilience.&rdquo;
+      </blockquote>
+    </div>
+
+    <!-- Visi Calon Guru: PANDAI -->
+    <div class="mb-12">
+      <div class="mb-6">
+        <div class="tech-badge mb-2">Teacher Vision</div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          Student Profile Competence: &ldquo;{profil.visiGuru.akronim}&rdquo;
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
+          Empowering digital generation students to master 21st-century technology rooted in virtuous character.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {profil.visiGuru.pilar.map(p => (
+          <div class="tech-card p-5 relative overflow-hidden group hover:border-cyan-400/50 transition-all">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/40 text-cyan-300 font-mono-tech font-extrabold text-lg flex items-center justify-center">
+                {p.huruf}
+              </span>
+              <div>
+                <h3 class="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  {p.kata}
+                </h3>
+                <span class="text-[10px] font-mono-tech text-slate-500">Pillar {p.huruf}</span>
+              </div>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              {p.deskripsi}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

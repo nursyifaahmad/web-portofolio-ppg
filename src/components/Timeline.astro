@@ -1,0 +1,83 @@
+---
+import timelineData from '../data/timeline.json';
+
+interface Props {
+  isEn?: boolean;
+}
+
+const { isEn = false } = Astro.props;
+---
+
+<section id="timeline" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+    <div class="tech-badge mb-3">
+      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+      {isEn ? "Curriculum Journey" : "Linimasa Perjalanan"}
+    </div>
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+      {isEn ? "PPG Prajabatan Milestone Journey" : "Jejak Langkah Transformasi Calon Guru"}
+    </h2>
+    <p class="text-sm sm:text-base text-slate-300 mt-2">
+      {isEn 
+        ? "Chronological milestone from Matriculation, PPL I, PPL II at SMAN 15 Bandung, up to Seminar PPG." 
+        : "Kronologi pembelajaran dari Matrikulasi, PPL I, PPL II di SMAN 15 Bandung, hingga Seminar Kulminasi PPG."}
+    </p>
+  </div>
+
+  <!-- Vertical Animated Timeline Container -->
+  <div class="relative max-w-4xl mx-auto">
+    <!-- Glowing Circuit Line: aligned left on mobile, centered on md+ -->
+    <div class="absolute top-0 bottom-0 left-4 md:left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-cyan-500 via-blue-500 to-purple-600 shadow-glow"></div>
+
+    <div class="space-y-8 sm:space-y-12">
+      {timelineData.map((item, idx) => {
+        const isEven = idx % 2 === 0;
+        const displayFase = isEn && item.faseEn ? item.faseEn : item.fase;
+        const displayJudul = isEn && item.judulEn ? item.judulEn : item.judul;
+        const displayDesc = isEn && item.deskripsiEn ? item.deskripsiEn : item.deskripsi;
+        const displayBadge = isEn && item.badgeEn ? item.badgeEn : item.badge;
+
+        return (
+          <div class={`relative flex flex-col md:flex-row items-start ${isEven ? 'md:flex-row-reverse' : ''} group`}>
+            
+            <!-- Center Glowing Node on the line -->
+            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-slate-950 border-2 border-cyan-400 flex items-center justify-center z-10 shadow-lg shadow-cyan-500/40 group-hover:scale-125 transition-transform duration-300">
+              <span class="w-2.5 h-2.5 rounded-full" style={`background: ${item.color};`}></span>
+            </div>
+
+            <!-- Content Card -->
+            <div class="ml-10 md:ml-0 md:w-1/2 md:px-8 w-full">
+              <div class="tech-card p-5 sm:p-6 relative overflow-hidden group-hover:border-cyan-400/60 transition-colors">
+                <!-- Header: Date and Badge -->
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="text-xs font-mono-tech text-cyan-400 font-bold">
+                    {item.tanggal}
+                  </span>
+                  <span class="text-[10px] font-mono-tech uppercase font-bold px-2 py-0.5 rounded-full bg-slate-900 border border-slate-800 text-slate-300">
+                    {displayBadge}
+                  </span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  {displayJudul}
+                </h3>
+
+                <!-- Phase Tag -->
+                <div class="text-[11px] font-mono-tech text-slate-400 mt-0.5">
+                  {displayFase}
+                </div>
+
+                <!-- Description -->
+                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                  {displayDesc}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
