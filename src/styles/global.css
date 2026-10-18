@@ -19,9 +19,9 @@
   html.light {
     --bg-primary: #f8fafc;
     --bg-secondary: #f1f5f9;
-    --bg-card: rgba(255, 255, 255, 0.85);
-    --border-color: rgba(14, 165, 233, 0.25);
-    --border-glow: rgba(14, 165, 233, 0.5);
+    --bg-card: rgba(255, 255, 255, 0.96);
+    --border-color: #cbd5e1;
+    --border-glow: rgba(2, 132, 199, 0.55);
     --text-primary: #0f172a;
     --text-secondary: #334155;
     --text-muted: #64748b;
@@ -85,6 +85,198 @@
   border: 1px solid rgba(56, 189, 248, 0.25);
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+/* ==========================================================================
+   LIGHT MODE COMPREHENSIVE THEME OVERRIDES
+   ========================================================================== */
+
+html.light .tech-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+}
+
+html.light .tech-card:hover {
+  border-color: #0284c7;
+  box-shadow: 0 14px 30px -5px rgba(2, 132, 199, 0.14);
+}
+
+html.light .tech-card.bg-gradient-to-br {
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #ecfeff 100%) !important;
+  border-color: #7dd3fc !important;
+}
+
+html.light .tech-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-color: #7dd3fc;
+}
+
+/* Navbar & Mobile Navigation in Light Mode */
+html.light header {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: #cbd5e1 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+}
+
+html.light #mobile-menu {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-top-color: #e2e8f0 !important;
+}
+
+html.light footer {
+  background-color: #f1f5f9 !important;
+  border-top-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+html.light nav.fixed.bottom-0 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-top-color: #cbd5e1 !important;
+  box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.06);
+}
+
+/* Typography Contrast Overrides (Preserving .terminal-dark and Gradient CTAs) */
+html.light .text-white:not(.terminal-dark):not(.terminal-dark *):not(.keep-white):not(.keep-white *):not([class*="from-cyan-"]):not([class*="from-cyan-"] *) {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-200:not(.terminal-dark *) {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-300:not(.terminal-dark *) {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400:not(.terminal-dark *) {
+  color: #475569 !important;
+}
+
+html.light .text-slate-500:not(.terminal-dark *) {
+  color: #64748b !important;
+}
+
+/* Accent Text Colors in Light Mode */
+html.light .text-cyan-300:not(.terminal-dark *) {
+  color: #0369a1 !important;
+}
+
+html.light .text-cyan-400:not(.terminal-dark *),
+html.light .text-cyan-400\/80:not(.terminal-dark *) {
+  color: #0284c7 !important;
+}
+
+html.light .text-emerald-300:not(.terminal-dark *) {
+  color: #047857 !important;
+}
+
+html.light .text-emerald-400:not(.terminal-dark *) {
+  color: #059669 !important;
+}
+
+html.light .text-purple-300:not(.terminal-dark *) {
+  color: #6d28d9 !important;
+}
+
+html.light .text-purple-400:not(.terminal-dark *) {
+  color: #7c3aed !important;
+}
+
+html.light .text-amber-300:not(.terminal-dark *) {
+  color: #b45309 !important;
+}
+
+html.light .text-amber-400:not(.terminal-dark *),
+html.light .text-amber-400\/90:not(.terminal-dark *) {
+  color: #d97706 !important;
+}
+
+/* Hero Gradient Text in Light Mode */
+html.light h1 span.bg-clip-text {
+  background-image: linear-gradient(to right, #0284c7, #0369a1, #1d4ed8) !important;
+}
+
+/* Surface & Box Backgrounds (Outside .terminal-dark) */
+html.light .bg-slate-950:not(.terminal-dark):not(.terminal-dark *),
+html.light .bg-slate-950\/95:not(.terminal-dark):not(.terminal-dark *),
+html.light .bg-slate-950\/90:not(.terminal-dark):not(.terminal-dark *),
+html.light .bg-slate-950\/80:not(.terminal-dark):not(.terminal-dark *),
+html.light .bg-slate-950\/70:not(.terminal-dark):not(.terminal-dark *),
+html.light .bg-slate-950\/60:not(.terminal-dark):not(.terminal-dark *) {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-slate-900:not(.terminal-dark):not(.terminal-dark *),
+html.light .bg-slate-900\/80:not(.terminal-dark):not(.terminal-dark *),
+html.light .bg-slate-900\/60:not(.terminal-dark):not(.terminal-dark *) {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .bg-slate-800:not(.terminal-dark):not(.terminal-dark *),
+html.light .bg-slate-800\/80:not(.terminal-dark):not(.terminal-dark *) {
+  background-color: #e2e8f0 !important;
+}
+
+html.light .bg-cyan-950:not(.terminal-dark *),
+html.light .bg-cyan-950\/80:not(.terminal-dark *),
+html.light .bg-cyan-950\/60:not(.terminal-dark *),
+html.light .bg-cyan-950\/40:not(.terminal-dark *) {
+  background-color: #e0f2fe !important;
+}
+
+html.light .bg-purple-950\/80:not(.terminal-dark *) {
+  background-color: #f3e8ff !important;
+}
+
+html.light .bg-rose-950\/60:not(.terminal-dark *) {
+  background-color: #ffe4e6 !important;
+}
+
+/* Borders in Light Mode */
+html.light .border-slate-900:not(.terminal-dark *),
+html.light .border-slate-800:not(.terminal-dark *),
+html.light .border-slate-800\/80:not(.terminal-dark *),
+html.light .border-slate-700:not(.terminal-dark *) {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .border-cyan-500\/20:not(.terminal-dark *),
+html.light .border-cyan-500\/25:not(.terminal-dark *),
+html.light .border-cyan-500\/30:not(.terminal-dark *),
+html.light .border-cyan-500\/40:not(.terminal-dark *) {
+  border-color: rgba(2, 132, 199, 0.35) !important;
+}
+
+/* Hover States in Light Mode */
+html.light .hover\:bg-slate-900\/60:hover:not(.terminal-dark *),
+html.light .hover\:bg-slate-900:hover:not(.terminal-dark *),
+html.light .hover\:bg-slate-800:hover:not(.terminal-dark *),
+html.light .hover\:bg-slate-800\/80:hover:not(.terminal-dark *),
+html.light .hover\:bg-slate-700:hover:not(.terminal-dark *) {
+  background-color: #e2e8f0 !important;
+}
+
+html.light .hover\:bg-cyan-900\/60:hover:not(.terminal-dark *),
+html.light .hover\:bg-cyan-900\/80:hover:not(.terminal-dark *) {
+  background-color: #bae6fd !important;
+}
+
+html.light .hover\:text-white:hover:not(.terminal-dark *):not(.keep-white):not([class*="from-cyan-"]) {
+  color: #0284c7 !important;
+}
+
+html.light .group:hover .group-hover\:text-cyan-300:not(.terminal-dark *),
+html.light .group:hover .group-hover\:text-cyan-400:not(.terminal-dark *) {
+  color: #0284c7 !important;
+}
+
+/* Keep Hero Terminal Box Crisp Dark in Light Mode */
+html.light .terminal-dark.scanline {
+  background-color: #090d16 !important;
+  border-color: rgba(14, 165, 233, 0.45) !important;
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.22) !important;
 }
 
 /* Code scanline effect */
