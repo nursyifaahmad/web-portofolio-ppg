@@ -6,9 +6,7 @@ services:
     ports:
       # Port 3070: safe from Immich (2283/3001), Wedding Tracker (3050), and Algocraft (3060)
       - "3070:80"
-    volumes:
-      # Optional: persistent artifacts folder on storage2 if files are served directly
-      - /mnt/storage2/eportfolio/artefak:/usr/share/nginx/html/artefak:ro
+
     environment:
       - NODE_ENV=production
     networks:
