@@ -13,9 +13,9 @@ const { isEn = false } = Astro.props;
     
     <!-- Col 1: Identity & Degree -->
     <div class="md:col-span-2 space-y-3">
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
-          &gt;_
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-white p-0.5 flex items-center justify-center overflow-hidden border border-cyan-400/40 shrink-0">
+          <img src="/AN Logo.png" alt="AN Logo" class="w-full h-full object-contain rounded-md" />
         </div>
         <span class="text-base font-bold text-white">{profil.nama}, {profil.gelar}</span>
       </div>
