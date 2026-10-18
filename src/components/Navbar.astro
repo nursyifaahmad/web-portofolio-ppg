@@ -43,14 +43,11 @@ const prefix = isEn ? '/en' : '';
         <a href={`${prefix}/profil`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
           {isEn ? "Profile" : "Profil & Visi"}
         </a>
-        <a href={`${prefix}/#pra-semester`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
-          {isEn ? "Pre-Semester" : "Pra-Semester"}
+        <a href={`${prefix}/matkul`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Courses & Artifacts" : "Mata Kuliah"}
         </a>
-        <a href={`${prefix}/#semester-1`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
-          Semester 1
-        </a>
-        <a href={`${prefix}/#semester-2`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
-          Semester 2
+        <a href={`${prefix}/#timeline`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Timeline" : "Linimasa"}
         </a>
         <a href={`${prefix}/galeri`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
           {isEn ? "Gallery" : "Galeri"}
@@ -101,21 +98,17 @@ const prefix = isEn ? '/en' : '';
         <span>{isEn ? "Profile & Vision" : "Profil & Visi"}</span>
         <span class="text-xs text-slate-500 font-mono-tech">02</span>
       </a>
-      <a href={`${prefix}/#pra-semester`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
-        <span>{isEn ? "Pre-Semester" : "Pra-Semester"}</span>
+      <a href={`${prefix}/matkul`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Courses & Artifacts" : "Mata Kuliah & Artefak"}</span>
         <span class="text-xs text-slate-500 font-mono-tech">03</span>
       </a>
-      <a href={`${prefix}/#semester-1`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
-        <span>Semester 1</span>
+      <a href={`${prefix}/#timeline`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Timeline Journey" : "Linimasa Perkuliahan"}</span>
         <span class="text-xs text-slate-500 font-mono-tech">04</span>
-      </a>
-      <a href={`${prefix}/#semester-2`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
-        <span>Semester 2</span>
-        <span class="text-xs text-slate-500 font-mono-tech">05</span>
       </a>
       <a href={`${prefix}/galeri`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
         <span>{isEn ? "Field Gallery (PPL)" : "Galeri PPL"}</span>
-        <span class="text-xs text-slate-500 font-mono-tech">06</span>
+        <span class="text-xs text-slate-500 font-mono-tech">05</span>
       </a>
 
       <div class="pt-3 mt-2 border-t border-slate-800 flex gap-2">

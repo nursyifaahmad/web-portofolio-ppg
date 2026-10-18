@@ -30,7 +30,7 @@ const displayDesc = course.deskripsiEn || course.deskripsi;
     <nav class="flex items-center gap-2 text-xs font-mono-tech text-slate-400 mb-8 overflow-x-auto whitespace-nowrap">
       <a href="/en" class="hover:text-cyan-400">Home</a>
       <span>/</span>
-      <a href={`/en/#${course.semester === 'pra' ? 'pra-semester' : course.semester === 'sem1' ? 'semester-1' : 'semester-2'}`} class="hover:text-cyan-400">
+      <a href={`/en/matkul#${course.semester === 'pra' ? 'pra-semester' : course.semester === 'sem1' ? 'semester-1' : 'semester-2'}`} class="hover:text-cyan-400">
         {course.semesterLabel}
       </a>
       <span>/</span>

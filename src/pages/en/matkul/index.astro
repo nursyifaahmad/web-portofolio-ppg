@@ -1,0 +1,121 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import StatCards from '../../../components/StatCards.astro';
+import CourseCard from '../../../components/CourseCard.astro';
+import courses from '../../../data/courses.json';
+import profil from '../../../data/profil.json';
+
+const praCourses = courses.filter(c => c.semester === 'pra');
+const sem1Courses = courses.filter(c => c.semester === 'sem1');
+const sem2Courses = courses.filter(c => c.semester === 'sem2');
+---
+
+<Layout
+  title={`Courses & Artifacts — ${profil.nama}, ${profil.gelar}`}
+  description={`Comprehensive collection of 16 courses and 427+ artifacts in PPG Pre-Service Teacher in Informatics UPI 2026 by Ahmad Nursyifa.`}
+  isEn={true}
+>
+  <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Page Header -->
+    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+      <div class="tech-badge mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+        Curriculum & Artifacts
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        Course Catalog & Learning Artifacts
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
+        Explore assignments, worksheets (LK), differentiated lesson plans, field teaching at SMAN 15 Bandung, and 4F reflection models.
+      </p>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="mb-14">
+      <StatCards isEn={true} />
+    </div>
+
+    <!-- Section Pre-Semester -->
+    <section id="pra-semester" class="mb-16 pt-6 border-t border-slate-800/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="tech-badge mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+            Initial Phase
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Pre-Semester: Foundation & Community Service
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+            National curriculum matriculation, community engagement (P2M), and educator mental health literacy.
+          </p>
+        </div>
+        <span class="text-xs font-mono-tech text-cyan-400 font-semibold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 self-start sm:self-auto">
+          3 Programs
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {praCourses.map(course => (
+          <CourseCard course={course} isEn={true} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Section Semester 1 -->
+    <section id="semester-1" class="mb-16 pt-6 border-t border-slate-800/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="tech-badge mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+            Fall Semester
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Semester 1: Theory, Differentiation & PPL I
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+            KHD educational philosophy, understanding student development, content/process/product differentiation, and teaching practice at SMAN 15 Bandung.
+          </p>
+        </div>
+        <span class="text-xs font-mono-tech text-cyan-400 font-semibold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 self-start sm:self-auto">
+          6 Core Courses
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sem1Courses.map(course => (
+          <CourseCard course={course} isEn={true} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Section Semester 2 -->
+    <section id="semester-2" class="mb-16 pt-6 border-t border-slate-800/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="tech-badge mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+            Spring Semester
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Semester 2: Inclusivity, SIDAKAN & PPL II Culmination
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+            Social-emotional learning, inclusive UDL pedagogy, SIDAKAN IoT system, full independent teaching at Class X-5, and Seminar PPG reflection.
+          </p>
+        </div>
+        <span class="text-xs font-mono-tech text-cyan-400 font-semibold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 self-start sm:self-auto">
+          7 Advanced Courses
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sem2Courses.map(course => (
+          <CourseCard course={course} isEn={true} />
+        ))}
+      </div>
+    </section>
+
+  </div>
+</Layout>

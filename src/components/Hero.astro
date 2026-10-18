@@ -87,7 +87,7 @@ const { isEn = false } = Astro.props;
         <!-- Action CTAs -->
         <div class="flex flex-wrap items-center gap-3 pt-2">
           <a
-            href="#semester-1"
+            href={isEn ? "/en/matkul" : "/matkul"}
             class="keep-white px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25 flex items-center gap-2 group transition-all duration-200"
           >
             <span>{isEn ? "Explore Artifacts" : "Jelajahi Artefak Kuliah"}</span>
