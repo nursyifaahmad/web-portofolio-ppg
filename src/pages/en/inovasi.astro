@@ -40,10 +40,10 @@ const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
           <!-- Column Description -->
           <div class="lg:col-span-7 space-y-5">
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-3 py-1 rounded-full text-xs font-mono-tech font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+              <span class="px-3 py-1 rounded-full text-xs font-mono-tech font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 whitespace-nowrap">
                 ⭐ {algocraft.highlightEn || algocraft.highlight}
               </span>
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono-tech text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 flex items-center gap-1.5">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono-tech text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 flex items-center gap-1.5 whitespace-nowrap">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 {algocraft.status}
               </span>
@@ -148,29 +148,49 @@ const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
     <section id="dossier-lk4" class="scroll-mt-24 space-y-8">
       <div class="tech-card p-6 sm:p-10 relative overflow-hidden border border-amber-500/30 bg-slate-950/80">
         
+        <!-- Ambient glow -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+
         <!-- Header LK 4 -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-          <div>
-            <div class="flex items-center gap-2 mb-2 flex-wrap">
-              <span class="px-3 py-1 rounded-full text-xs font-mono-tech font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6 pb-6 border-b border-slate-800 relative z-10">
+          <div class="space-y-3 flex-1 min-w-0">
+            <!-- Badges Bar -->
+            <div class="flex items-center gap-2.5 flex-wrap">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono-tech font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 whitespace-nowrap">
                 PHASE 5 • PPG SEMINAR
               </span>
-              <span class="text-xs font-mono-tech text-slate-400">
-                Official Worksheet 4: Innovative Educational Design
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono-tech font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 whitespace-nowrap shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Empirically Verified (+38.21 Pts)
+              </span>
+              <span class="text-xs font-mono-tech text-slate-400 hidden sm:inline whitespace-nowrap">
+                • Official Worksheet 4: Innovative Design
               </span>
             </div>
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+
+            <!-- Title -->
+            <h3 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug">
               {lk4.judulEn || lk4.judul}
             </h3>
-            <p class="text-xs sm:text-sm text-slate-400 mt-1 font-mono-tech">
-              Design Output: {lk4.identitas.namaKarya} • Target: {lk4.identitas.sasaran}
+
+            <!-- Metadata -->
+            <p class="text-xs sm:text-sm text-slate-300 font-mono-tech leading-relaxed">
+              <span class="text-cyan-400 font-bold">Design Output:</span> AlgoCraft (PBL-Based Gamified Web) <span class="text-slate-600 mx-1">•</span> <span class="text-slate-400">Target: {lk4.identitas.sasaran}</span>
             </p>
           </div>
 
-          <div class="flex items-center gap-2 flex-wrap">
-            <span class="text-xs font-mono-tech px-3 py-1 rounded-full bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 font-bold">
-              Empirically Verified (+38.21 Pts)
-            </span>
+          <!-- Action Button -->
+          <div class="flex items-center gap-3 shrink-0 self-start lg:self-center">
+            <a
+              href="/Artefak PPG/05_Semester_2/07_Seminar_PPG/05_LK_4_Desain_Karya_Inovatif_AlgoCraft/LEMBAR KERJA 4 (LK 4) - Desain Karya Inovatif AlgoCraft.docx"
+              target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-500/40 text-amber-300 font-mono-tech text-xs font-semibold transition-all whitespace-nowrap shadow-sm hover:bg-slate-850"
+            >
+              <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              <span>Worksheet 4 (.docx)</span>
+            </a>
           </div>
         </div>
 
@@ -191,10 +211,12 @@ const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
             <!-- Grid 6 Initial Indicators -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-1">
               {lk4.identifikasiTantangan.temuanPraTindakan.skorIndikatorAwal.map(item => (
-                <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
-                  <span class="text-[10px] font-mono-tech text-slate-400 block line-clamp-1 mb-1">{item.indikator}</span>
-                  <span class="text-sm font-bold text-rose-400 block">{item.skor}</span>
-                  <span class="text-[10px] font-mono-tech text-slate-500 block mt-0.5">{item.persen}</span>
+                <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-center flex flex-col justify-between">
+                  <span class="text-[11px] font-mono-tech text-slate-400 block line-clamp-2 leading-tight mb-2 h-7 flex items-center justify-center">{item.indikator}</span>
+                  <div>
+                    <span class="text-sm font-bold text-rose-400 block">{item.skor}</span>
+                    <span class="text-[10px] font-mono-tech text-slate-500 block mt-0.5">{item.persen}</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -301,15 +323,16 @@ const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
                   5. Empirical Action Research Gains (Paired Data N=41 Students)
                 </h4>
               </div>
-              <span class="text-xs font-mono-tech text-amber-400 bg-amber-950/60 px-3 py-1 rounded-full border border-amber-500/30">
+              <span class="inline-flex items-center gap-1.5 text-xs font-mono-tech text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30 whitespace-nowrap shrink-0 font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 Statistically Significant (Pre vs Post Cycle I)
               </span>
             </div>
 
-            <div class="overflow-x-auto">
-              <table class="w-full text-xs text-left border-collapse border border-slate-800 font-mono-tech">
+            <div class="overflow-x-auto rounded-xl border border-slate-800">
+              <table class="w-full text-xs text-left border-collapse font-mono-tech">
                 <thead>
-                  <tr class="bg-slate-900 text-slate-300 border-b border-slate-800">
+                  <tr class="bg-slate-900/90 text-slate-300 border-b border-slate-800">
                     <th class="p-3">Competency Metric</th>
                     <th class="p-3 text-center text-rose-300">Pre-Action</th>
                     <th class="p-3 text-center text-emerald-300">Post-Action (Cycle I)</th>
