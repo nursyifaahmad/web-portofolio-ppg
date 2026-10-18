@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import ReflectionViewer from '../../components/ReflectionViewer.astro';
 import courses from '../../data/course-details.json';
 import profil from '../../data/profil.json';
+import lk3 from '../../data/seminar-lk3.json';
 
 const coursesWithReflection = courses.filter(
   c => c.refleksi4C && (c.refleksi4C.connection || c.refleksi4C.rumusan_refleksi)
@@ -13,8 +14,8 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
 ---
 
 <Layout
-  title={`4C Critical Reflection — ${profil.nama}, ${profil.gelar}`}
-  description="Deep Reflection Using the 4C Model (Connection, Challenge, Concept, Change) from Official Worksheets (LK 2) across 12 Courses of PPG Prajabatan Informatics UPI 2026."
+  title={`4C Critical Reflection & Capstone LK 3 — ${profil.nama}, ${profil.gelar}`}
+  description="Deep Reflection Using the 4C Model and Comprehensive Synthesis of the PPG Program with Career Action Plan (LK 3) by Ahmad Nursyifa."
   isEn={true}
 >
   <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -26,10 +27,10 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
         Metacognitive Journal & Self-Evaluation
       </div>
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-        Critical Learning Reflection (4C Model)
+        Critical Learning Reflection & Career Action Plan
       </h1>
       <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
-        A comprehensive synthesis of professional teacher transformation directly synthesized from authentic Worksheets (LK 2) of PPG Prajabatan Informatics UPI 2026. Exploring connections with prior experience, paradigm challenges, mastery of key concepts, and actionable classroom change.
+        A comprehensive synthesis of professional teacher transformation drawn directly from authentic Worksheets: LK 2 (course reflections) and LK 3 (Overall PPG Culmination & Action Plan) at UPI 2026. Exploring connections with prior experience, paradigm challenges, mastery of key concepts, classroom change, and continuous career service.
       </p>
     </div>
 
@@ -82,8 +83,11 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
 
     <!-- Quick Filter Navigation -->
     <div class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
         <span class="text-xs font-mono-tech text-slate-400 uppercase tracking-wider font-semibold">Quick Jump:</span>
+        <a href="#culmination-lk3" class="text-xs font-mono-tech px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 hover:bg-amber-500/30 font-bold transition-colors">
+          ⭐ LK 3 (Culmination & Action Plan)
+        </a>
         <a href="#semester-1" class="text-xs font-mono-tech px-3 py-1.5 rounded-lg bg-cyan-950/70 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-900/50 transition-colors">
           Semester 1 ({sem1Reflections.length} Courses)
         </a>
@@ -92,9 +96,161 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
         </a>
       </div>
       <span class="text-xs text-slate-400 font-mono-tech">
-        Total: {coursesWithReflection.length} Authentic Reflection Journals
+        Official PPG Worksheets (LK 2 & LK 3)
       </span>
     </div>
+
+    <!-- CULMINATION SECTION: WORKSHEET 3 (LK 3) -->
+    <section id="culmination-lk3" class="scroll-mt-24 space-y-8 pt-4">
+      <div class="tech-card p-6 sm:p-10 relative overflow-hidden border border-amber-500/40 bg-gradient-to-br from-slate-900/95 via-slate-950/95 to-amber-950/20 shadow-2xl">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+
+        <!-- Header LK 3 -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800 relative z-10">
+          <div>
+            <div class="flex items-center gap-2 mb-2 flex-wrap">
+              <span class="px-3 py-1 rounded-full text-xs font-mono-tech font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                PHASE 4 • PPG SEMINAR
+              </span>
+              <span class="text-xs font-mono-tech text-slate-400">
+                Overall Program Reflection & Strategic Action Plan
+              </span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              {lk3.judulEn || lk3.judul}
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 font-mono-tech mt-1">
+              Authored by: {lk3.penyusun} • {lk3.lptk} ({lk3.tahun})
+            </p>
+          </div>
+
+          <a
+            href="/Artefak PPG/05_Semester_2/07_Seminar_PPG/02_LK_2_Refleksi_Komprehensif/LEMBAR KERJA 2 (LK 2).pdf"
+            target="_blank"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-500/40 text-amber-300 font-mono-tech text-xs font-semibold transition-all self-start sm:self-auto shrink-0 shadow-sm"
+          >
+            <span>📄 View Original Document</span>
+          </a>
+        </div>
+
+        <div class="space-y-10 pt-6 relative z-10">
+          
+          <!-- Pillar 1: 5 Directional Pillars for Indonesian Education -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+              <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                1. How Should National Education in Indonesia Be Conducted? (5 Core Pillars)
+              </h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify italic bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+              "{lk3.arahPendidikanIndonesia.pengantar}"
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+              {lk3.arahPendidikanIndonesia.pilar.map((p) => (
+                <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                  <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                      <div class="flex items-center gap-2">
+                        <span class="text-2xl select-none">{p.icon}</span>
+                        <h4 class="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                          {p.judulEn || p.judul}
+                        </h4>
+                      </div>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed text-justify mt-3">
+                      {p.uraian}
+                    </p>
+                  </div>
+                  <span class="text-[10px] font-mono-tech text-slate-500 mt-4 pt-2 border-t border-slate-900 block">
+                    Pillar #{p.nomor} • National Education Transformation
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Pillar 2: 4 Competency Steps to Become a Professional Teacher -->
+          <div class="space-y-4 pt-4 border-t border-slate-800/80">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                2. Strategic Measures to Excel as a Professional Educator (4 Competencies)
+              </h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+              {lk3.langkahGuruProfesional.pengantar}
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              {lk3.langkahGuruProfesional.kompetensi.map((k, idx) => (
+                <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 font-mono-tech font-bold text-xs flex items-center justify-center">
+                      {idx + 1}
+                    </span>
+                    <div>
+                      <h4 class="text-sm font-bold text-white">{k.nama}</h4>
+                      <span class="text-[11px] font-mono-tech text-emerald-400">{k.fokus}</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed text-justify mt-2">
+                    {k.langkah}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Pillar 3: 3 Career Action Plan Commitments (RTL) -->
+          <div class="space-y-4 pt-4 border-t border-slate-800/80">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                3. Career Action Plan (RTL): Three Fundamental Pillars for Novice Career
+              </h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Tangible post-certification actions aligning with life philosophy <strong>TAAT</strong> (Taqwa, Akhlaq, Adaptasi, Terampil) and educator vision <strong>PANDAI</strong> (Paham Teknologi, Akhlaq, Nalar Kritis, Disiplin, Adaptif, Inovatif):
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+              {lk3.rencanaTindakLanjut.map((rtl) => (
+                <div class="tech-card p-5 relative overflow-hidden border border-slate-800 hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+                  <div>
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="text-2xl select-none">{rtl.icon}</span>
+                      <span class="text-[11px] font-mono-tech font-bold uppercase text-amber-400">
+                        Action #{rtl.nomor}
+                      </span>
+                    </div>
+
+                    <h4 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors leading-snug mb-2">
+                      {rtl.programEn || rtl.program}
+                    </h4>
+
+                    <span class="inline-block text-[10px] font-mono-tech px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800 mb-3">
+                      {rtl.pilarVisi}
+                    </span>
+
+                    <p class="text-xs text-slate-300 leading-relaxed text-justify">
+                      {rtl.deskripsi}
+                    </p>
+                  </div>
+
+                  <div class="mt-4 pt-3 border-t border-slate-900 flex items-center justify-between text-[10px] font-mono-tech text-slate-500">
+                    <span>Career Commitment</span>
+                    <span class="text-amber-400/90 font-semibold">Active & Continuous</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <!-- SEMESTER 1 SECTION -->
     <section id="semester-1" class="space-y-10 pt-4">
@@ -109,7 +265,7 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
           </h2>
         </div>
         <span class="text-xs font-mono-tech text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30">
-          6 Core Courses
+          6 Core Courses (Official LK 2)
         </span>
       </div>
 
@@ -180,7 +336,7 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
           </h2>
         </div>
         <span class="text-xs font-mono-tech text-purple-400 bg-purple-950/60 px-3 py-1 rounded-full border border-purple-500/30">
-          7 Core Courses
+          7 Core Courses (Official LK 2)
         </span>
       </div>
 

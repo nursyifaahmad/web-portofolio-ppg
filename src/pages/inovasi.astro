@@ -3,14 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import ArtifactViewerModal from '../components/ArtifactViewerModal.astro';
 import inovasiList from '../data/inovasi.json';
 import profil from '../data/profil.json';
+import lk4 from '../data/seminar-lk4.json';
 
 const algocraft = inovasiList.find(i => i.id === 'algocraft');
 const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
 ---
 
 <Layout
-  title={`Inovasi Pembelajaran & Teknologi — ${profil.nama}, ${profil.gelar}`}
-  description="Koleksi Inovasi Pembelajaran, Media Gamifikasi Berbasis Web AlgoCraft, Internet of Things SIDAKAN, dan Penelitian Tindakan Kelas (PTK) SMAN 15 Bandung."
+  title={`Inovasi Pembelajaran & Desain LK 4 — ${profil.nama}, ${profil.gelar}`}
+  description="Koleksi Inovasi Pembelajaran, Media Gamifikasi Berbasis Web AlgoCraft, Desain Karya Inovatif LK 4, Internet of Things SIDAKAN, dan Penelitian Tindakan Kelas (PTK) SMAN 15 Bandung."
 >
   <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
@@ -24,7 +25,7 @@ const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
         Inovasi Pembelajaran & Karya Teknologi
       </h1>
       <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
-        Integrasi pedagogi modern, rekayasa perangkat lunak, dan Internet of Things (IoT) untuk menjawab tantangan nyata pembelajaran Informatika di sekolah menengah dan pengabdian masyarakat.
+        Integrasi pedagogi modern Problem-Based Learning (PBL), rekayasa perangkat lunak, dan Internet of Things (IoT) untuk menjawab tantangan nyata pembelajaran Informatika di sekolah menengah dan pengabdian masyarakat.
       </p>
     </div>
 
@@ -89,19 +90,18 @@ const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
               </a>
 
               <a
+                href="#dossier-lk4"
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono-tech text-xs font-bold hover:bg-amber-500/30 transition-all"
+              >
+                <span>📑 Dossier Desain Inovasi (LK 4)</span>
+              </a>
+
+              <a
                 href="/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/LKPD_PBL_Siklus_I_Berpikir_Algoritmik_X5.pdf"
                 target="_blank"
                 class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/40 text-slate-200 hover:text-cyan-300 font-mono-tech text-xs font-semibold transition-all"
               >
                 <span>📄 LKPD Berpikir Algoritmik</span>
-              </a>
-
-              <a
-                href="/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/SKENARIO PEMBELAJARAN SIKLUS I.pdf"
-                target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/40 text-slate-200 hover:text-cyan-300 font-mono-tech text-xs font-semibold transition-all"
-              >
-                <span>📑 Skenario PTK</span>
               </a>
             </div>
           </div>
@@ -143,14 +143,204 @@ const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
       </section>
     )}
 
+    <!-- DOSSIER AKADEMIS LENGKAP LK 4: DESAIN KARYA INOVATIF ALGOCRAFT -->
+    <section id="dossier-lk4" class="scroll-mt-24 space-y-8">
+      <div class="tech-card p-6 sm:p-10 relative overflow-hidden border border-amber-500/30 bg-slate-950/80">
+        
+        <!-- Header LK 4 -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-2 mb-2 flex-wrap">
+              <span class="px-3 py-1 rounded-full text-xs font-mono-tech font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                TAHAP 5 • SEMINAR PPG
+              </span>
+              <span class="text-xs font-mono-tech text-slate-400">
+                Dokumen Resmi Penyusunan Desain Karya Inovatif
+              </span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              {lk4.judul}
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1 font-mono-tech">
+              Karya: {lk4.identitas.namaKarya} • Sasaran: {lk4.identitas.sasaran}
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-xs font-mono-tech px-3 py-1 rounded-full bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 font-bold">
+              Teruji Empiris (+38.21 Poin)
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-10 pt-8">
+          
+          <!-- 1. Identifikasi Kebutuhan & Tantangan Pra-Tindakan -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+              <h4 class="text-lg font-bold text-white tracking-tight">
+                1. Identifikasi Kebutuhan & Tantangan (Temuan Awal Kelas X-5 SMAN 15)
+              </h4>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+              {lk4.identifikasiTantangan.temuanPraTindakan.deskripsi}
+            </p>
+
+            <!-- Grid 6 Indikator Awal -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-1">
+              {lk4.identifikasiTantangan.temuanPraTindakan.skorIndikatorAwal.map(item => (
+                <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                  <span class="text-[10px] font-mono-tech text-slate-400 block line-clamp-1 mb-1">{item.indikator}</span>
+                  <span class="text-sm font-bold text-rose-400 block">{item.skor}</span>
+                  <span class="text-[10px] font-mono-tech text-slate-500 block mt-0.5">{item.persen}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="p-4 rounded-xl bg-rose-950/30 border border-rose-500/20 text-xs text-slate-300 leading-relaxed">
+              <strong>Kemandirian Belajar Awal:</strong> {lk4.identifikasiTantangan.temuanPraTindakan.kemandirianBelajar}
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
+              <strong class="text-xs font-mono-tech text-amber-300 block uppercase">
+                Refleksi Hambatan Pelaksanaan Siklus I (Keterbatasan Kelas Besar):
+              </strong>
+              <ul class="space-y-1 text-xs text-slate-300 list-disc list-inside">
+                {lk4.identifikasiTantangan.refleksiSiklusI.poin.map(p => (
+                  <li>{p}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2. Perumusan Gagasan & 5 Prinsip Karya Inovasi -->
+          <div class="space-y-4 pt-4 border-t border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+              <h4 class="text-lg font-bold text-white tracking-tight">
+                2. Pemenuhan 5 Prinsip Karya Inovasi Pendidikan (Berdasarkan LK 4)
+              </h4>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-1">
+              {lk4.perumusanGagasanDanTujuan.prinsipInovasi.map(p => (
+                <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between group hover:border-cyan-500/30 transition-all">
+                  <div>
+                    <h5 class="text-sm font-bold text-cyan-300 mb-2 flex items-center gap-2">
+                      <span class="text-xs">✨</span>
+                      <span>{p.prinsip}</span>
+                    </h5>
+                    <p class="text-xs text-slate-300 leading-relaxed text-justify">
+                      {p.deskripsi}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- 3. Arsitektur Komponen AlgoCraft & Riset Komparatif -->
+          <div class="space-y-4 pt-4 border-t border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+              <h4 class="text-lg font-bold text-white tracking-tight">
+                3. Arsitektur Komponen Aplikasi Web Gamifikasi AlgoCraft
+              </h4>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+              <strong class="text-white block mb-1">Riset Komparatif:</strong>
+              {lk4.kajianRisetDanPrototipe.risetKomparatif}
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              {lk4.kajianRisetDanPrototipe.komponenAlgoCraft.map(k => (
+                <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800">
+                  <h5 class="text-sm font-bold text-white mb-1 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                    <span>{k.modul}</span>
+                  </h5>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    {k.fitur}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- 4. Sintaks Implementasi Pembelajaran 80 Menit di Kelas -->
+          <div class="space-y-4 pt-4 border-t border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <h4 class="text-lg font-bold text-white tracking-tight">
+                4. Sintaks Pembelajaran Problem-Based Learning 80 Menit di Lab Komputer
+              </h4>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {lk4.implementasiDanSintaks.sintaksPBL80Menit.map((s, idx) => (
+                <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                  <span class="text-[10px] font-mono-tech text-emerald-400 block font-bold mb-1">
+                    Tahap {idx + 1}: {s.fase}
+                  </span>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    {s.aktivitas}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- 5. Hasil Evaluasi Empiris PTK (Peningkatan +38.21 Poin) -->
+          <div class="space-y-4 pt-4 border-t border-slate-800">
+            <div class="flex items-center justify-between gap-4 flex-wrap">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                <h4 class="text-lg font-bold text-white tracking-tight">
+                  5. Hasil Evaluasi Empiris PTK (Data Berpasangan N=41 Murid X-5 SMAN 15)
+                </h4>
+              </div>
+              <span class="text-xs font-mono-tech text-amber-400 bg-amber-950/60 px-3 py-1 rounded-full border border-amber-500/30">
+                Teruji Signifikan (Pra vs Pasca Siklus I)
+              </span>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left border-collapse border border-slate-800 font-mono-tech">
+                <thead>
+                  <tr class="bg-slate-900 text-slate-300 border-b border-slate-800">
+                    <th class="p-3">Indikator Ketercapaian / Metrik</th>
+                    <th class="p-3 text-center text-rose-300">Pra-Tindakan</th>
+                    <th class="p-3 text-center text-emerald-300">Pasca-Tindakan (Siklus I)</th>
+                    <th class="p-3 text-center text-cyan-300 font-bold">Peningkatan (Delta)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                  {lk4.hasilEvaluasiEmpiris.metrik.map(m => (
+                    <tr class="hover:bg-slate-900/40 transition-colors">
+                      <td class="p-3 font-semibold text-white">{m.nama}</td>
+                      <td class="p-3 text-center text-rose-400 font-bold">{m.pra}</td>
+                      <td class="p-3 text-center text-emerald-400 font-bold">{m.pasca}</td>
+                      <td class="p-3 text-center text-cyan-300 font-bold bg-cyan-950/20">{m.delta}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- INOVASI LAINNYA GRID -->
     <div class="space-y-8">
       <div class="border-b border-slate-800 pb-4">
         <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-          Inovasi Teknologi, Riset & Pedagogi
+          Inovasi Teknologi, Riset & Pedagogi Lainnya
         </h3>
         <p class="text-xs sm:text-sm text-slate-400 mt-1">
-          Karya terapan berbasis IoT, publikasi riset tindakan kelas, serta paket perangkat modul berdiferensiasi.
+          Karya terapan berbasis IoT SIDAKAN, publikasi riset tindakan kelas, serta paket perangkat modul berdiferensiasi.
         </p>
       </div>
 

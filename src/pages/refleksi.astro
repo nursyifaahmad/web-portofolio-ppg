@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ReflectionViewer from '../components/ReflectionViewer.astro';
 import courses from '../data/course-details.json';
 import profil from '../data/profil.json';
+import lk3 from '../data/seminar-lk3.json';
 
 const coursesWithReflection = courses.filter(
   c => c.refleksi4C && (c.refleksi4C.connection || c.refleksi4C.rumusan_refleksi)
@@ -13,8 +14,8 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
 ---
 
 <Layout
-  title={`Refleksi Kritis 4C Pembelajaran — ${profil.nama}, ${profil.gelar}`}
-  description="Dokumentasi Refleksi Mendalam Menggunakan Model 4C (Connection, Challenge, Concept, Change) Berdasarkan Lembar Kerja 2 (LK 2) Resmi 12 Mata Kuliah PPG Prajabatan Informatika UPI 2026."
+  title={`Refleksi Kritis 4C & Kulminasi LK 3 — ${profil.nama}, ${profil.gelar}`}
+  description="Dokumentasi Refleksi Mendalam Menggunakan Model 4C Berdasarkan Lembar Kerja 2 (LK 2) dan Sintesis Kulminasi Seluruh Program PPG serta Rencana Tindak Lanjut (LK 3) Ahmad Nursyifa."
 >
   <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
@@ -25,10 +26,10 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
         Jurnal Metakognitif & Evaluasi Diri
       </div>
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-        Refleksi Kritis Pembelajaran (Model 4C)
+        Refleksi Kritis Pembelajaran & Rencana Tindak Lanjut
       </h1>
       <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
-        Sintesis komprehensif perjalanan transformasi calon guru profesional yang diangkat langsung dari Lembar Kerja (LK 2) otentik perkuliahan PPG Prajabatan Informatika UPI 2026. Mengeksplorasi hubungan pengalaman terdahulu, tantangan paradigma baru, penguasaan konsep kunci, hingga tindakan nyata di ruang kelas.
+        Sintesis komprehensif perjalanan transformasi calon guru profesional yang diangkat langsung dari Lembar Kerja (LK 2 per mata kuliah) dan Lembar Kerja 3 (LK 3 Kulminasi Menyeluruh Program PPG) Informatika UPI 2026. Mengeksplorasi hubungan pengalaman terdahulu, tantangan paradigma baru, penguasaan konsep kunci, hingga tindakan nyata di ruang kelas dan pengabdian karir pendidik.
       </p>
     </div>
 
@@ -81,8 +82,11 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
 
     <!-- Quick Filter Navigation -->
     <div class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
-      <div class="flex items-center gap-2">
-        <span class="text-xs font-mono-tech text-slate-400 uppercase tracking-wider font-semibold">Navigasi Refleksi:</span>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-mono-tech text-slate-400 uppercase tracking-wider font-semibold">Navigasi Cepat:</span>
+        <a href="#kulminasi-lk3" class="text-xs font-mono-tech px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 hover:bg-amber-500/30 font-bold transition-colors">
+          ⭐ LK 3 (Kulminasi & RTL)
+        </a>
         <a href="#semester-1" class="text-xs font-mono-tech px-3 py-1.5 rounded-lg bg-cyan-950/70 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-900/50 transition-colors">
           Semester 1 ({sem1Reflections.length} MK)
         </a>
@@ -91,9 +95,161 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
         </a>
       </div>
       <span class="text-xs text-slate-400 font-mono-tech">
-        Total: {coursesWithReflection.length} Jurnal Refleksi Otentik
+        Dokumen Lengkap: LK 2 & LK 3 Resmi PPG
       </span>
     </div>
+
+    <!-- SEKSI KULMINASI: LEMBAR KERJA 3 (LK 3) -->
+    <section id="kulminasi-lk3" class="scroll-mt-24 space-y-8 pt-4">
+      <div class="tech-card p-6 sm:p-10 relative overflow-hidden border border-amber-500/40 bg-gradient-to-br from-slate-900/95 via-slate-950/95 to-amber-950/20 shadow-2xl">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+
+        <!-- Header LK 3 -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800 relative z-10">
+          <div>
+            <div class="flex items-center gap-2 mb-2 flex-wrap">
+              <span class="px-3 py-1 rounded-full text-xs font-mono-tech font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                TAHAP 4 • SEMINAR PPG
+              </span>
+              <span class="text-xs font-mono-tech text-slate-400">
+                Kulminasi Pengalaman Belajar Seluruh Program PPG
+              </span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              {lk3.judul}
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 font-mono-tech mt-1">
+              Disusun oleh: {lk3.penyusun} • {lk3.lptk} ({lk3.tahun})
+            </p>
+          </div>
+
+          <a
+            href="/Artefak PPG/05_Semester_2/07_Seminar_PPG/02_LK_2_Refleksi_Komprehensif/LEMBAR KERJA 2 (LK 2).pdf"
+            target="_blank"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-500/40 text-amber-300 font-mono-tech text-xs font-semibold transition-all self-start sm:self-auto shrink-0 shadow-sm"
+          >
+            <span>📄 Buka Dokumen LK Asli</span>
+          </a>
+        </div>
+
+        <div class="space-y-10 pt-6 relative z-10">
+          
+          <!-- Bagian 1: 5 Pilar Arah Pendidikan Indonesia -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+              <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                1. Bagaimana Seharusnya Pendidikan di Indonesia? (Sintesis 5 Pilar Utama)
+              </h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify italic bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+              "{lk3.arahPendidikanIndonesia.pengantar}"
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+              {lk3.arahPendidikanIndonesia.pilar.map((p) => (
+                <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                  <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                      <div class="flex items-center gap-2">
+                        <span class="text-2xl select-none">{p.icon}</span>
+                        <h4 class="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                          {p.judul}
+                        </h4>
+                      </div>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed text-justify mt-3">
+                      {p.uraian}
+                    </p>
+                  </div>
+                  <span class="text-[10px] font-mono-tech text-slate-500 mt-4 pt-2 border-t border-slate-900 block">
+                    Pilar #{p.nomor} • Transformasi Pendidikan Nasional
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Bagian 2: 4 Langkah Menjadi Guru Profesional -->
+          <div class="space-y-4 pt-4 border-t border-slate-800/80">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                2. Langkah Strategis Menjadi Guru Profesional (Integrasi 4 Kompetensi)
+              </h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+              {lk3.langkahGuruProfesional.pengantar}
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              {lk3.langkahGuruProfesional.kompetensi.map((k, idx) => (
+                <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 font-mono-tech font-bold text-xs flex items-center justify-center">
+                      {idx + 1}
+                    </span>
+                    <div>
+                      <h4 class="text-sm font-bold text-white">{k.nama}</h4>
+                      <span class="text-[11px] font-mono-tech text-emerald-400">{k.fokus}</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-slate-300 leading-relaxed text-justify mt-2">
+                    {k.langkah}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Bagian 3: 3 Rencana Tindak Lanjut (RTL) Karir Pendidik -->
+          <div class="space-y-4 pt-4 border-t border-slate-800/80">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                3. Rencana Tindak Lanjut: Tiga Hal Penting Saat Memulai Karir Guru
+              </h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Komitmen nyata aksi pasca-PPG yang selaras dengan visi hidup <strong>TAAT</strong> (Taqwa, Akhlaq, Adaptasi, Terampil) dan visi pendidik <strong>PANDAI</strong> (Paham Teknologi, Akhlaq, Nalar Kritis, Disiplin, Adaptif, Inovatif):
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+              {lk3.rencanaTindakLanjut.map((rtl) => (
+                <div class="tech-card p-5 relative overflow-hidden border border-slate-800 hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+                  <div>
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="text-2xl select-none">{rtl.icon}</span>
+                      <span class="text-[11px] font-mono-tech font-bold uppercase text-amber-400">
+                        RTL #{rtl.nomor}
+                      </span>
+                    </div>
+
+                    <h4 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors leading-snug mb-2">
+                      {rtl.program}
+                    </h4>
+
+                    <span class="inline-block text-[10px] font-mono-tech px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800 mb-3">
+                      {rtl.pilarVisi}
+                    </span>
+
+                    <p class="text-xs text-slate-300 leading-relaxed text-justify">
+                      {rtl.deskripsi}
+                    </p>
+                  </div>
+
+                  <div class="mt-4 pt-3 border-t border-slate-900 flex items-center justify-between text-[10px] font-mono-tech text-slate-500">
+                    <span>Komitmen Karir</span>
+                    <span class="text-amber-400/90 font-semibold">Aktif & Berkelanjutan</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <!-- SEMESTER 1 SECTION -->
     <section id="semester-1" class="space-y-10 pt-4">
@@ -108,7 +264,7 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
           </h2>
         </div>
         <span class="text-xs font-mono-tech text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30">
-          6 Mata Kuliah
+          6 Mata Kuliah (LK 2 Resmi)
         </span>
       </div>
 
@@ -178,7 +334,7 @@ const sem2Reflections = coursesWithReflection.filter(c => c.semester === 'sem2')
           </h2>
         </div>
         <span class="text-xs font-mono-tech text-purple-400 bg-purple-950/60 px-3 py-1 rounded-full border border-purple-500/30">
-          7 Mata Kuliah
+          7 Mata Kuliah (LK 2 Resmi)
         </span>
       </div>
 

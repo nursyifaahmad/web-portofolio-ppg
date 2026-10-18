@@ -1,0 +1,123 @@
+{
+  "judul": "Lembar Kerja 4 (LK 4) — Penyusunan Desain Karya Inovatif",
+  "judulEn": "Worksheet 4 (LK 4) — Innovative Educational Design Formulation",
+  "mataKuliah": "Seminar Pendidikan Profesi Guru",
+  "penyusun": "Ahmad Nursyifa (NIM. 2530712)",
+  "lptk": "Universitas Pendidikan Indonesia",
+  "tahun": "2026",
+  "identitas": {
+    "namaKarya": "AlgoCraft: Aplikasi Web Gamifikasi Interaktif Berbasis Problem-Based Learning (PBL) sebagai Pengembangan Desain Pembelajaran Berpikir Algoritmik",
+    "sasaran": "Peserta Didik Fase E (Kelas X-5) SMA Negeri 15 Bandung pada Mata Pelajaran Informatika",
+    "domainLive": "https://algocraft.ahmadnursyifa.my.id",
+    "konteks": "Petualangan Membangun Ekosistem Kantin Digital Pintar"
+  },
+  "identifikasiTantangan": {
+    "temuanPraTindakan": {
+      "deskripsi": "Hasil asesmen diagnostik awal terhadap 46 peserta didik kelas X-5 menunjukkan rata-rata nilai kelas hanya mencapai 39,86 (dari Kriteria Ketercapaian Tujuan Pembelajaran/KKTP sebesar 75). Hanya 5 peserta didik (10,87%) yang tuntas dan 41 peserta didik (89,13%) belum tuntas.",
+      "skorIndikatorAwal": [
+        { "indikator": "IPO (Input-Proses-Output)", "skor": "1.85 / 4.00", "persen": "46.25%" },
+        { "indikator": "Langkah Algoritma Dasar", "skor": "2.15 / 4.00", "persen": "53.75%" },
+        { "indikator": "Logika Percabangan (Branching)", "skor": "1.63 / 4.00", "persen": "40.75%" },
+        { "indikator": "Pengujian Data Uji & Debugging", "skor": "1.70 / 4.00", "persen": "42.50%" },
+        { "indikator": "Diagram Alir (Flowchart)", "skor": "1.13 / 4.00", "persen": "28.25%" },
+        { "indikator": "Kode Semu (Pseudocode)", "skor": "1.11 / 4.00", "persen": "27.75%" }
+      ],
+      "kemandirianBelajar": "Observasi kemandirian awal (indikator K1-K5) berada pada rata-rata 2,14 (skala 1-4), di mana 42 murid (91,30%) berada pada kategori 'Kurang Mandiri' karena terbiasa pasif menunggu contoh penyelesaian langsung dari guru."
+    },
+    "refleksiSiklusI": {
+      "deskripsi": "Pelaksanaan Siklus I berbantuan LKPD cetak (80 menit) berhasil menaikkan nilai secara signifikan, namun menemui 3 hambatan praktis di lapangan:",
+      "poin": [
+        "Keterbatasan waktu memberikan scaffolding bertahap secara merata kepada 8 kelompok (46 siswa) dalam 2 JP.",
+        "Ketiadaan umpan balik seketika (immediate feedback) saat siswa salah merangkai simbol flowchart atau indentasi pseudocode.",
+        "Beban waktu koreksi manual yang cukup lama untuk memeriksa rubrik 6 IKTP terhadap 46 peserta didik."
+      ]
+    }
+  },
+  "perumusanGagasanDanTujuan": {
+    "tahapanGagasan": [
+      {
+        "tahap": 1,
+        "nama": "Desain Pembelajaran PBL Scaffolding Bertahap (Siklus I)",
+        "penjelasan": "Perangkat pembelajaran mendalam berbasis masalah autentik Sistem Biaya Parkir & Diskon Belanja dengan scaffolding pertanyaan pengarah tanpa memberikan jawaban jadi."
+      },
+      {
+        "tahap": 2,
+        "nama": "Pengembangan Aplikasi Web Gamifikasi Interaktif 'AlgoCraft' (Transformasi Digital)",
+        "penjelasan": "Mentransformasikan 6 tahap berpikir algoritmik menjadi 6 Misi Interaktif Berjenjang berlatar Kantin Digital Pintar, dilengkapi kanvas flowchart layar sentuh, Parson's Problems pseudocode, mekanika 3 Hearts, Paid Hints, Smart Coins, dan Dashboard Guru otomatis."
+      }
+    ],
+    "tujuanInovasi": [
+      "Meningkatkan kemampuan berpikir algoritmik hingga rata-rata melampaui KKTP (>= 75) dan ketuntasan klasikal >= 70%.",
+      "Mengatasi hambatan abstraksi representasi Flowchart dan Pseudocode agar mencapai rata-rata minimal >= 2,50 dari skala 4.",
+      "Menumbuhkan kemandirian belajar dan Growth Mindset melalui mekanika gamified scaffolding (3 Hearts & Paid Hints).",
+      "Meningkatkan efisiensi waktu pembelajaran melalui umpan balik seketika dan otomatisasi asesmen 6 IKTP di Teacher Dashboard."
+    ],
+    "prinsipInovasi": [
+      {
+        "prinsip": "Kebaruan (Novelty)",
+        "deskripsi": "Memadukan Problem-Based Learning 6 indikator dengan platform web gamifikasi yang menyatukan kanvas flowchart interaktif, Parson's Problems pseudocode, simulasi debugging, dan rekapitulasi 6 IKTP otomatis."
+      },
+      {
+        "prinsip": "Kreativitas",
+        "deskripsi": "Mengombinasikan teori konstruktivisme, motivasi gamifikasi, dan rekayasa perangkat lunak modern. Mengemas algoritma abstrak ke dalam misi Kantin Digital Pintar, 3 Hearts, Koin Pintar, 7 Badges, dan Leaderboard."
+      },
+      {
+        "prinsip": "Relevansi & Kontekstualitas",
+        "deskripsi": "Selaras dengan Capaian Pembelajaran Fase E Kurikulum Nasional, prinsip Deep Learning (Mindful, Meaningful, Joyful), dan psikologi remaja generasi digital."
+      },
+      {
+        "prinsip": "Kebermanfaatan (Usefulness)",
+        "deskripsi": "Memudahkan siswa bertransisi dari bahasa alami ke flowchart dan pseudocode tanpa rasa takut salah, serta menghemat waktu guru dalam memantau dan mengolah nilai."
+      },
+      {
+        "prinsip": "Efektivitas Terbukti (Evidence-Based)",
+        "deskripsi": "Teruji empiris pada 41 siswa berpasangan di SMAN 15 Bandung: rata-rata nilai melonjak +38,21 poin (39,94 -> 78,15), ketuntasan naik dari 12,20% ke 73,17%, dan siswa kurang mandiri turun dari 90,24% menjadi 0%."
+      }
+    ]
+  },
+  "kajianRisetDanPrototipe": {
+    "risetKomparatif": "Platform kuis populer (Quizizz, Kahoot, Wordwall) hanya mendukung soal pilihan ganda singkat tanpa kemampuan merangkai diagram alir atau menyusun kode terstruktur. Scratch/Flowgorithm berdiri terpisah tanpa alur skenario PBL dan rekap 6 IKTP. Metode Parson's Problems dan Gamified Scaffolding (3 Hearts & Paid Hints) terbukti memangkas beban kognitif (cognitive load) dan menekan perilaku menebak asal-asalan.",
+    "komponenAlgoCraft": [
+      {
+        "modul": "Gerbang Sesi & Avatar (/)",
+        "fitur": "Fast-Login menggunakan nama, nomor absen, kode sesi kelas (X5-KANTIN), 4 karakter avatar, dan modal aturan gamifikasi."
+      },
+      {
+        "modul": "6 Misi Interaktif Berjenjang (/play)",
+        "fitur": "Misi 1 (IPO), Misi 2 (Algoritma), Misi 3 (Percabangan IF-ELSE), Misi 4 (Kanvas Flowchart sentuh), Misi 5 (Parson's Problems Pseudocode), Misi 6 (Data Uji & Debugging kode kasir)."
+      },
+      {
+        "modul": "Mesin Gamifikasi & Scaffolding",
+        "fitur": "HeartBar 3 nyawa, Smart Coins, Paid Hints bertahap, XP & Level, 7 Badges prestasi, Leaderboard Real-Time, dan sertifikat kelulusan digital."
+      },
+      {
+        "modul": "Dashboard Guru & Analitik (/teacher/dashboard)",
+        "fitur": "Monitoring murid real-time, kalkulasi otomatis persentase ketuntasan 6 IKTP skala 4, manajemen sesi kelas, serta ekspor nilai langsung ke Excel/CSV dan PDF."
+      }
+    ]
+  },
+  "implementasiDanSintaks": {
+    "sintaksPBL80Menit": [
+      { "fase": "Pendahuluan (10-15 Menit)", "aktivitas": "Salam, doa, mindful learning, apersepsi aturan komputer, penyampaian 6 tujuan IKTP, dan Fast-Login X5-KANTIN." },
+      { "fase": "Fase 1 - Orientasi Masalah", "aktivitas": "Pemaparan kasus autentik Sistem Biaya Parkir & Diskon Transaksi Kantin Digital Pintar." },
+      { "fase": "Fase 2 - Pengorganisasian Belajar", "aktivitas": "Pembagian 8 kelompok heterogen berbasis data diagnostik awal dan penetapan peran kolaboratif." },
+      { "fase": "Fase 3 - Penyelidikan Terbimbing", "aktivitas": "Pengerjaan 6 misi interaktif/LKPD. Guru memberikan targeted scaffolding bagi siswa yang tertahan atau kehilangan nyawa." },
+      { "fase": "Fase 4 - Mengembangkan & Menyajikan Hasil", "aktivitas": "Presentasi diagram alir, struktur kode semu, dan simulasi debugging kasir di depan kelas." },
+      { "fase": "Fase 5 - Evaluasi & Penutup (20-25 Menit)", "aktivitas": "Ulasan miskonsepsi decision/indentasi, tampilan Leaderboard kelas, asesmen individu, dan pengisian angket refleksi." }
+    ]
+  },
+  "hasilEvaluasiEmpiris": {
+    "jumlahSiswa": "41 Peserta Didik (Data Berpasangan / Paired)",
+    "kelas": "X-5 SMA Negeri 15 Bandung",
+    "metrik": [
+      { "nama": "Rata-Rata Nilai Berpikir Algoritmik", "pra": "39.94", "pasca": "78.15", "delta": "+38.21 Poin" },
+      { "nama": "Ketuntasan Klasikal (>= 75)", "pra": "12.20% (5 siswa)", "pasca": "73.17% (30 siswa)", "delta": "+60.97%" },
+      { "nama": "Skor Diagram Alir / Flowchart (skala 4)", "pra": "1.15", "pasca": "2.63", "delta": "+1.48" },
+      { "nama": "Skor Kode Semu / Pseudocode (skala 4)", "pra": "1.12", "pasca": "2.90", "delta": "+1.78" },
+      { "nama": "Skor Pengenalan IPO (skala 4)", "pra": "1.85", "pasca": "3.63", "delta": "+1.78" },
+      { "nama": "Skor Logika Percabangan (skala 4)", "pra": "1.61", "pasca": "3.61", "delta": "+2.00" },
+      { "nama": "Skor Data Uji & Debugging (skala 4)", "pra": "1.68", "pasca": "2.51", "delta": "+0.83" },
+      { "nama": "Rata-rata Kemandirian Belajar (K1-K5)", "pra": "2.15 (Kurang Mandiri)", "pasca": "3.20 (Mandiri)", "delta": "0% Kurang Mandiri" }
+    ]
+  }
+}

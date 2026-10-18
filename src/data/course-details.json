@@ -8701,8 +8701,8 @@
     "deskripsi": "Kulminasi portofolio reflektif, identifikasi diri, penyusunan visi-misi pendidik PANDAI, dan pameran karya ilmiah digital.",
     "deskripsiEn": "Culmination of reflective portfolio, teacher identity, PANDAI vision formulation, and digital showcase.",
     "featuredArtifact": "Artefak utama yang saya pilih sebagai bukti dukung hasil refleksi mata kuliah Seminar Pendidikan Profesi Guru adalah rangkaian dokumen portofolio reflektif dan inovasi yang telah saya susun, yaitu: (1) Lembar Kerja 1 (LK 1) Identifikasi Diri serta Dokumen & Poster Visi Misi Hidup (TAAT) dan Visi Misi Pendidik Informatika (PANDAI) (beserta bahan tayang Presentasi_LK1_Identifikasi_Diri.pptx), (2) Dokumen Lembar Kerja 2 (LK 2) Refleksi Pengalaman Belajar Komprehensif Berbasis Analisis Artefak, serta (3) Sistem Kurasi Portofolio Digital PPG (https://ppg.ahmadnursyifa.my.id & Indeks 992 Artefak PPG) yang bermuara pada Karya Inovasi Pembelajaran AlgoCraft.",
-    "topikCount": 3,
-    "totalArtefakCount": 24,
+    "topikCount": 5,
+    "totalArtefakCount": 26,
     "topikList": [
       {
         "nama": "01 LK 1 Identifikasi Diri dan Visi Misi",
@@ -8907,6 +8907,32 @@
             "size": "6.4 MB",
             "url": "/Artefak PPG/05_Semester_2/07_Seminar_PPG/03_Koleksi_Artefak_Unggulan_Semester_1/Pemahaman Peserta Didik dan Pembelajarannya-Klinik_Transformasi_Pedagogi.pptx",
             "featured": false,
+            "mediaType": "document"
+          }
+        ]
+      },
+      {
+        "nama": "04 LK 3 Refleksi Pengalaman Belajar dan RTL",
+        "artefak": [
+          {
+            "name": "LEMBAR KERJA 3 (LK 3) - Refleksi Pengalaman Belajar dan Rencana Tindak Lanjut.docx",
+            "ext": ".docx",
+            "size": "45.0 KB",
+            "url": "/Artefak PPG/05_Semester_2/07_Seminar_PPG/04_LK_3_Refleksi_Pengalaman_Belajar_dan_RTL/LEMBAR KERJA 3 (LK 3) - Refleksi Pengalaman Belajar dan Rencana Tindak Lanjut.docx",
+            "featured": true,
+            "mediaType": "document"
+          }
+        ]
+      },
+      {
+        "nama": "05 LK 4 Desain Karya Inovatif AlgoCraft",
+        "artefak": [
+          {
+            "name": "LEMBAR KERJA 4 (LK 4) - Desain Karya Inovatif AlgoCraft.docx",
+            "ext": ".docx",
+            "size": "48.0 KB",
+            "url": "/Artefak PPG/05_Semester_2/07_Seminar_PPG/05_LK_4_Desain_Karya_Inovatif_AlgoCraft/LEMBAR KERJA 4 (LK 4) - Desain Karya Inovatif AlgoCraft.docx",
+            "featured": true,
             "mediaType": "document"
           }
         ]

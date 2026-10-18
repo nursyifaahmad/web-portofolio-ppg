@@ -1,0 +1,107 @@
+{
+  "judul": "Lembar Kerja 3 (LK 3) — Refleksi Pengalaman Belajar Selama Mengikuti PPG",
+  "judulEn": "Worksheet 3 (LK 3) — Overall Learning Experience Reflection & Career Action Plan",
+  "mataKuliah": "Seminar Pendidikan Profesi Guru",
+  "penyusun": "Ahmad Nursyifa (NIM. 2530712)",
+  "lptk": "Universitas Pendidikan Indonesia",
+  "tahun": "2026",
+  "arahPendidikanIndonesia": {
+    "pengantar": "Setelah mengikuti serangkaian refleksi pengalaman belajar pada mata kuliah Seminar PPG serta menempuh keseluruhan perkuliahan pada Semester 1 dan Semester 2, saya menyadari bahwa pendidikan di Indonesia seharusnya diselenggarakan secara memerdekakan, agamis, inklusif, bermakna, menyejahterakan secara sosial-emosional, serta adaptif terhadap teknologi dan berwawasan keberlanjutan. Refleksi komprehensif atas kedua belas mata kuliah meneguhkan visi pribadi (LK 1) dan bertumpu pada 5 pilar utama:",
+    "pilar": [
+      {
+        "nomor": 1,
+        "judul": "Memerdekakan & Berakar Kuat pada Nilai Ketuhanan (Agamis), Pancasila, dan Budaya Bangsa",
+        "judulEn": "Emancipatory & Deeply Rooted in Divine Values, Pancasila, and Local Culture",
+        "uraian": "Melalui refleksi pada mata kuliah Filosofi Pendidikan dan Pendidikan Nilai, saya menyadari bahwa pendidikan di Indonesia tidak boleh mereduksi peserta didik menjadi objek penyeragaman kognitif semata. Sebagaimana pemikiran Ki Hadjar Dewantara, pendidikan sejatinya adalah proses menuntun segala kekuatan kodrat yang ada pada anak—baik kodrat alam maupun kodrat zaman—dengan menghidupkan sistem Among (Ing Ngarso Sung Tulodo, Ing Madya Mangun Karso, Tut Wuri Handayani). Pendidikan harus menanamkan keimanan, ketakwaan, akhlak mulia, dan nilai-nilai Pancasila secara kontekstual, termasuk membentuk etika digital dan integritas moral peserta didik di tengah derasnya arus informasi global.",
+        "icon": "🌱",
+        "color": "border-cyan-500/30 text-cyan-300 bg-cyan-950/40"
+      },
+      {
+        "nomor": 2,
+        "judul": "Inklusif, Berkeadilan (Equitable), dan Berpihak Penuh pada Keberagaman Peserta Didik",
+        "judulEn": "Inclusive, Equitable, and Fully Student-Centered Diversity",
+        "uraian": "Melalui mata kuliah Pemahaman Peserta Didik dan Pembelajarannya (PPDP) serta Pembelajaran Berdiferensiasi, paradigma saya berubah dari anggapan bahwa keadilan berarti perlakuan seragam (equality) menjadi kesadaran bahwa keadilan sejati adalah memberikan dukungan sesuai kebutuhan unik setiap anak (equity). Pendidikan diawali dengan pemetaan diagnostik utuh terhadap kesiapan belajar (readiness), minat (interest), dan profil belajar murid, lalu difasilitasi melalui diferensiasi konten, proses, dan produk agar setiap anak memiliki kesempatan adil untuk mencapai potensi terbaiknya.",
+        "icon": "🤝",
+        "color": "border-emerald-500/30 text-emerald-300 bg-emerald-950/40"
+      },
+      {
+        "nomor": 3,
+        "judul": "Bermakna, Mendalam (Deep Learning), dan Menumbuhkan Pola Pikir Bertumbuh (Growth Mindset)",
+        "judulEn": "Meaningful, Deep Learning, and Cultivating a Growth Mindset",
+        "uraian": "Sintesis mata kuliah PMA Dasar, PMA Lanjut, serta Growth Mindset menyadarkan saya bahwa pembelajaran tidak boleh terjebak pada rutinitas menghafal materi atau mengejar nilai ujian semata. Pendidikan harus dirancang menggunakan prinsip Understanding by Design (UbD) untuk menghadirkan pengalaman belajar yang berkesadaran (Mindful), bermakna (Meaningful), dan menggembirakan (Joyful). Asesmen difungsikan sebagai alat belajar (Assessment as and for Learning) yang memandang kegagalan/error coding sebagai sahabat belajar untuk terus bertumbuh.",
+        "icon": "💡",
+        "color": "border-amber-500/30 text-amber-300 bg-amber-950/40"
+      },
+      {
+        "nomor": 4,
+        "judul": "Holistik dalam Membangun Kesejahteraan Psikologis (School Well-Being) & Sosial-Emosional",
+        "judulEn": "Holistic School Well-Being and Social-Emotional Competence",
+        "uraian": "Melalui mata kuliah Pembelajaran Sosial Emosional (PSE), saya memahami bahwa keunggulan akademik tidak akan tumbuh optimal di dalam kelas yang penuh tekanan. Sekolah di Indonesia harus mengintegrasikan 5 kompetensi sosial-emosional CASEL (Self-Awareness, Self-Management, Social Awareness, Relationship Skills, dan Responsible Decision-Making) agar menjadi ruang yang aman, ramah, bebas perundungan, serta menumbuhkan empati dan resiliensi mental.",
+        "icon": "❤️",
+        "color": "border-rose-500/30 text-rose-300 bg-rose-950/40"
+      },
+      {
+        "nomor": 5,
+        "judul": "Adaptif terhadap Teknologi Masa Depan & Berwawasan Keberlanjutan (ESD / SDGs)",
+        "judulEn": "Future-Proof Technology & Education for Sustainable Development",
+        "uraian": "Melalui pengalaman nyata PPL Terbimbing dan Mandiri, Projek Kepemimpinan (SIDAKAN IoT), serta PPG-WK, saya menyadari bahwa penguasaan teknologi informasi dan AI harus disandingkan dengan tanggung jawab sosial dan ekologis. Sekolah harus menjadi laboratorium pemecahan masalah nyata yang membekali peserta didik dengan keterampilan abad ke-21 (Critical Thinking, Creativity, Collaboration, Communication) yang berkontribusi secara berkelanjutan bagi bangsa.",
+        "icon": "🌍",
+        "color": "border-purple-500/30 text-purple-300 bg-purple-950/40"
+      }
+    ]
+  },
+  "langkahGuruProfesional": {
+    "pengantar": "Untuk menjadi guru profesional—khususnya guru Informatika yang mampu menuntun peserta didik menjadi pribadi yang PANDAI (Paham Teknologi, Akhlaq Mulia, Nalar Kritis, Disiplin, Adaptif, dan Inovatif) serta berpegang teguh pada visi hidup TAAT (Taqwa, Akhlaq, Adaptasi, Terampil)—saya melakukan langkah strategis yang mengintegrasikan 4 kompetensi guru:",
+    "kompetensi": [
+      {
+        "nama": "Kompetensi Pedagogik",
+        "fokus": "Desain Pembelajaran Mendalam, Berdiferensiasi & Berpusat pada Murid",
+        "langkah": "Memulai setiap siklus belajar dengan asesmen diagnostik kognitif dan non-kognitif, merancang Modul Ajar Backward Design (Understanding by Design), menerapkan model PBL, PjBL, dan Experiential Learning dengan diferensiasi konten (multimodal), proses (scaffolding bertingkat dan peer tutoring), serta diferensiasi produk karya digital."
+      },
+      {
+        "nama": "Kompetensi Kepribadian & Sosial-Emosional",
+        "fokus": "Teladan Karakter, Penjaga Etika Digital & Iklim Kelas Positif",
+        "langkah": "Menjadi teladan nyata integritas moral dan etika digital di era AI, mengelola emosi secara matang dengan kesadaran penuh (mindfulness), mengintegrasikan kompetensi CASEL dan Growth Mindset, memberikan apresiasi atas proses dan usaha belajar (process praise), serta membimbing pemanfaatan teknologi untuk kemaslahatan."
+      },
+      {
+        "nama": "Praktik Reflektif & Riset Tindakan Kelas",
+        "fokus": "Budaya Refleksi Berbasis Data (Evidence-Based Practice)",
+        "langkah": "Membiasakan refleksi jujur dan sistematis menggunakan alur 4C (Connection, Challenge, Concept, Change), menganalisis data hasil asesmen formatif dan sumatif, mendokumentasikan artefak pembelajaran ke portofolio digital, serta melaksanakan Lesson Study dan Penelitian Tindakan Kelas (PTK) berkelanjutan."
+      },
+      {
+        "nama": "Kompetensi Profesional & Jejaring Sosial",
+        "fokus": "Kapasitas Keilmuan Berkelanjutan, Kolaborasi & Wawasan Keberlanjutan",
+        "langkah": "Melakukan self-audit kompetensi secara periodik untuk memutakhirkan penguasaan materi Informatika (berpikir komputasional, algoritma, rekayasa perangkat lunak, AI, dan jaringan komputer), berkolaborasi aktif dengan rekan sejawat, orang tua, dan komunitas praktisi, serta mengintegrasikan nilai Education for Sustainable Development (ESD)."
+      }
+    ]
+  },
+  "rencanaTindakLanjut": [
+    {
+      "nomor": 1,
+      "program": "Menjadi Pembelajar Sepanjang Hayat (Lifelong Learner) yang Reflektif & Adaptif",
+      "programEn": "Becoming an Adaptive and Reflective Lifelong Learner",
+      "pilarVisi": "Visi TAAT (Taqwa, Akhlaq, Adaptasi, Terampil)",
+      "deskripsi": "Menjaga komitmen bertumbuh (Growth Mindset) dalam menghadapi laju revolusi kecerdasan artifisial (AI) dan kurikulum. Melakukan audit kebutuhan pengembangan diri secara berkala, membiasakan refleksi berbasis data (jurnal 4C dan PTK), serta secara proaktif mengikuti pelatihan, kursus daring, seminar, dan sertifikasi keahlian teknologi terkini (penggunaan AI etis dalam pendidikan, software engineering, data science, dan multimedia).",
+      "icon": "📚",
+      "accent": "#06b6d4"
+    },
+    {
+      "nomor": 2,
+      "program": "Mengikuti dan Berperan Aktif di MGMP Informatika Kabupaten Cirebon",
+      "programEn": "Active Engagement in MGMP Informatika Kabupaten Cirebon",
+      "pilarVisi": "Komunitas Praktisi & Jejaring Kolaborasi Pendidik",
+      "deskripsi": "Bergabung dan berkontribusi aktif dalam Musyawarah Guru Mata Pelajaran (MGMP) Informatika Kabupaten Cirebon. Berkolaborasi lintas sekolah dalam menyusun Modul Ajar berbasis Deep Learning (UbD), merancang LKPD berdiferensiasi dan asesmen autentik, menyelenggarakan Lesson Study dan berbagi praktik baik (best practices), serta menginisiasi kompetensi literasi digital dan karya teknologi bagi peserta didik di wilayah Kabupaten Cirebon.",
+      "icon": "🏛️",
+      "accent": "#10b981"
+    },
+    {
+      "nomor": 3,
+      "program": "Membuat Inovasi-Inovasi Media Pembelajaran untuk Materi Informatika Lainnya",
+      "programEn": "Continuous Interactive Learning Media Innovations",
+      "pilarVisi": "Visi PANDAI (Paham Teknologi, Akhlaq, Nalar, Disiplin, Adaptif, Inovatif)",
+      "deskripsi": "Mengembangkan media pembelajaran interaktif dan modul kontekstual secara berkelanjutan untuk rumpun materi Informatika lainnya—seperti Berpikir Komputasional, Algoritma Pemrograman, Sistem Komputer, Jaringan Komputer dan Internet, Analisis Data, hingga Dampak Sosial Informatika. Dirancang dengan prinsip kebaruan (novelty), kreativitas, diferensiasi (visual, auditori, kinestetik), dan wawasan keberlanjutan (ESD/SDGs) agar pembelajaran senantiasa Mindful, Meaningful, dan Joyful.",
+      "icon": "⚡",
+      "accent": "#8b5cf6"
+    }
+  ]
+}
