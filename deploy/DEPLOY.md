@@ -12,9 +12,9 @@ Website e-portofolio interaktif **Ahmad Nursyifa, S.Kom.** siap di-deploy secara
 | **User** | `ahmad` |
 | **Path Server** | `/mnt/storage2/eportfolio/` (partisi yang sama dengan Wedding Tracker) |
 | **Port Internal** | `80` (Nginx Alpine) |
-| **Port Eksternal (Host)** | `3060` (bebas bentrok dengan Immich 2283/3001 & Wedding Tracker 3050) |
+| **Port Eksternal (Host)** | `3070` (bebas bentrok dengan Immich 2283/3001 & Wedding Tracker 3050) |
 | **Domain Publik** | `https://ppg.ahmadnursyifa.my.id` |
-| **Routing / Tunnel** | Cloudflare Zero Trust Hostname → `localhost:3060` |
+| **Routing / Tunnel** | Cloudflare Zero Trust Hostname → `localhost:3070` |
 
 ---
 
@@ -65,7 +65,7 @@ Periksa status container:
 ```bash
 docker compose ps
 ```
-Aplikasi akan aktif dan melayani permintaan di `http://localhost:3060`.
+Aplikasi akan aktif dan melayani permintaan di `http://localhost:3070`.
 
 ---
 
@@ -80,7 +80,7 @@ Karena tunnel `syifaserver` sudah aktif di host Anda:
    - **Subdomain**: `ppg`
    - **Domain**: `ahmadnursyifa.my.id`
    - **Type**: `HTTP`
-   - **URL**: `localhost:3060`
+   - **URL**: `localhost:3070`
 5. Klik **Save hostname**.
 
 Selesai! Website Anda langsung aktif dengan SSL/HTTPS otomatis di:

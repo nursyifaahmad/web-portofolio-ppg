@@ -4,8 +4,8 @@ services:
     container_name: eportfolio-web
     restart: unless-stopped
     ports:
-      # Port 3060: safe from Immich (2283/3001) and Wedding Tracker (3050)
-      - "3060:80"
+      # Port 3070: safe from Immich (2283/3001), Wedding Tracker (3050), and Algocraft (3060)
+      - "3070:80"
     volumes:
       # Optional: persistent artifacts folder on storage2 if files are served directly
       - /mnt/storage2/eportfolio/artefak:/usr/share/nginx/html/artefak:ro

@@ -67,4 +67,4 @@ Atau manual via Docker Compose:
 ```bash
 docker compose up -d --build
 ```
-Container akan melayani port **`3060`** pada host server.
+Container akan melayani port **`3070`** pada host server.
