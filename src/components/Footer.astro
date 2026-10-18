@@ -93,8 +93,8 @@ const { isEn = false } = Astro.props;
         Terminal CLI (&gt;_)
       </button>
       <span>•</span>
-      <a href={profil.googleDriveFolder} target="_blank" rel="noopener noreferrer" class="hover:text-white">
-        Google Drive
+      <a href={isEn ? "/en/artefak" : "/artefak"} class="hover:text-cyan-400">
+        {isEn ? "1,000 Artifacts" : "1.000 Artefak"}
       </a>
       <span>•</span>
       <a href="#top" class="hover:text-white">

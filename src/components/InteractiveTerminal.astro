@@ -367,6 +367,31 @@ import courses from '../data/courses.json';
           window.location.hash = 'semester-2';
           break;
 
+        case 'inovasi':
+        case 'algocraft':
+          appendOutput(`
+            <div class="p-3 bg-slate-900 rounded-lg border border-cyan-500/20 space-y-1.5">
+              <div class="text-cyan-400 font-bold text-sm">🚀 Inovasi Pembelajaran & Teknologi:</div>
+              <div class="text-xs text-white"><strong>AlgoCraft:</strong> Media Gamifikasi Web Berbasis PBL Kelas X-5 SMAN 15 Bandung</div>
+              <div class="text-xs text-slate-400">Live URL: <a href="https://algocraft.ahmadnursyifa.my.id" target="_blank" class="text-cyan-300 underline">https://algocraft.ahmadnursyifa.my.id</a></div>
+              <div class="text-xs text-white"><strong>SIDAKAN:</strong> IoT Smart Farming & Aquaponics Monitoring System</div>
+              <div class="text-xs text-slate-400">Ketik <a href="/inovasi" class="text-cyan-300 underline font-bold">/inovasi</a> untuk eksplorasi lengkap.</div>
+            </div>
+          `);
+          break;
+
+        case 'artefak':
+          appendOutput('<div class="text-cyan-400">Membuka Halaman Katalog 1.000 Artefak...</div>');
+          closeTerminal();
+          window.location.href = '/artefak';
+          break;
+
+        case 'refleksi':
+          appendOutput('<div class="text-cyan-400">Membuka Halaman Jurnal Refleksi Kritis 4C...</div>');
+          closeTerminal();
+          window.location.href = '/refleksi';
+          break;
+
         case 'matrix':
           appendOutput('<div class="text-emerald-400">Entering Matrix Mode... Tekan sembarang tombol untuk berhenti.</div>');
           runMatrix();

@@ -1,146 +1,209 @@
 [
   {
-    "id": "foto-1",
-    "url": "/img/galeri/ppl-dokumentasi-01.jpg",
-    "judul": "Praktik Mengajar PPL I Kelas XI",
-    "kategori": "ppl-1",
-    "lokasi": "SMAN 15 Bandung",
-    "tanggal": "April – Mei 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
-  },
-  {
-    "id": "foto-2",
-    "url": "/img/galeri/ppl-dokumentasi-02.jpeg",
-    "judul": "Praktik Mengajar PPL I Kelas XI",
-    "kategori": "ppl-1",
-    "lokasi": "SMAN 15 Bandung",
-    "tanggal": "April – Mei 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
-  },
-  {
-    "id": "foto-3",
-    "url": "/img/galeri/ppl-dokumentasi-03.jpeg",
-    "judul": "Praktik Mengajar PPL I Kelas XI",
-    "kategori": "ppl-1",
-    "lokasi": "SMAN 15 Bandung",
-    "tanggal": "April – Mei 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
-  },
-  {
-    "id": "foto-4",
-    "url": "/img/galeri/ppl-dokumentasi-04.jpeg",
-    "judul": "Praktik Mengajar PPL I Kelas XI",
-    "kategori": "ppl-1",
-    "lokasi": "SMAN 15 Bandung",
-    "tanggal": "April – Mei 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
-  },
-  {
-    "id": "foto-5",
-    "url": "/img/galeri/ppl-dokumentasi-05.jpeg",
-    "judul": "Praktik Mengajar PPL I Kelas XI",
-    "kategori": "ppl-1",
-    "lokasi": "SMAN 15 Bandung",
-    "tanggal": "April – Mei 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
-  },
-  {
-    "id": "foto-6",
-    "url": "/img/galeri/ppl-dokumentasi-06.jpeg",
-    "judul": "Praktik Mengajar PPL I Kelas XI",
-    "kategori": "ppl-1",
-    "lokasi": "SMAN 15 Bandung",
-    "tanggal": "April – Mei 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
-  },
-  {
-    "id": "foto-7",
-    "url": "/img/galeri/ppl-dokumentasi-07.jpeg",
-    "judul": "Diskusi Kelompok & Asesmen Diagnostik",
-    "kategori": "ppl-1",
-    "lokasi": "SMAN 15 Bandung",
-    "tanggal": "April – Mei 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
-  },
-  {
-    "id": "foto-8",
-    "url": "/img/galeri/ppl-dokumentasi-08.jpeg",
-    "judul": "Diskusi Kelompok & Asesmen Diagnostik",
-    "kategori": "ppl-1",
-    "lokasi": "SMAN 15 Bandung",
-    "tanggal": "April – Mei 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
-  },
-  {
-    "id": "foto-9",
-    "url": "/img/galeri/ppl-dokumentasi-09.jpeg",
-    "judul": "Diskusi Kelompok & Asesmen Diagnostik",
+    "id": "ppl2-1",
+    "url": "/img/galeri/ppl2-sman15-01.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#1)",
     "kategori": "ppl-2",
     "lokasi": "SMAN 15 Bandung",
-    "tanggal": "Agustus – September 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
   },
   {
-    "id": "foto-10",
-    "url": "/img/galeri/ppl-dokumentasi-10.jpeg",
-    "judul": "Diskusi Kelompok & Asesmen Diagnostik",
+    "id": "ppl2-2",
+    "url": "/img/galeri/ppl2-sman15-02.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#2)",
     "kategori": "ppl-2",
     "lokasi": "SMAN 15 Bandung",
-    "tanggal": "Agustus – September 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
   },
   {
-    "id": "foto-11",
-    "url": "/img/galeri/ppl-dokumentasi-11.jpeg",
-    "judul": "Diskusi Kelompok & Asesmen Diagnostik",
+    "id": "ppl2-3",
+    "url": "/img/galeri/ppl2-sman15-03.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#3)",
     "kategori": "ppl-2",
     "lokasi": "SMAN 15 Bandung",
-    "tanggal": "Agustus – September 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
   },
   {
-    "id": "foto-12",
-    "url": "/img/galeri/ppl-dokumentasi-12.jpeg",
-    "judul": "Diskusi Kelompok & Asesmen Diagnostik",
+    "id": "ppl2-4",
+    "url": "/img/galeri/ppl2-sman15-04.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#4)",
     "kategori": "ppl-2",
     "lokasi": "SMAN 15 Bandung",
-    "tanggal": "Agustus – September 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
   },
   {
-    "id": "foto-13",
-    "url": "/img/galeri/ppl-dokumentasi-13.jpeg",
-    "judul": "PPL II Mandiri & Pembimbingan Guru Pamong",
+    "id": "ppl2-5",
+    "url": "/img/galeri/ppl2-sman15-05.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#5)",
     "kategori": "ppl-2",
     "lokasi": "SMAN 15 Bandung",
-    "tanggal": "Agustus – September 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
   },
   {
-    "id": "foto-14",
-    "url": "/img/galeri/ppl-dokumentasi-14.jpeg",
-    "judul": "PPL II Mandiri & Pembimbingan Guru Pamong",
+    "id": "ppl2-6",
+    "url": "/img/galeri/ppl2-sman15-06.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#6)",
     "kategori": "ppl-2",
     "lokasi": "SMAN 15 Bandung",
-    "tanggal": "Agustus – September 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
   },
   {
-    "id": "foto-15",
-    "url": "/img/galeri/ppl-dokumentasi-15.jpeg",
-    "judul": "PPL II Mandiri & Pembimbingan Guru Pamong",
+    "id": "ppl2-7",
+    "url": "/img/galeri/ppl2-sman15-07.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#7)",
     "kategori": "ppl-2",
     "lokasi": "SMAN 15 Bandung",
-    "tanggal": "Agustus – September 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
   },
   {
-    "id": "foto-16",
-    "url": "/img/galeri/ppl-dokumentasi-16.jpeg",
-    "judul": "PPL II Mandiri & Pembimbingan Guru Pamong",
+    "id": "ppl2-8",
+    "url": "/img/galeri/ppl2-sman15-08.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#8)",
     "kategori": "ppl-2",
     "lokasi": "SMAN 15 Bandung",
-    "tanggal": "Agustus – September 2026",
-    "deskripsi": "Dokumentasi interaksi pedagogis di kelas, observasi peserta didik, bimbingan langsung di laboratorium komputer dan ruang kelas SMAN 15 Bandung."
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-9",
+    "url": "/img/galeri/ppl2-sman15-09.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#9)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-10",
+    "url": "/img/galeri/ppl2-sman15-10.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#10)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-11",
+    "url": "/img/galeri/ppl2-sman15-11.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#11)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-12",
+    "url": "/img/galeri/ppl2-sman15-12.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#12)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-13",
+    "url": "/img/galeri/ppl2-sman15-13.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#13)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-14",
+    "url": "/img/galeri/ppl2-sman15-14.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#14)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-15",
+    "url": "/img/galeri/ppl2-sman15-15.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#15)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-16",
+    "url": "/img/galeri/ppl2-sman15-16.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#16)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-17",
+    "url": "/img/galeri/ppl2-sman15-17.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#17)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "ppl2-18",
+    "url": "/img/galeri/ppl2-sman15-18.jpg",
+    "judul": "Praktik Mengajar PPL II Kelas X-5 (#18)",
+    "kategori": "ppl-2",
+    "lokasi": "SMAN 15 Bandung",
+    "tanggal": "Juli – Oktober 2026",
+    "deskripsi": "Dokumentasi pembelajaran mandiri Informatika di SMAN 15 Bandung, bimbingan murid, asesmen diagnostik, dan penerapan model PBL berkolaborasi."
+  },
+  {
+    "id": "sidakan-IMG_3400.jpeg",
+    "url": "/img/galeri/sidakan-IMG_3400.jpeg",
+    "judul": "Perakitan & Pengujian IoT SIDAKAN",
+    "kategori": "sidakan",
+    "lokasi": "Laboratorium & Lapangan",
+    "tanggal": "Semester 2 - 2026",
+    "deskripsi": "Dokumentasi perakitan perangkat IoT pendeteksi kualitas air kolam dan otomatisasi pakan ikan pada Projek Kepemimpinan."
+  },
+  {
+    "id": "sidakan-IMG_3403.jpeg",
+    "url": "/img/galeri/sidakan-IMG_3403.jpeg",
+    "judul": "Perakitan & Pengujian IoT SIDAKAN",
+    "kategori": "sidakan",
+    "lokasi": "Laboratorium & Lapangan",
+    "tanggal": "Semester 2 - 2026",
+    "deskripsi": "Dokumentasi perakitan perangkat IoT pendeteksi kualitas air kolam dan otomatisasi pakan ikan pada Projek Kepemimpinan."
+  },
+  {
+    "id": "sidakan-IMG_3405.jpeg",
+    "url": "/img/galeri/sidakan-IMG_3405.jpeg",
+    "judul": "Perakitan & Pengujian IoT SIDAKAN",
+    "kategori": "sidakan",
+    "lokasi": "Laboratorium & Lapangan",
+    "tanggal": "Semester 2 - 2026",
+    "deskripsi": "Dokumentasi perakitan perangkat IoT pendeteksi kualitas air kolam dan otomatisasi pakan ikan pada Projek Kepemimpinan."
+  },
+  {
+    "id": "sidakan-IMG_3408.jpeg",
+    "url": "/img/galeri/sidakan-IMG_3408.jpeg",
+    "judul": "Perakitan & Pengujian IoT SIDAKAN",
+    "kategori": "sidakan",
+    "lokasi": "Laboratorium & Lapangan",
+    "tanggal": "Semester 2 - 2026",
+    "deskripsi": "Dokumentasi perakitan perangkat IoT pendeteksi kualitas air kolam dan otomatisasi pakan ikan pada Projek Kepemimpinan."
+  },
+  {
+    "id": "sidakan-vote.jpeg",
+    "url": "/img/galeri/sidakan-vote.jpeg",
+    "judul": "Perakitan & Pengujian IoT SIDAKAN",
+    "kategori": "sidakan",
+    "lokasi": "Laboratorium & Lapangan",
+    "tanggal": "Semester 2 - 2026",
+    "deskripsi": "Dokumentasi perakitan perangkat IoT pendeteksi kualitas air kolam dan otomatisasi pakan ikan pada Projek Kepemimpinan."
   }
 ]

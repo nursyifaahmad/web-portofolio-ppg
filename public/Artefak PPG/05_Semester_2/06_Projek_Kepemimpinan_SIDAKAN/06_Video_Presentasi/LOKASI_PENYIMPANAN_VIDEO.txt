@@ -1,0 +1,24 @@
+================================================================================
+  DAFTAR & LOKASI PENYIMPANAN VIDEO: PROJEK KEPEMIMPINAN (SIDAKAN & SMART WATER MONITOR)
+  Disusun oleh: Ahmad Nursyifa, S.Kom. (NIM: 2530712)
+  Program Studi PPG Prajabatan Informatika - Universitas Pendidikan Indonesia
+================================================================================
+
+CATATAN:
+Untuk menghemat ruang penyimpanan disk, file video berkapasitas besar tidak
+disalin ganda ke dalam folder ini. Anda dapat membuka file video asli secara
+langsung melalui alamat lokasi penyimpanan (Path) di bawah ini:
+
+Total File Video : 1 File
+Total Ukuran     : 175.15 MB
+
+--------------------------------------------------------------------------------
+RINCIAN LOKASI FILE VIDEO:
+--------------------------------------------------------------------------------
+
+01. Nama File : Video Presentasi Projek Smart Water Monitor.mkv
+    Ukuran    : 175.15 MB
+    Tanggal   : 2026-08-11
+    Lokasi    : D:\PPG\SEMESTER 2\PROJEK KEPEMIMPINAN\Video Presentasi Projek Smart Water Monitor.mkv
+
+================================================================================

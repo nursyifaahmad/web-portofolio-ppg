@@ -44,7 +44,7 @@ const { isEn = false } = Astro.props;
             </span>
           </h1>
           <p class="mt-2 text-base sm:text-lg text-slate-300 font-medium">
-            Dokumentasi Perjalanan, 427+ Artefak Pembelajaran, dan Refleksi Filosofis PPG Prajabatan UPI.
+            {isEn ? "Teaching Journey, 1,000 Authentic Artifacts, and 4C Critical Reflections of PPG Prajabatan UPI." : "Dokumentasi Perjalanan, 1.000 Artefak Pembelajaran Otentik, dan Refleksi Kritis 4C PPG Prajabatan UPI."}
           </p>
         </div>
 
@@ -87,30 +87,31 @@ const { isEn = false } = Astro.props;
         <!-- Action CTAs -->
         <div class="flex flex-wrap items-center gap-3 pt-2">
           <a
-            href={isEn ? "/en/matkul" : "/matkul"}
+            href={isEn ? "/en/artefak" : "/artefak"}
             class="keep-white px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25 flex items-center gap-2 group transition-all duration-200"
           >
-            <span>{isEn ? "Explore Artifacts" : "Jelajahi Artefak Kuliah"}</span>
+            <span>{isEn ? "Explore Artifacts" : "Jelajahi Artefak"}</span>
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
           </a>
 
+          <a
+            href={isEn ? "/en/inovasi" : "/inovasi"}
+            class="px-4 py-3 rounded-xl border border-cyan-500/40 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-300 font-semibold text-sm flex items-center gap-2 transition-all"
+          >
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span>{isEn ? "Innovation: AlgoCraft & SIDAKAN" : "Inovasi: AlgoCraft & SIDAKAN"}</span>
+          </a>
+
           <button
             id="hero-open-cli-btn"
             type="button"
-            class="px-4 py-3 rounded-xl border border-cyan-500/40 bg-slate-900/80 hover:bg-slate-800 text-cyan-300 font-mono-tech text-sm font-semibold flex items-center gap-2 transition-all cursor-pointer"
+            class="px-4 py-3 rounded-xl border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-300 font-mono-tech text-sm font-semibold flex items-center gap-2 transition-all cursor-pointer"
           >
             <span class="text-emerald-400">&gt;_</span>
-            <span>{isEn ? "Open CLI Terminal" : "Buka Terminal CLI"}</span>
+            <span>{isEn ? "Terminal CLI" : "Terminal CLI"}</span>
           </button>
-
-          <a
-            href="/profil"
-            class="px-4 py-3 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white text-sm font-medium transition-all"
-          >
-            {isEn ? "Profile & Mentors" : "Profil & Pembimbing"}
-          </a>
         </div>
 
       </div>

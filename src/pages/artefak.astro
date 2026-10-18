@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StatCards from '../components/StatCards.astro';
+import CourseCard from '../components/CourseCard.astro';
+import courses from '../data/courses.json';
+import profil from '../data/profil.json';
+
+const praCourses = courses.filter(c => c.semester === 'pra');
+const sem1Courses = courses.filter(c => c.semester === 'sem1');
+const sem2Courses = courses.filter(c => c.semester === 'sem2');
+---
+
+<Layout
+  title={`Koleksi Artefak Perkuliahan — ${profil.nama}, ${profil.gelar}`}
+  description="Katalog Lengkap 1.000 File Artefak, LK, Modul Ajar, dan Laporan Perkuliahan PPG Prajabatan Informatika UPI 2026."
+>
+  <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Page Header -->
+    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+      <div class="tech-badge mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+        Repositori Dokumen Otentik
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        Koleksi Artefak Perkuliahan
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
+        Eksplorasi seluruh Lembar Kerja (LK), modul ajar berdiferensiasi, instrumen PTK, perangkat evaluasi, dan laporan akhir. Seluruh dokumen dapat dipratinjau langsung di peramban dan diunduh dari server lokal.
+      </p>
+    </div>
+
+    <!-- Quick Stats Bar -->
+    <div class="mb-14">
+      <StatCards />
+    </div>
+
+    <!-- Quick Filter Tabs -->
+    <div class="flex items-center justify-center gap-2 mb-12 flex-wrap">
+      <a href="#pra-semester" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono-tech font-semibold text-slate-300 hover:text-cyan-400 transition-all">
+        Tahap Awal (Pra-Semester)
+      </a>
+      <a href="#semester-1" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono-tech font-semibold text-slate-300 hover:text-cyan-400 transition-all">
+        Semester 1 (6 Mata Kuliah)
+      </a>
+      <a href="#semester-2" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono-tech font-semibold text-slate-300 hover:text-cyan-400 transition-all">
+        Semester 2 (7 Mata Kuliah)
+      </a>
+    </div>
+
+    <!-- Section Pra-Semester -->
+    <section id="pra-semester" class="mb-16 pt-8 border-t border-slate-800/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="tech-badge mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+            Tahap Awal
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Pra-Semester: Fondasi & Pengabdian
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+            Matrikulasi kurikulum nasional, pengabdian masyarakat (P2M), dan kesiapan literasi kesehatan mental pendidik.
+          </p>
+        </div>
+        <span class="text-xs font-mono-tech text-cyan-400 font-semibold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 self-start sm:self-auto">
+          3 Program
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {praCourses.map(course => (
+          <CourseCard course={course} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Section Semester 1 -->
+    <section id="semester-1" class="mb-16 pt-8 border-t border-slate-800/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="tech-badge mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+            Semester Ganjil
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Semester 1: Teori, Diferensiasi & PPL I
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+            Penguatan filosofi KHD, pemahaman murid, diferensiasi konten/proses/produk, microteaching dan asistensi PPL I di SMAN 15 Bandung.
+          </p>
+        </div>
+        <span class="text-xs font-mono-tech text-cyan-400 font-semibold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 self-start sm:self-auto">
+          6 Mata Kuliah Utama
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sem1Courses.map(course => (
+          <CourseCard course={course} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Section Semester 2 -->
+    <section id="semester-2" class="mb-16 pt-8 border-t border-slate-800/80">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="tech-badge mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+            Semester Genap
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Semester 2: Inklusivitas, SIDAKAN & Kulminasi PPL II
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
+            Pembelajaran sosial emosional, pendidikan inklusif, inovasi IoT SIDAKAN, PPL II mandiri kelas X-5, dan refleksi Seminar PPG.
+          </p>
+        </div>
+        <span class="text-xs font-mono-tech text-cyan-400 font-semibold px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/20 self-start sm:self-auto">
+          7 Mata Kuliah Kulminasi
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sem2Courses.map(course => (
+          <CourseCard course={course} />
+        ))}
+      </div>
+    </section>
+
+  </div>
+</Layout>

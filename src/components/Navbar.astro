@@ -35,21 +35,28 @@ const prefix = isEn ? '/en' : '';
         </div>
       </a>
 
-      <!-- Desktop Navigation Menu -->
-      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
-        <a href={`${prefix}/`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+      <!-- Desktop Navigation Menu (7 Menu Lengkap) -->
+      <nav class="hidden xl:flex items-center gap-1">
+        <a href={`${prefix}/`} class="px-2.5 py-1.5 rounded-lg text-xs lg:text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
           {isEn ? "Home" : "Beranda"}
         </a>
-        <a href={`${prefix}/profil`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
-          {isEn ? "Profile" : "Profil & Visi"}
+        <a href={`${prefix}/profil`} class="px-2.5 py-1.5 rounded-lg text-xs lg:text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Profile" : "Profil"}
         </a>
-        <a href={`${prefix}/matkul`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
-          {isEn ? "Courses & Artifacts" : "Mata Kuliah"}
+        <a href={`${prefix}/visi-misi`} class="px-2.5 py-1.5 rounded-lg text-xs lg:text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Vision & Mission" : "Visi & Misi"}
         </a>
-        <a href={`${prefix}/#timeline`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
-          {isEn ? "Timeline" : "Linimasa"}
+        <a href={`${prefix}/artefak`} class="px-2.5 py-1.5 rounded-lg text-xs lg:text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Artifacts" : "Artefak"}
         </a>
-        <a href={`${prefix}/galeri`} class="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+        <a href={`${prefix}/refleksi`} class="px-2.5 py-1.5 rounded-lg text-xs lg:text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
+          {isEn ? "Reflection" : "Refleksi"}
+        </a>
+        <a href={`${prefix}/inovasi`} class="px-2.5 py-1.5 rounded-lg text-xs lg:text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all flex items-center gap-1.5">
+          <span>{isEn ? "Innovation" : "Inovasi"}</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        </a>
+        <a href={`${prefix}/galeri`} class="px-2.5 py-1.5 rounded-lg text-xs lg:text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-900/60 transition-all">
           {isEn ? "Gallery" : "Galeri"}
         </a>
       </nav>
@@ -71,12 +78,12 @@ const prefix = isEn ? '/en' : '';
         <LangSwitch />
         <ThemeToggle />
 
-        <!-- Mobile Menu Toggle Button -->
+        <!-- Mobile Menu Toggle Button (Muncul di layar < xl) -->
         <button
           id="mobile-menu-toggle"
           type="button"
           aria-label="Buka Menu Navigasi"
-          class="md:hidden p-2 rounded-xl border border-cyan-500/20 bg-slate-900/60 text-slate-300 hover:text-white cursor-pointer"
+          class="xl:hidden p-2 rounded-xl border border-cyan-500/20 bg-slate-900/60 text-slate-300 hover:text-white cursor-pointer"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -87,28 +94,39 @@ const prefix = isEn ? '/en' : '';
     </div>
   </div>
 
-  <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-cyan-500/20 bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 transition-all duration-300">
-    <div class="flex flex-col gap-2">
-      <a href={`${prefix}/`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+  <!-- Mobile Drawer Menu (7 Menu Terstruktur) -->
+  <div id="mobile-menu" class="hidden xl:hidden border-t border-cyan-500/20 bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 transition-all duration-300">
+    <div class="flex flex-col gap-1.5">
+      <a href={`${prefix}/`} class="px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
         <span>{isEn ? "Home" : "Beranda"}</span>
         <span class="text-xs text-slate-500 font-mono-tech">01</span>
       </a>
-      <a href={`${prefix}/profil`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
-        <span>{isEn ? "Profile & Vision" : "Profil & Visi"}</span>
+      <a href={`${prefix}/profil`} class="px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Profile" : "Profil Pendidik"}</span>
         <span class="text-xs text-slate-500 font-mono-tech">02</span>
       </a>
-      <a href={`${prefix}/matkul`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
-        <span>{isEn ? "Courses & Artifacts" : "Mata Kuliah & Artefak"}</span>
+      <a href={`${prefix}/visi-misi`} class="px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Vision & Mission" : "Visi & Misi"}</span>
         <span class="text-xs text-slate-500 font-mono-tech">03</span>
       </a>
-      <a href={`${prefix}/#timeline`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
-        <span>{isEn ? "Timeline Journey" : "Linimasa Perkuliahan"}</span>
+      <a href={`${prefix}/artefak`} class="px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Course Artifacts" : "Artefak Perkuliahan"}</span>
         <span class="text-xs text-slate-500 font-mono-tech">04</span>
       </a>
-      <a href={`${prefix}/galeri`} class="px-3 py-2.5 rounded-xl text-base font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
-        <span>{isEn ? "Field Gallery (PPL)" : "Galeri PPL"}</span>
+      <a href={`${prefix}/refleksi`} class="px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Reflections (4C)" : "Refleksi 4C"}</span>
         <span class="text-xs text-slate-500 font-mono-tech">05</span>
+      </a>
+      <a href={`${prefix}/inovasi`} class="px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span class="flex items-center gap-2">
+          <span>{isEn ? "Innovation (AlgoCraft & SIDAKAN)" : "Inovasi (AlgoCraft & SIDAKAN)"}</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        </span>
+        <span class="text-xs text-slate-500 font-mono-tech">06</span>
+      </a>
+      <a href={`${prefix}/galeri`} class="px-3 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 flex items-center justify-between">
+        <span>{isEn ? "Field Gallery (PPL)" : "Galeri PPL SMAN 15"}</span>
+        <span class="text-xs text-slate-500 font-mono-tech">07</span>
       </a>
 
       <div class="pt-3 mt-2 border-t border-slate-800 flex gap-2">

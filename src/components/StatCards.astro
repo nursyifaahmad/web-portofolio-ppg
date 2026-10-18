@@ -20,10 +20,10 @@ const { isEn = false } = Astro.props;
         <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
       </div>
       <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono-tech tracking-tight group-hover:text-cyan-400 transition-colors">
-        427+
+        {isEn ? "1,000+" : "1.000+"}
       </div>
       <p class="text-xs text-slate-400 mt-1">
-        {isEn ? "LK, lesson plans, PPT & projects" : "LK, Modul Ajar, PPT & Dokumen"}
+        {isEn ? "100% Local Files (LK, Modules, PPT)" : "100% Berkas Lokal (LK, Modul, PPT)"}
       </p>
     </div>
 

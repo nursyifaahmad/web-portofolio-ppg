@@ -6,7 +6,7 @@ interface Props {
 const { isEn = false } = Astro.props;
 ---
 
-<!-- Global Artifact Viewer Modal -->
+<!-- Global Artifact Viewer Modal (Local Native Viewer - No GDrive) -->
 <div
   id="artifact-viewer-modal"
   class="terminal-dark fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-0 sm:p-4 transition-all duration-300"
@@ -19,13 +19,13 @@ const { isEn = false } = Astro.props;
     <!-- Modal Header -->
     <div class="px-4 py-3 bg-slate-950 border-b border-cyan-500/20 flex items-center justify-between gap-3 shrink-0">
       <div class="flex items-center gap-2 overflow-hidden">
-        <span id="viewer-icon" class="text-lg">📄</span>
+        <span id="viewer-icon" class="text-xl shrink-0">📄</span>
         <div class="truncate">
           <h4 id="viewer-title" class="text-sm font-bold text-white truncate">
             Nama Dokumen Artefak
           </h4>
           <span id="viewer-meta" class="text-[11px] font-mono-tech text-slate-400">
-            PDF • Artefak Kuliah
+            Dokumen Lokal • Artefak Kuliah PPG
           </span>
         </div>
       </div>
@@ -36,8 +36,8 @@ const { isEn = false } = Astro.props;
           id="viewer-download-btn"
           href="#"
           download
-          class="px-3 py-1.5 rounded-lg bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 text-xs font-semibold flex items-center gap-1.5 transition-colors"
-          title="Unduh File Asli"
+          class="px-3 py-1.5 rounded-lg bg-cyan-600/40 hover:bg-cyan-600/60 text-cyan-200 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-cyan-500/30"
+          title="Unduh File Langsung dari Server"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -50,13 +50,13 @@ const { isEn = false } = Astro.props;
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold flex items-center gap-1.5 transition-colors"
-          title="Buka di Tab Baru / Google Drive"
+          class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-slate-700"
+          title="Buka File di Tab Baru"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
           </svg>
-          <span class="hidden sm:inline">{isEn ? "Open New Tab" : "Buka Tab Baru"}</span>
+          <span class="hidden sm:inline">{isEn ? "Open in New Tab" : "Buka Tab Baru"}</span>
         </a>
 
         <button
@@ -75,15 +75,15 @@ const { isEn = false } = Astro.props;
     <!-- Viewer Body Frame Container -->
     <div id="viewer-container" class="flex-1 bg-slate-950 relative overflow-hidden flex items-center justify-center">
       <!-- Loading indicator -->
-      <div id="viewer-loader" class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-950 z-10">
+      <div id="viewer-loader" class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-950 z-10 hidden">
         <div class="w-8 h-8 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin"></div>
-        <span class="text-xs font-mono-tech text-cyan-400">Memuat artefak...</span>
+        <span class="text-xs font-mono-tech text-cyan-400">Memuat dokumen lokal...</span>
       </div>
 
-      <!-- PDF / Document Iframe -->
+      <!-- PDF / Document Iframe (Native Browser Rendering) -->
       <iframe
         id="viewer-iframe"
-        class="w-full h-full border-0"
+        class="w-full h-full border-0 hidden"
         title="Dokumen Artefak PPG"
       ></iframe>
 
@@ -93,6 +93,43 @@ const { isEn = false } = Astro.props;
         class="hidden max-w-full max-h-full object-contain p-4"
         alt="Pratinjau Artefak"
       />
+
+      <!-- Fallback Card for Word / PowerPoint / Excel / Code -->
+      <div id="viewer-fallback" class="hidden max-w-md p-8 text-center flex-col items-center gap-4">
+        <div id="fallback-icon" class="w-20 h-20 rounded-2xl bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-4xl shadow-xl">
+          📘
+        </div>
+        <div>
+          <h3 id="fallback-filename" class="text-base font-bold text-white leading-snug break-all">
+            Dokumen
+          </h3>
+          <p id="fallback-desc" class="text-xs text-slate-400 mt-1">
+            File format dokumen dapat diunduh langsung atau dibuka di aplikasi komputer Anda.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-2 w-full pt-2">
+          <a
+            id="fallback-download-btn"
+            href="#"
+            download
+            class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+            <span>Unduh File Asli</span>
+          </a>
+          <a
+            id="fallback-tab-btn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-300 font-semibold text-xs flex items-center justify-center gap-2 transition-all"
+          >
+            <span>Buka Tab Baru</span>
+          </a>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -104,6 +141,11 @@ const { isEn = false } = Astro.props;
     const closeBtn = document.getElementById('viewer-close-btn');
     const iframe = document.getElementById('viewer-iframe');
     const img = document.getElementById('viewer-img');
+    const fallback = document.getElementById('viewer-fallback');
+    const fallbackIcon = document.getElementById('fallback-icon');
+    const fallbackFilename = document.getElementById('fallback-filename');
+    const fallbackDownloadBtn = document.getElementById('fallback-download-btn');
+    const fallbackTabBtn = document.getElementById('fallback-tab-btn');
     const titleEl = document.getElementById('viewer-title');
     const metaEl = document.getElementById('viewer-meta');
     const downloadBtn = document.getElementById('viewer-download-btn');
@@ -115,8 +157,9 @@ const { isEn = false } = Astro.props;
       if (!modal) return;
       modal.classList.add('hidden');
       document.body.style.overflow = '';
-      if (iframe) iframe.src = 'about:blank';
+      if (iframe) { iframe.src = 'about:blank'; iframe.classList.add('hidden'); }
       if (img) { img.src = ''; img.classList.add('hidden'); }
+      if (fallback) fallback.classList.add('hidden');
     }
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
@@ -142,24 +185,39 @@ const { isEn = false } = Astro.props;
       if (downloadBtn) downloadBtn.href = url;
       if (externalBtn) externalBtn.href = url;
 
-      if (loader) loader.classList.remove('hidden');
+      // Reset view states
+      if (iframe) iframe.classList.add('hidden');
+      if (img) img.classList.add('hidden');
+      if (fallback) fallback.classList.add('hidden');
 
-      if (['image', 'png', 'jpg', 'jpeg'].includes(type)) {
+      const normType = (type || '').toLowerCase().replace('.', '');
+
+      if (['png', 'jpg', 'jpeg', 'webp', 'image'].includes(normType)) {
         if (iconEl) iconEl.textContent = '🖼️';
-        if (iframe) iframe.classList.add('hidden');
         if (img) {
           img.classList.remove('hidden');
           img.src = url;
-          img.onload = () => { if (loader) loader.classList.add('hidden'); };
         }
-      } else {
-        if (iconEl) iconEl.textContent = '📄';
-        if (img) img.classList.add('hidden');
+      } else if (normType === 'pdf') {
+        if (iconEl) iconEl.textContent = '📕';
         if (iframe) {
           iframe.classList.remove('hidden');
           iframe.src = url;
-          iframe.onload = () => { if (loader) loader.classList.add('hidden'); };
         }
+      } else {
+        // Office documents / Code (.docx, .pptx, .xlsx, .ino, etc.)
+        let docEmoji = '📄';
+        if (normType.includes('doc')) docEmoji = '📘';
+        else if (normType.includes('ppt')) docEmoji = '📙';
+        else if (normType.includes('xls')) docEmoji = '📗';
+        else if (normType === 'ino') docEmoji = '⚡';
+
+        if (iconEl) iconEl.textContent = docEmoji;
+        if (fallbackIcon) fallbackIcon.textContent = docEmoji;
+        if (fallbackFilename) fallbackFilename.textContent = title || url.split('/').pop();
+        if (fallbackDownloadBtn) fallbackDownloadBtn.href = url;
+        if (fallbackTabBtn) fallbackTabBtn.href = url;
+        if (fallback) fallback.classList.remove('hidden');
       }
 
       modal.classList.remove('hidden');

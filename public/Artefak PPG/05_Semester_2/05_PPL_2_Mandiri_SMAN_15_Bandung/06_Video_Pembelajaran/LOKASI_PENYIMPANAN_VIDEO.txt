@@ -1,0 +1,54 @@
+================================================================================
+  DAFTAR & LOKASI PENYIMPANAN VIDEO: PPL II MANDIRI KELAS X-5 SMAN 15 BANDUNG
+  Disusun oleh: Ahmad Nursyifa, S.Kom. (NIM: 2530712)
+  Program Studi PPG Prajabatan Informatika - Universitas Pendidikan Indonesia
+================================================================================
+
+CATATAN:
+Untuk menghemat ruang penyimpanan disk, file video berkapasitas besar tidak
+disalin ganda ke dalam folder ini. Anda dapat membuka file video asli secara
+langsung melalui alamat lokasi penyimpanan (Path) di bawah ini:
+
+Total File Video : 7 File
+Total Ukuran     : 45648.68 MB
+
+--------------------------------------------------------------------------------
+RINCIAN LOKASI FILE VIDEO:
+--------------------------------------------------------------------------------
+
+01. Nama File : 01-10-2026.MOV
+    Ukuran    : 7965.38 MB
+    Tanggal   : 2026-10-01
+    Lokasi    : D:\PPG\SEMESTER 2\PPL\X-5\Video Pembelajaran\01-10-2026.MOV
+
+02. Nama File : 08-10-2026.MOV
+    Ukuran    : 21247.41 MB
+    Tanggal   : 2026-10-08
+    Lokasi    : D:\PPG\SEMESTER 2\PPL\X-5\Video Pembelajaran\08-10-2026.MOV
+
+03. Nama File : 24-09-2026.MOV
+    Ukuran    : 6985.44 MB
+    Tanggal   : 2026-09-24
+    Lokasi    : D:\PPG\SEMESTER 2\PPL\X-5\Video Pembelajaran\24-09-2026.MOV
+
+04. Nama File : 27-08-2026.MOV
+    Ukuran    : 6317.45 MB
+    Tanggal   : 2026-08-27
+    Lokasi    : D:\PPG\SEMESTER 2\PPL\X-5\Video Pembelajaran\27-08-2026.MOV
+
+05. Nama File : 27-08-2026_2.MOV
+    Ukuran    : 1517.10 MB
+    Tanggal   : 2026-08-27
+    Lokasi    : D:\PPG\SEMESTER 2\PPL\X-5\Video Pembelajaran\27-08-2026_2.MOV
+
+06. Nama File : Cuplikan_T3E_PSE_01-10-2026_1080p.mp4
+    Ukuran    : 1543.83 MB
+    Tanggal   : 2026-10-07
+    Lokasi    : D:\PPG\SEMESTER 2\PPL\X-5\Video Pembelajaran\Cuplikan_T3E_PSE_01-10-2026_1080p.mp4
+
+07. Nama File : Cuplikan_T3E_PSE_01-10-2026_Compressed.mp4
+    Ukuran    : 72.07 MB
+    Tanggal   : 2026-10-07
+    Lokasi    : D:\PPG\SEMESTER 2\PPL\X-5\Video Pembelajaran\Cuplikan_T3E_PSE_01-10-2026_Compressed.mp4
+
+================================================================================

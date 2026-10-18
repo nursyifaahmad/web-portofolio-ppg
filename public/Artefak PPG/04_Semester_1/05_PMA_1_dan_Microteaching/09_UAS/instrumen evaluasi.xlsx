@@ -1,0 +1,6 @@
+Nomor Soal,Jumlah Benar,Tingkat Kesukaran (P),Kategori Kesukaran,Daya Pembeda (D),Kategori Daya Pembeda,Validitas (r),Kategori Validitas
+1,12,=B2/20,=IF(C2>0.7,"Mudah",IF(C2>=0.3,"Sedang","Sulit")),0.50,=IF(E2>=0.4,"Baik",IF(E2>=0.2,"Cukup","Buruk")),0.45,=IF(G2>=0.4,"Tinggi",IF(G2>=0.2,"Sedang","Rendah"))
+2,14,=B3/20,=IF(C3>0.7,"Mudah",IF(C3>=0.3,"Sedang","Sulit")),0.35,=IF(E3>=0.4,"Baik",IF(E3>=0.2,"Cukup","Buruk")),0.32,=IF(G3>=0.4,"Tinggi",IF(G3>=0.2,"Sedang","Rendah"))
+3,8,=B4/20,=IF(C4>0.7,"Mudah",IF(C4>=0.3,"Sedang","Sulit")),0.25,=IF(E4>=0.4,"Baik",IF(E4>=0.2,"Cukup","Buruk")),0.20,=IF(G4>=0.4,"Tinggi",IF(G4>=0.2,"Sedang","Rendah"))
+...
+20,13,=B21/20,=IF(C21>0.7,"Mudah",IF(C21>=0.3,"Sedang","Sulit")),0.40,=IF(E21>=0.4,"Baik",IF(E21>=0.2,"Cukup","Buruk")),0.38,=IF(G21>=0.4,"Tinggi",IF(G21>=0.2,"Sedang","Rendah"))

@@ -1,0 +1,287 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import profil from '../../data/profil.json';
+
+const visiMisiPendidikImg = "/Artefak PPG/00_Profil_dan_Identitas_Pendidik/VISI MISI PENDIDIK.png";
+const visiMisiHidupImg = "/Artefak PPG/00_Profil_dan_Identitas_Pendidik/VISI MISI HIDUP.png";
+const lk1Pdf = "/Artefak PPG/00_Profil_dan_Identitas_Pendidik/LEMBAR KERJA 1 (LK 1).pdf";
+const visiPendidikPdf = "/Artefak PPG/00_Profil_dan_Identitas_Pendidik/VISI MISI PENDIDIK.pdf";
+const visiHidupPdf = "/Artefak PPG/00_Profil_dan_Identitas_Pendidik/VISI MISI HIDUP.pdf";
+---
+
+<Layout
+  title={`Vision & Mission — ${profil.nama}, ${profil.gelar}`}
+  description="Educational Philosophy, Vision & Mission of Pre-Service Teacher in Informatics UPI 2026 Ahmad Nursyifa."
+  isEn={true}
+>
+  <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    
+    <!-- Page Header -->
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="tech-badge mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+        Philosophy & Commitment
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        Vision & Mission
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
+        Guiding principles to nurture students according to their nature and era, dedicated to educational advancement in Indonesia.
+      </p>
+    </div>
+
+    <!-- Grand Vision Card: Visi PANDAI -->
+    <div class="tech-card p-8 sm:p-12 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-cyan-950/40 border border-cyan-500/30">
+      <div class="max-w-4xl mx-auto space-y-6 text-center sm:text-left">
+        <div class="flex flex-wrap items-center justify-center sm:justify-between gap-3 pb-4 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl select-none">🎯</span>
+            <span class="text-xs font-mono-tech uppercase font-bold text-cyan-400 tracking-wider">
+              Teacher Leadership Vision
+            </span>
+          </div>
+          <span class="text-xs font-mono-tech px-3 py-1 rounded-full bg-cyan-950 border border-cyan-500/30 text-cyan-300 font-semibold">
+            PPG UPI 2026
+          </span>
+        </div>
+
+        <blockquote class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-relaxed text-center sm:text-left">
+          &ldquo;Nurturing students who are <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 font-black">PANDAI</span>: 
+          Tech-Literate, Noble Character, Critical Thinking, Disciplined, Adaptive, and Innovative.&rdquo;
+        </blockquote>
+
+        <!-- 6 Pillars of PANDAI -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-4">
+          <div class="p-3 rounded-xl bg-slate-950/80 border border-cyan-500/20 text-center">
+            <span class="text-lg block font-mono-tech font-bold text-cyan-400">P</span>
+            <span class="text-xs font-bold text-white block mt-0.5">Paham</span>
+            <span class="text-[10px] text-slate-400">Technology</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950/80 border border-cyan-500/20 text-center">
+            <span class="text-lg block font-mono-tech font-bold text-emerald-400">A</span>
+            <span class="text-xs font-bold text-white block mt-0.5">Akhlaq</span>
+            <span class="text-[10px] text-slate-400">Noble Character</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950/80 border border-cyan-500/20 text-center">
+            <span class="text-lg block font-mono-tech font-bold text-amber-400">N</span>
+            <span class="text-xs font-bold text-white block mt-0.5">Nalar</span>
+            <span class="text-[10px] text-slate-400">Critical Reasoning</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950/80 border border-cyan-500/20 text-center">
+            <span class="text-lg block font-mono-tech font-bold text-blue-400">D</span>
+            <span class="text-xs font-bold text-white block mt-0.5">Disiplin</span>
+            <span class="text-[10px] text-slate-400">Consistent</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950/80 border border-cyan-500/20 text-center">
+            <span class="text-lg block font-mono-tech font-bold text-purple-400">A</span>
+            <span class="text-xs font-bold text-white block mt-0.5">Adaptif</span>
+            <span class="text-[10px] text-slate-400">Dynamic</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950/80 border border-cyan-500/20 text-center">
+            <span class="text-lg block font-mono-tech font-bold text-pink-400">I</span>
+            <span class="text-xs font-bold text-white block mt-0.5">Inovatif</span>
+            <span class="text-[10px] text-slate-400">Problem Solver</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Misi Pendidik Grid -->
+    <div class="space-y-6">
+      <div class="text-center sm:text-left">
+        <span class="tech-badge mb-1">Four Mission Commitments</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">Pedagogical Mission & Service</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="tech-card p-6 relative overflow-hidden">
+          <div class="flex items-start gap-4">
+            <span class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 font-mono-tech font-bold flex items-center justify-center shrink-0 text-base">
+              01
+            </span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Among System Guided by KHD Philosophy</h3>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+                Nurturing learners based on Ki Hadjar Dewantara's principles (model behavior, building enthusiasm, empowering autonomy), respecting each student's unique nature and era.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-card p-6 relative overflow-hidden">
+          <div class="flex items-start gap-4">
+            <span class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 font-mono-tech font-bold flex items-center justify-center shrink-0 text-base">
+              02
+            </span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Differentiated Pedagogy & Universal Design (UDL)</h3>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+                Crafting inclusive learning journeys through content, process, and product differentiation tailored to learner readiness, profiles, and passions without discrimination.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-card p-6 relative overflow-hidden">
+          <div class="flex items-start gap-4">
+            <span class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 font-mono-tech font-bold flex items-center justify-center shrink-0 text-base">
+              03
+            </span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Computational Thinking & Gamified Learning</h3>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+                Empowering students with algorithmic problem-solving and authentic educational game web systems like AlgoCraft at SMAN 15 Bandung.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-card p-6 relative overflow-hidden">
+          <div class="flex items-start gap-4">
+            <span class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 font-mono-tech font-bold flex items-center justify-center shrink-0 text-base">
+              04
+            </span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Applied Engineering & Sustainability (SDGs)</h3>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+                Engineering IoT and digital tools for real community solutions, such as the SIDAKAN smart pond water monitoring and community food security initiative.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Documents & Artifact Posters: LK 1 -->
+    <div class="tech-card p-6 sm:p-10 relative overflow-hidden space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+        <div>
+          <span class="tech-badge mb-1">Seminar PPG Evidence</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-white">
+            Authentic LK 1 Documents: Educator Identity & Life Vision
+          </h2>
+        </div>
+
+        <a
+          href={lk1Pdf}
+          download
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-xs shadow-lg shadow-cyan-500/25 transition-all self-start sm:self-auto shrink-0 cursor-pointer"
+        >
+          <span>📥 Download Full LK 1 (.pdf)</span>
+        </a>
+      </div>
+
+      <!-- Side-by-Side Visual Posters -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Visi Misi Pendidik -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              Educator Vision & Mission Poster
+            </h3>
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="open-doc-btn text-xs font-mono-tech text-cyan-400 hover:text-cyan-300 cursor-pointer"
+                data-name="VISI MISI PENDIDIK.png"
+                data-url={visiMisiPendidikImg}
+                data-ext="png"
+                data-mk="Educator Vision"
+              >
+                Preview
+              </button>
+              <span>•</span>
+              <a href={visiPendidikPdf} download class="text-xs font-mono-tech text-slate-400 hover:text-white">
+                PDF
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 group relative">
+            <img
+              src={visiMisiPendidikImg}
+              alt="Educator Vision & Mission Poster"
+              class="w-full h-80 sm:h-96 object-cover object-top group-hover:scale-105 transition-transform duration-300 cursor-pointer open-doc-btn"
+              data-name="VISI MISI PENDIDIK.png"
+              data-url={visiMisiPendidikImg}
+              data-ext="png"
+              data-mk="Educator Vision"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+            <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-slate-300">
+              <span class="font-mono-tech">4961 × 7016 px High Resolution</span>
+              <span class="text-cyan-300 font-bold">Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visi Misi Hidup -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+              Life Vision & Mission Poster
+            </h3>
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="open-doc-btn text-xs font-mono-tech text-purple-400 hover:text-purple-300 cursor-pointer"
+                data-name="VISI MISI HIDUP.png"
+                data-url={visiMisiHidupImg}
+                data-ext="png"
+                data-mk="Life Vision"
+              >
+                Preview
+              </button>
+              <span>•</span>
+              <a href={visiHidupPdf} download class="text-xs font-mono-tech text-slate-400 hover:text-white">
+                PDF
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 group relative">
+            <img
+              src={visiMisiHidupImg}
+              alt="Life Vision & Mission Poster"
+              class="w-full h-80 sm:h-96 object-cover object-top group-hover:scale-105 transition-transform duration-300 cursor-pointer open-doc-btn"
+              data-name="VISI MISI HIDUP.png"
+              data-url={visiMisiHidupImg}
+              data-ext="png"
+              data-mk="Life Vision"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+            <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-slate-300">
+              <span class="font-mono-tech">Authentic LK 1 Artifact</span>
+              <span class="text-purple-300 font-bold">Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.open-doc-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        const url = btn.getAttribute('data-url');
+        const mk = btn.getAttribute('data-mk');
+        const ext = btn.getAttribute('data-ext');
+        
+        window.dispatchEvent(new CustomEvent('open-artifact', {
+          detail: {
+            title: name,
+            url: url,
+            type: ext || 'png',
+            meta: `${mk} • Educator Identity`
+          }
+        }));
+      });
+    });
+  });
+</script>

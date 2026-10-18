@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Reflection4F from '../../components/Reflection4F.astro';
+import ReflectionViewer from '../../components/ReflectionViewer.astro';
+import ArtifactViewerModal from '../../components/ArtifactViewerModal.astro';
 import courseDetails from '../../data/course-details.json';
 
 export function getStaticPaths() {
@@ -19,7 +20,7 @@ const { course, prevCourse, nextCourse } = Astro.props;
 
 <Layout
   title={`${course.title} — E-Portofolio PPG Prajabatan UPI`}
-  description={`Rincian mata kuliah ${course.title}, artefak tugas, LK, modul ajar, dan refleksi model 4F oleh Ahmad Nursyifa.`}
+  description={`Rincian mata kuliah ${course.title}, artefak tugas otentik, modul ajar, dan refleksi kritis model 4C oleh Ahmad Nursyifa.`}
 >
   <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
@@ -27,8 +28,8 @@ const { course, prevCourse, nextCourse } = Astro.props;
     <nav class="flex items-center gap-2 text-xs font-mono-tech text-slate-400 mb-8 overflow-x-auto whitespace-nowrap">
       <a href="/" class="hover:text-cyan-400">Beranda</a>
       <span>/</span>
-      <a href={`/matkul#${course.semester === 'pra' ? 'pra-semester' : course.semester === 'sem1' ? 'semester-1' : 'semester-2'}`} class="hover:text-cyan-400">
-        {course.semesterLabel}
+      <a href={`/artefak#${course.semester === 'pra' ? 'pra-semester' : course.semester === 'sem1' ? 'semester-1' : 'semester-2'}`} class="hover:text-cyan-400">
+        Artefak {course.semesterLabel}
       </a>
       <span>/</span>
       <span class="text-cyan-400 truncate">{course.title}</span>
@@ -61,11 +62,11 @@ const { course, prevCourse, nextCourse } = Astro.props;
         {course.title}
       </h1>
 
-      <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed max-w-4xl">
+      <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed max-w-4xl text-justify">
         {course.deskripsi}
       </p>
 
-      <!-- Key Artifact Card -->
+      <!-- Key Artifact Card (Direct Local Access) -->
       <div class="mt-6 p-4 rounded-2xl bg-slate-950/70 border border-amber-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div class="flex items-start gap-3">
           <span class="text-2xl select-none">⭐</span>
@@ -79,26 +80,46 @@ const { course, prevCourse, nextCourse } = Astro.props;
           </div>
         </div>
 
-        <a
-          href="https://drive.google.com/drive/folders/1ZT1LRBaCJXZfFc1C5wfXKy7mL5NesBkT?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold font-mono-tech flex items-center gap-1.5 transition-colors self-start sm:self-auto"
-        >
-          <span>📂 Akses di Google Drive</span>
-        </a>
+        <div class="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+          {course.featuredArtifactUrl && (
+            <button
+              type="button"
+              class="open-doc-btn px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold font-mono-tech flex items-center gap-1.5 transition-colors cursor-pointer"
+              data-name={course.featuredArtifact}
+              data-url={course.featuredArtifactUrl}
+              data-ext={course.featuredArtifactUrl.endsWith('.pdf') ? 'pdf' : 'document'}
+              data-size="Dokumen Inti"
+              data-mk={course.title}
+            >
+              <span>👁️ Pratinjau Artefak</span>
+            </button>
+          )}
+
+          {course.featuredArtifactUrl && (
+            <a
+              href={course.featuredArtifactUrl}
+              download
+              class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono-tech flex items-center gap-1.5 transition-colors"
+            >
+              <span>💾 Unduh Dokumen</span>
+            </a>
+          )}
+        </div>
       </div>
     </div>
 
     <!-- Topics and Artifacts Section -->
     <section class="mb-14">
-      <div class="flex items-center justify-between mb-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
         <div>
-          <div class="tech-badge mb-1">Rincian Modul & Penugasan</div>
+          <div class="tech-badge mb-1">Rincian Modul & Penugasan Otentik</div>
           <h2 class="text-xl sm:text-2xl font-bold text-white">
             Topik Pembelajaran & Bukti Karya (Artefak)
           </h2>
         </div>
+        <span class="text-xs font-mono-tech text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30 self-start sm:self-auto">
+          {course.topikList.length} Topik • {course.totalArtefakCount} Dokumen Lokal
+        </span>
       </div>
 
       <div class="space-y-6">
@@ -123,7 +144,7 @@ const { course, prevCourse, nextCourse } = Astro.props;
                 <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 transition-all flex flex-col justify-between group">
                   <div class="flex items-start gap-2.5">
                     <span class="text-lg select-none">
-                      {art.ext === '.pdf' ? '📕' : art.ext === '.docx' || art.ext === '.doc' ? '📘' : art.ext === '.pptx' ? '📙' : '📄'}
+                      {art.ext === '.pdf' ? '📕' : art.ext === '.docx' || art.ext === '.doc' ? '📘' : art.ext === '.pptx' ? '📙' : art.ext === '.xlsx' ? '📊' : art.ext === '.jpg' || art.ext === '.png' || art.ext === '.jpeg' ? '🖼️' : '📄'}
                     </span>
                     <div class="flex-1 min-w-0">
                       <h4 class="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-cyan-300 transition-colors line-clamp-2">
@@ -142,15 +163,16 @@ const { course, prevCourse, nextCourse } = Astro.props;
                       type="button"
                       class="open-doc-btn px-2.5 py-1 rounded-md bg-cyan-950/60 hover:bg-cyan-900/80 text-cyan-300 text-[11px] font-mono-tech font-semibold border border-cyan-500/20 cursor-pointer"
                       data-name={art.name}
-                      data-ext={art.ext}
+                      data-url={art.url}
+                      data-ext={art.ext?.replace('.', '') || 'pdf'}
+                      data-size={art.size}
                       data-mk={course.title}
                     >
                       Pratinjau
                     </button>
                     <a
-                      href="https://drive.google.com/drive/folders/1ZT1LRBaCJXZfFc1C5wfXKy7mL5NesBkT?usp=sharing"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={art.url}
+                      download={art.name}
                       class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] font-mono-tech transition-colors"
                     >
                       Unduh
@@ -164,9 +186,14 @@ const { course, prevCourse, nextCourse } = Astro.props;
       </div>
     </section>
 
-    <!-- 4F Reflection Section -->
+    <!-- 4C Reflection Section -->
     <section class="mb-14">
-      <Reflection4F refleksi={course.refleksi} />
+      <ReflectionViewer
+        refleksi={course.refleksi}
+        refleksi4C={course.refleksi4C}
+        courseTitle={course.title}
+        docUrl={course.refleksi4C?.docx_url}
+      />
     </section>
 
     <!-- Previous and Next Course Navigation -->
@@ -201,6 +228,8 @@ const { course, prevCourse, nextCourse } = Astro.props;
     </nav>
 
   </div>
+
+  <ArtifactViewerModal />
 </Layout>
 
 <script is:inline>
@@ -208,15 +237,18 @@ const { course, prevCourse, nextCourse } = Astro.props;
     document.querySelectorAll('.open-doc-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const name = btn.getAttribute('data-name');
+        const url = btn.getAttribute('data-url');
         const mk = btn.getAttribute('data-mk');
         const ext = btn.getAttribute('data-ext');
+        const size = btn.getAttribute('data-size') || '';
         
         window.dispatchEvent(new CustomEvent('open-artifact', {
           detail: {
             title: name,
-            url: 'https://drive.google.com/drive/folders/1ZT1LRBaCJXZfFc1C5wfXKy7mL5NesBkT?usp=sharing',
+            url: url,
             type: ext?.replace('.', '') || 'pdf',
-            meta: `${mk} • Artefak PPG`
+            size: size,
+            meta: `${mk} • Dokumen Otentik PPG`
           }
         }));
       });

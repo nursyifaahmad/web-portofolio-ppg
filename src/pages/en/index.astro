@@ -7,11 +7,42 @@ import profil from '../../data/profil.json';
 
 <Layout
   title={`${profil.nama}, ${profil.gelar} — E-Portfolio PPG Pre-Service Teacher UPI`}
-  description={`Interactive E-Portfolio of PPG Pre-Service Teacher in Informatics UPI 2026 Ahmad Nursyifa with 427+ artifacts, lesson plans, and 4F reflections.`}
+  description={`Interactive E-Portfolio of PPG Pre-Service Teacher in Informatics UPI 2026 Ahmad Nursyifa with 1,000 authentic artifacts, lesson plans, and 4C critical reflections.`}
   isEn={true}
 >
   <Hero isEn={true} />
 
   <!-- Animated Timeline Section -->
   <Timeline isEn={true} />
+
+  <!-- Quick CTA Banner to Gallery & Innovations -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="tech-card p-8 sm:p-12 relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-cyan-950/50 border border-cyan-500/30 text-center">
+      <div class="max-w-2xl mx-auto space-y-4">
+        <span class="tech-badge">
+          Visual Evidence & Interactive Highlights
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">
+          Explore Real Classroom Practice & Run the CLI
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Browse authentic teaching photo records at SMAN 15 Bandung, AlgoCraft gamification trials, or press <kbd class="px-2 py-0.5 rounded bg-slate-800 text-cyan-400 font-mono-tech border border-cyan-500/20 text-xs">Ctrl+K</kbd> / <kbd class="px-2 py-0.5 rounded bg-slate-800 text-cyan-400 font-mono-tech border border-cyan-500/20 text-xs">`</kbd> for the interactive terminal.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <a
+            href="/en/galeri"
+            class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/20 transition-all"
+          >
+            Open PPL Photo Gallery
+          </a>
+          <a
+            href="/en/inovasi"
+            class="px-6 py-3 rounded-xl border border-cyan-500/40 bg-slate-900/80 hover:bg-slate-800 text-cyan-300 font-mono-tech font-bold text-sm transition-all"
+          >
+            View AlgoCraft & SIDAKAN
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

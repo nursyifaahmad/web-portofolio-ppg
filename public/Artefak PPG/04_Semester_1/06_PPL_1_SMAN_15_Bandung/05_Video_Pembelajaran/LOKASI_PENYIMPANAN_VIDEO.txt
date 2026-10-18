@@ -1,0 +1,319 @@
+================================================================================
+  DAFTAR & LOKASI PENYIMPANAN VIDEO: PPL I SMAN 15 BANDUNG & MATERI SINEMATOGRAFI
+  Disusun oleh: Ahmad Nursyifa, S.Kom. (NIM: 2530712)
+  Program Studi PPG Prajabatan Informatika - Universitas Pendidikan Indonesia
+================================================================================
+
+CATATAN:
+Untuk menghemat ruang penyimpanan disk, file video berkapasitas besar tidak
+disalin ganda ke dalam folder ini. Anda dapat membuka file video asli secara
+langsung melalui alamat lokasi penyimpanan (Path) di bawah ini:
+
+Total File Video : 60 File
+Total Ukuran     : 12088.93 MB
+
+--------------------------------------------------------------------------------
+RINCIAN LOKASI FILE VIDEO:
+--------------------------------------------------------------------------------
+
+01. Nama File : VID_20260506_103048.mp4
+    Ukuran    : 303.31 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_103048.mp4
+
+02. Nama File : VID_20260506_103508.mp4
+    Ukuran    : 255.19 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_103508.mp4
+
+03. Nama File : VID_20260506_104220.mp4
+    Ukuran    : 124.05 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_104220.mp4
+
+04. Nama File : VID_20260506_104529.mp4
+    Ukuran    : 215.44 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_104529.mp4
+
+05. Nama File : VID_20260506_111010.mp4
+    Ukuran    : 482.16 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_111010.mp4
+
+06. Nama File : VID_20260506_111113.mp4
+    Ukuran    : 68.03 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_111113.mp4
+
+07. Nama File : VID_20260506_111258.mp4
+    Ukuran    : 118.20 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_111258.mp4
+
+08. Nama File : VID_20260506_111627.mp4
+    Ukuran    : 2.39 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_111627.mp4
+
+09. Nama File : VID_20260506_111929.mp4
+    Ukuran    : 216.86 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_111929.mp4
+
+10. Nama File : VID_20260506_112238.mp4
+    Ukuran    : 224.86 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_112238.mp4
+
+11. Nama File : VID_20260506_112435.mp4
+    Ukuran    : 79.49 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_112435.mp4
+
+12. Nama File : VID_20260506_112724.mp4
+    Ukuran    : 134.75 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_112724.mp4
+
+13. Nama File : VID_20260506_112924.mp4
+    Ukuran    : 122.68 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_112924.mp4
+
+14. Nama File : VID_20260506_113309.mp4
+    Ukuran    : 263.97 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_113309.mp4
+
+15. Nama File : VID_20260506_113700.mp4
+    Ukuran    : 251.11 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_113700.mp4
+
+16. Nama File : VID_20260506_114115.mp4
+    Ukuran    : 257.53 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_114115.mp4
+
+17. Nama File : VID_20260506_114527.mp4
+    Ukuran    : 170.32 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_114527.mp4
+
+18. Nama File : VID_20260506_114820.mp4
+    Ukuran    : 144.87 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_114820.mp4
+
+19. Nama File : VID_20260506_115321.mp4
+    Ukuran    : 225.68 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_115321.mp4
+
+20. Nama File : VID_20260506_115741.mp4
+    Ukuran    : 237.83 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\06-05-2026\VID_20260506_115741.mp4
+
+21. Nama File : VID20260508074036.mp4
+    Ukuran    : 326.96 MB
+    Tanggal   : 2026-05-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\08-05-2026\VID20260508074036.mp4
+
+22. Nama File : VID20260508074829.mp4
+    Ukuran    : 676.67 MB
+    Tanggal   : 2026-05-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\08-05-2026\VID20260508074829.mp4
+
+23. Nama File : VID20260508075638.mp4
+    Ukuran    : 426.70 MB
+    Tanggal   : 2026-05-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\08-05-2026\VID20260508075638.mp4
+
+24. Nama File : VID20260508080517.mp4
+    Ukuran    : 148.84 MB
+    Tanggal   : 2026-05-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\08-05-2026\VID20260508080517.mp4
+
+25. Nama File : VID20260508080752.mp4
+    Ukuran    : 617.43 MB
+    Tanggal   : 2026-05-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\08-05-2026\VID20260508080752.mp4
+
+26. Nama File : 1.mp4
+    Ukuran    : 263.38 MB
+    Tanggal   : 2026-04-09
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\10-04-2026\1.mp4
+
+27. Nama File : 2.mp4
+    Ukuran    : 56.51 MB
+    Tanggal   : 2026-04-09
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\10-04-2026\2.mp4
+
+28. Nama File : 3.mp4
+    Ukuran    : 95.69 MB
+    Tanggal   : 2026-04-09
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\10-04-2026\3.mp4
+
+29. Nama File : 4.mp4
+    Ukuran    : 40.33 MB
+    Tanggal   : 2026-04-09
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\10-04-2026\4.mp4
+
+30. Nama File : 5.mp4
+    Ukuran    : 86.46 MB
+    Tanggal   : 2026-04-09
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\10-04-2026\5.mp4
+
+31. Nama File : 6.mp4
+    Ukuran    : 106.92 MB
+    Tanggal   : 2026-04-09
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\10-04-2026\6.mp4
+
+32. Nama File : 1.mp4
+    Ukuran    : 301.87 MB
+    Tanggal   : 2026-04-28
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\29-04-2026\1.mp4
+
+33. Nama File : 2.mp4
+    Ukuran    : 561.49 MB
+    Tanggal   : 2026-04-28
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\29-04-2026\2.mp4
+
+34. Nama File : 3.mp4
+    Ukuran    : 1125.19 MB
+    Tanggal   : 2026-04-28
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\29-04-2026\3.mp4
+
+35. Nama File : 4.mp4
+    Ukuran    : 367.10 MB
+    Tanggal   : 2026-04-28
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\29-04-2026\4.mp4
+
+36. Nama File : 5.mp4
+    Ukuran    : 108.71 MB
+    Tanggal   : 2026-04-28
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\29-04-2026\5.mp4
+
+37. Nama File : 6.mp4
+    Ukuran    : 1589.60 MB
+    Tanggal   : 2026-04-28
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\29-04-2026\6.mp4
+
+38. Nama File : VID_20260429_120157.mp4
+    Ukuran    : 160.47 MB
+    Tanggal   : 2026-04-28
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\29-04-2026\VID_20260429_120157.mp4
+
+39. Nama File : Meet 2.mp4
+    Ukuran    : 404.91 MB
+    Tanggal   : 2026-05-21
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\Meet 2.mp4
+
+40. Nama File : Meet 3 29-04-2026.mp4
+    Ukuran    : 432.15 MB
+    Tanggal   : 2026-05-21
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\VIDEO PEMBELAJARAN\Meet 3 29-04-2026.mp4
+
+41. Nama File : Apa Itu Rule of Thirds - Bahas Fotografi #1 - LensifyHub ID (720p, h264).mp4
+    Ukuran    : 4.05 MB
+    Tanggal   : 2026-04-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\Apa Itu Rule of Thirds - Bahas Fotografi #1 - LensifyHub ID (720p, h264).mp4
+
+42. Nama File : 90s Vintage Film Look - Safford Films (720p, h264).mp4
+    Ukuran    : 4.59 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\90s Vintage Film Look - Safford Films (720p, h264).mp4
+
+43. Nama File : Batman - Straight Cut - av college (720p, h264).mp4
+    Ukuran    : 1.34 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\Batman - Straight Cut - av college (720p, h264).mp4
+
+44. Nama File : Bright & Airy Lightroom Presets & Video LUTs - Pixmellow (720p, h264).mp4
+    Ukuran    : 0.59 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\Bright & Airy Lightroom Presets & Video LUTs - Pixmellow (720p, h264).mp4
+
+45. Nama File : How To DENOISE Grainy VIDEO In Davinci Resolve - Davinci Made Simple (720p, h264).mp4
+    Ukuran    : 2.52 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\How To DENOISE Grainy VIDEO In Davinci Resolve - Davinci Made Simple (720p, h264).mp4
+
+46. Nama File : J-Cuts - av college (720p, h264).mp4
+    Ukuran    : 2.58 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\J-Cuts - av college (720p, h264).mp4
+
+47. Nama File : Jump Cut - Schindler's List (1993).mp4
+    Ukuran    : 9.16 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\Jump Cut - Schindler's List (1993).mp4
+
+48. Nama File : L Cuts - av college (720p, h264).mp4
+    Ukuran    : 6.29 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\L Cuts - av college (720p, h264).mp4
+
+49. Nama File : Moody Dark Footage -  Short Horror Film - Nocturn (720p, h264).mp4
+    Ukuran    : 9.89 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\Moody Dark Footage -  Short Horror Film - Nocturn (720p, h264).mp4
+
+50. Nama File : Silent Forest - Cinematic Footage Shot on Blackmagic Pocket Cinema Camera 4K (BMPCC 4K).mp4
+    Ukuran    : 4.15 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\Silent Forest - Cinematic Footage Shot on Blackmagic Pocket Cinema Camera 4K (BMPCC 4K).mp4
+
+51. Nama File : SMASH CUT  Arnold and Fire - WCX (1080p, h264).mp4
+    Ukuran    : 15.40 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\SMASH CUT  Arnold and Fire - WCX (1080p, h264).mp4
+
+52. Nama File : THE MATCH CUT - Splicing Pixels (720p, h264).mp4
+    Ukuran    : 7.33 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\THE MATCH CUT - Splicing Pixels (720p, h264).mp4
+
+53. Nama File : Tutorial Edit Video Cinematic Color Grading Di Capcut  Capcut Tutorial - XXBAYU CODE (720p, h264).mp4
+    Ukuran    : 29.48 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\Tutorial Edit Video Cinematic Color Grading Di Capcut  Capcut Tutorial - XXBAYU CODE (720p, h264).mp4
+
+54. Nama File : You've Got Mail (1998) [Cross Cut Example] - isnt (360p, h264).mp4
+    Ukuran    : 0.74 MB
+    Tanggal   : 2026-05-05
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\EDITING\You've Got Mail (1998) [Cross Cut Example] - isnt (360p, h264).mp4
+
+55. Nama File : Flip Book  Mr. Bean Cartoon Flipbook #9  Scared Bean Flip Book Artist 2020 - Flip Book Artist (1080p, h264).mp4
+    Ukuran    : 39.62 MB
+    Tanggal   : 2026-04-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\Flip Book  Mr. Bean Cartoon Flipbook #9  Scared Bean Flip Book Artist 2020 - Flip Book Artist (1080p, h264).mp4
+
+56. Nama File : Iklan Layanan Masyarakat.mp4
+    Ukuran    : 16.29 MB
+    Tanggal   : 2026-04-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\Iklan Layanan Masyarakat.mp4
+
+57. Nama File : Iklan Promosi Produk.mp4
+    Ukuran    : 6.95 MB
+    Tanggal   : 2026-04-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\Iklan Promosi Produk.mp4
+
+58. Nama File : Profil Sekolah SMK Generasi Madani - SMK Generasi Madani (1080p, h264).mp4
+    Ukuran    : 104.36 MB
+    Tanggal   : 2026-04-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\Profil Sekolah SMK Generasi Madani - SMK Generasi Madani (1080p, h264).mp4
+
+59. Nama File : Rack Focus Example - Matthew Jordan (1080p, h264).mp4
+    Ukuran    : 6.95 MB
+    Tanggal   : 2026-04-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\Rack Focus Example - Matthew Jordan (1080p, h264).mp4
+
+60. Nama File : Video Profil Sekolah   Ernesta Perangin Angin  SD IGNATIUS MEDAN JOHOR - Komdik KAM (360p, h264).mp4
+    Ukuran    : 20.55 MB
+    Tanggal   : 2026-04-07
+    Lokasi    : D:\PPG\SEMESTER 1\PPL\SINEMATOGRAFI\Video Profil Sekolah   Ernesta Perangin Angin  SD IGNATIUS MEDAN JOHOR - Komdik KAM (360p, h264).mp4
+
+================================================================================

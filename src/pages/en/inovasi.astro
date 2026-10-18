@@ -1,0 +1,241 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ArtifactViewerModal from '../../components/ArtifactViewerModal.astro';
+import inovasiList from '../../data/inovasi.json';
+import profil from '../../data/profil.json';
+
+const algocraft = inovasiList.find(i => i.id === 'algocraft');
+const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
+---
+
+<Layout
+  title={`Learning Innovation & EdTech — ${profil.nama}, ${profil.gelar}`}
+  description="Educational Innovations, AlgoCraft Web Gamified Platform, SIDAKAN IoT Smart Farming, and Classroom Action Research (CAR) at SMAN 15 Bandung."
+  isEn={true}
+>
+  <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+    <!-- Page Header -->
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="tech-badge mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+        Featured Works & Educational Technology
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        Learning Innovations & Tech Works
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
+        Integrating modern pedagogy, software engineering, and the Internet of Things (IoT) to resolve real-world secondary school Informatics learning hurdles and community service needs.
+      </p>
+    </div>
+
+    <!-- FEATURED HERO: ALGOCRAFT -->
+    {algocraft && (
+      <section class="tech-card p-6 sm:p-10 relative overflow-hidden border border-cyan-500/40 bg-gradient-to-br from-slate-900/90 via-slate-950/90 to-cyan-950/20 shadow-2xl">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          
+          <!-- Column Description -->
+          <div class="lg:col-span-7 space-y-5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-3 py-1 rounded-full text-xs font-mono-tech font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                ⭐ {algocraft.highlightEn || algocraft.highlight}
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono-tech text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                {algocraft.status}
+              </span>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              {algocraft.titleEn || algocraft.title}
+            </h2>
+
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed text-justify">
+              {algocraft.deskripsiEn || algocraft.deskripsi}
+            </p>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
+              {(algocraft.statsEn || algocraft.stats).map(s => (
+                <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                  <span class="text-[10px] font-mono-tech uppercase text-slate-400 block">{s.label}</span>
+                  <span class="text-xs sm:text-sm font-bold text-cyan-300 block truncate mt-0.5">{s.value}</span>
+                </div>
+              ))}
+            </div>
+
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              {algocraft.techStack.map(t => (
+                <span class="px-2.5 py-1 rounded-md text-xs font-mono-tech bg-slate-900 border border-slate-800 text-slate-300">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center gap-3 pt-3">
+              <a
+                href={algocraft.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs sm:text-sm font-mono-tech shadow-lg shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5"
+              >
+                <span>🚀 Visit Live Platform</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+
+              <a
+                href="/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/LKPD_PBL_Siklus_I_Berpikir_Algoritmik_X5.pdf"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/40 text-slate-200 hover:text-cyan-300 font-mono-tech text-xs font-semibold transition-all"
+              >
+                <span>📄 Algorithmic Thinking LKPD</span>
+              </a>
+
+              <a
+                href="/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/SKENARIO PEMBELAJARAN SIKLUS I.pdf"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/40 text-slate-200 hover:text-cyan-300 font-mono-tech text-xs font-semibold transition-all"
+              >
+                <span>📑 CAR Scenario</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column Visual Preview -->
+          <div class="lg:col-span-5">
+            <div class="relative group rounded-2xl overflow-hidden border border-cyan-500/30 bg-slate-950 shadow-2xl">
+              <img
+                src={algocraft.image}
+                alt={algocraft.titleEn || algocraft.title}
+                class="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+              
+              <div class="absolute bottom-4 left-4 right-4">
+                <div class="p-3 rounded-xl bg-slate-900/90 backdrop-blur-md border border-cyan-500/30 flex items-center justify-between">
+                  <div>
+                    <span class="text-[10px] font-mono-tech text-cyan-400 block uppercase font-bold">Empirical Classroom Deployment</span>
+                    <span class="text-xs text-white font-medium">Cycle I & II Practice in SMAN 15 Bandung Computer Lab</span>
+                  </div>
+                  <a
+                    href={algocraft.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="p-2 rounded-lg bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition-colors"
+                    aria-label="Visit AlgoCraft"
+                  >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    )}
+
+    <!-- OTHER INNOVATIONS GRID -->
+    <div class="space-y-8">
+      <div class="border-b border-slate-800 pb-4">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Technology Innovations, Research & Pedagogy
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">
+          Applied IoT engineering, classroom action research outputs, and differentiated pedagogical kits.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+        {otherInovasi.map((item) => (
+          <div class="tech-card p-6 flex flex-col justify-between group relative overflow-hidden border border-slate-800 hover:border-slate-700">
+            
+            <div>
+              <!-- Image Banner -->
+              <div class="relative h-48 rounded-xl overflow-hidden mb-5 border border-slate-800 bg-slate-950">
+                <img
+                  src={item.image}
+                  alt={item.titleEn || item.title}
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                <span class={`absolute top-3 left-3 text-[10px] font-mono-tech font-bold uppercase px-2.5 py-1 rounded-md border ${item.badgeColor}`}>
+                  {item.categoryEn || item.category}
+                </span>
+              </div>
+
+              <!-- Title & Highlight -->
+              <div class="mb-3">
+                <span class="text-xs font-mono-tech text-amber-400 block mb-1">
+                  ⭐ {item.highlightEn || item.highlight}
+                </span>
+                <h4 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                  {item.titleEn || item.title}
+                </h4>
+              </div>
+
+              <!-- Description -->
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify line-clamp-4 mb-4">
+                {item.deskripsiEn || item.deskripsi}
+              </p>
+
+              <!-- Stats Highlights -->
+              <div class="grid grid-cols-2 gap-2 mb-4">
+                {(item.statsEn || item.stats).slice(0, 2).map(s => (
+                  <div class="p-2 rounded-lg bg-slate-950/70 border border-slate-800/80">
+                    <span class="text-[9px] font-mono-tech uppercase text-slate-400 block">{s.label}</span>
+                    <span class="text-xs font-bold text-slate-200 block truncate">{s.value}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-1 mb-5">
+                {item.techStack.map(t => (
+                  <span class="text-[10px] font-mono-tech px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Featured Documents / Links -->
+            <div class="pt-4 border-t border-slate-800/80 space-y-2">
+              <span class="text-[10px] font-mono-tech uppercase text-slate-400 block font-bold">
+                Authentic Artifact Documents:
+              </span>
+              <div class="space-y-1.5">
+                {item.featuredArtifacts.map(doc => (
+                  <a
+                    href={doc.url}
+                    target="_blank"
+                    class="flex items-center justify-between text-xs text-cyan-400 hover:text-cyan-300 p-2 rounded-lg bg-slate-900/60 hover:bg-slate-900 border border-slate-800 transition-colors group/link"
+                  >
+                    <span class="truncate pr-2 font-medium">{doc.name}</span>
+                    <svg class="w-3.5 h-3.5 shrink-0 opacity-70 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+
+  <ArtifactViewerModal />
+</Layout>

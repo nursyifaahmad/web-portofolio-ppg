@@ -1,0 +1,191 @@
+[
+  {
+    "id": "algocraft",
+    "title": "AlgoCraft: Media Pembelajaran Gamifikasi Berbasis Web & PBL",
+    "titleEn": "AlgoCraft: Gamified Web-Based PBL Learning Platform",
+    "category": "Web App & Gamifikasi Edukasi",
+    "categoryEn": "Educational Web App & Gamification",
+    "url": "https://algocraft.ahmadnursyifa.my.id",
+    "status": "Live Production",
+    "highlight": "Platform Utama PTK SMAN 15 Bandung Kelas X-5",
+    "highlightEn": "Core Action Research Platform at SMAN 15 Bandung Class X-5",
+    "deskripsi": "Platform web edukasi interaktif berbasis Problem-Based Learning (PBL) yang dirancang khusus untuk memecahkan kesulitan belajar Berpikir Komputasional dan Algoritma murid kelas X-5 SMAN 15 Bandung. Mengusung alur cerita kontekstual 'Petualangan Membangun Kantin Digital Pintar' dengan modul interaktif logika pemrograman, evaluasi kode otomatis, dan sistem pencapaian (badges/XP).",
+    "deskripsiEn": "An interactive Problem-Based Learning (PBL) educational web platform designed specifically to overcome computational thinking and algorithm learning hurdles for Grade X-5 students at SMAN 15 Bandung. Features a contextual storyline 'Building a Smart Digital Canteen' with interactive logic modules, automated code evaluation, and achievement mechanics (badges/XP).",
+    "techStack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Problem-Based Learning"
+    ],
+    "stats": [
+      { "label": "Subjek Uji Coba", "value": "Kelas X-5 SMAN 15" },
+      { "label": "Model Belajar", "value": "Gamified PBL" },
+      { "label": "Akses Live", "value": "algocraft.ahmadnursyifa.my.id" },
+      { "label": "Kenaikan N-Gain", "value": "Signifikan (Siklus I & II)" }
+    ],
+    "statsEn": [
+      { "label": "Target Group", "value": "Class X-5 SMAN 15 Bandung" },
+      { "label": "Pedagogy", "value": "Gamified PBL" },
+      { "label": "Live Access", "value": "algocraft.ahmadnursyifa.my.id" },
+      { "label": "Learning Impact", "value": "Significant N-Gain Increase" }
+    ],
+    "featuredArtifacts": [
+      {
+        "name": "LKPD PBL Siklus I Berpikir Algoritmik X5",
+        "url": "/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/LKPD_PBL_Siklus_I_Berpikir_Algoritmik_X5.pdf"
+      },
+      {
+        "name": "Skenario Pembelajaran Siklus I",
+        "url": "/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/SKENARIO PEMBELAJARAN SIKLUS I.pdf"
+      },
+      {
+        "name": "Slide Presentasi PBL X-5",
+        "url": "/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/Slide_Presentasi_Siklus_I_PBL_X5.pdf"
+      }
+    ],
+    "image": "/img/galeri/ppl2-sman15-05.jpg",
+    "badgeColor": "border-cyan-500/40 text-cyan-300 bg-cyan-950/60"
+  },
+  {
+    "id": "sidakan",
+    "title": "SIDAKAN: IoT Smart Farming & Aquaponics Monitoring",
+    "titleEn": "SIDAKAN: IoT Smart Farming & Aquaponics System",
+    "category": "Internet of Things (IoT) & STEM",
+    "categoryEn": "Internet of Things (IoT) & STEM",
+    "url": null,
+    "status": "Implemented & Deployed",
+    "highlight": "Projek Kepemimpinan Gelombang 1 Kelompok A1 UPI",
+    "highlightEn": "Leadership Project Wave 1 Group A1 UPI",
+    "deskripsi": "Sistem telemetri cerdas pemantauan akuaponik terintegrasi sensor pH air, suhu lingkungan, kelembaban, dan sensor nutrisi TDS berbasis mikrokontroler Arduino/ESP32. Dilengkapi aktuator otomatis dan dashboard pemantauan kondisi lingkungan budidaya untuk mewujudkan ketahanan pangan ramah lingkungan di lingkungan sekolah dan komunitas binaan.",
+    "deskripsiEn": "An integrated smart IoT telemetry and monitoring system for aquaponics, equipped with pH, water/ambient temperature, and TDS nutrient sensors using Arduino/ESP32 microcontrollers. Automates aeration/pumping and displays real-time environmental metrics for sustainable school and community agriculture.",
+    "techStack": [
+      "Arduino / ESP32",
+      "C++ / Wiring (.ino)",
+      "IoT Sensors (pH, Temp, TDS)",
+      "Relay Actuators",
+      "Smart Farming"
+    ],
+    "stats": [
+      { "label": "Kategori", "value": "Hardware & IoT" },
+      { "label": "Tim Pengembang", "value": "Kelompok A1 UPI" },
+      { "label": "Firmware Source", "value": "SIDAKAN_Firmware.ino" },
+      { "label": "Dampak Sosial", "value": "P2M & SDGs Ketahanan Pangan" }
+    ],
+    "statsEn": [
+      { "label": "Category", "value": "Hardware & IoT" },
+      { "label": "Dev Team", "value": "UPI Group A1" },
+      { "label": "Firmware Source", "value": "SIDAKAN_Firmware.ino" },
+      { "label": "Social Impact", "value": "Community P2M & SDGs" }
+    ],
+    "featuredArtifacts": [
+      {
+        "name": "Proposal Final Projek Kepemimpinan SIDAKAN",
+        "url": "/Artefak PPG/05_Semester_2/06_Projek_Kepemimpinan_SIDAKAN/00_Artefak_Unggulan_Proposal_Final/PROPOSAL SIDAKAN PK A1 FINAL.pdf"
+      },
+      {
+        "name": "Firmware Mikrokontroler SIDAKAN (.ino)",
+        "url": "/Artefak PPG/05_Semester_2/06_Projek_Kepemimpinan_SIDAKAN/03_SIDAKAN_Firmware_Code/SIDAKAN_Firmware.ino"
+      },
+      {
+        "name": "Poster Y-Chart Mengawasi Pangan dengan IoT",
+        "url": "/Artefak PPG/05_Semester_2/06_Projek_Kepemimpinan_SIDAKAN/05_Dokumentasi_Foto_dan_Poster/Y_Chart-sidakan_mengawasi_pangan_dengan_iot.png"
+      }
+    ],
+    "image": "/img/galeri/sidakan-IMG_3400.jpeg",
+    "badgeColor": "border-emerald-500/40 text-emerald-300 bg-emerald-950/60"
+  },
+  {
+    "id": "ptk-sman15",
+    "title": "Penelitian Tindakan Kelas (PTK): Siklus I & II Berpikir Algoritmik",
+    "titleEn": "Classroom Action Research (CAR): Algorithmic Thinking Cycles I & II",
+    "category": "Riset Tindakan & Pedagogi Berdiferensiasi",
+    "categoryEn": "Action Research & Differentiated Pedagogy",
+    "url": null,
+    "status": "Empirical Research Completed",
+    "highlight": "Implementasi Kelas X-5 SMAN 15 Bandung",
+    "highlightEn": "Class X-5 Implementation at SMAN 15 Bandung",
+    "deskripsi": "Penerapan model Problem-Based Learning yang dikombinasikan dengan diferensiasi proses dan instrumen refleksi berkala. Meneliti transformasi partisipasi aktif murid, reduksi kecemasan koding, dan penguatan 4 pilar Computational Thinking (Dekomposisi, Pengenalan Pola, Abstraksi, dan Perancangan Algoritma) pada materi struktur data dan logika pemrograman.",
+    "deskripsiEn": "Implementation of Problem-Based Learning combined with process differentiation and structured reflection rubrics. Explores student engagement, coding anxiety reduction, and computational thinking mastery (Decomposition, Pattern Recognition, Abstraction, Algorithm Design).",
+    "techStack": [
+      "PBL Model",
+      "Differentiated Instruction",
+      "Rubrik Analitik",
+      "Statistik N-Gain",
+      "Google Forms / Sheets"
+    ],
+    "stats": [
+      { "label": "Subjek Riset", "value": "36 Murid X-5 SMAN 15" },
+      { "label": "Fokus Materi", "value": "Berpikir Algoritmik" },
+      { "label": "Siklus Riset", "value": "Pra-Tindakan, Siklus I & II" },
+      { "label": "Metode", "value": "Kualitatif & Kuantitatif" }
+    ],
+    "statsEn": [
+      { "label": "Sample", "value": "36 Students (Class X-5)" },
+      { "label": "Focus Area", "value": "Algorithmic Thinking" },
+      { "label": "Cycles", "value": "Pre-Action, Cycle I & II" },
+      { "label": "Approach", "value": "Mixed Methods Research" }
+    ],
+    "featuredArtifacts": [
+      {
+        "name": "Modul Ajar Siklus I PBL Berpikir Algoritmik",
+        "url": "/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/Modul_Ajar_Siklus_I_PBL_Berpikir_Algoritmik_X5_Revisi_Alokasi_20Menit.docx"
+      },
+      {
+        "name": "Asesmen Individu Akhir Siklus I & Rubrik",
+        "url": "/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/Asesmen_Individu_Akhir_Siklus_I.pdf"
+      },
+      {
+        "name": "Format Pengolahan Data & Komparasi Siklus I (.xlsx)",
+        "url": "/Artefak PPG/05_Semester_2/05_PPL_2_Mandiri_SMAN_15_Bandung/02_Penelitian_Tindakan_Kelas_PTK/Format_Pengolahan_Data_Siklus_I_dan_Perbandingan_Pra_S1_X5.xlsx"
+      }
+    ],
+    "image": "/img/galeri/ppl2-sman15-11.jpg",
+    "badgeColor": "border-purple-500/40 text-purple-300 bg-purple-950/60"
+  },
+  {
+    "id": "modul-berdiferensiasi",
+    "title": "Desain Pembelajaran Berdiferensiasi (Konten, Proses, Produk)",
+    "titleEn": "Differentiated Instructional Design (Content, Process, Product)",
+    "category": "Desain Instruksional & Kurikulum Merdeka",
+    "categoryEn": "Instructional Design & Merdeka Curriculum",
+    "url": null,
+    "status": "Published in Artifacts",
+    "highlight": "Pendekatan Teaching at the Right Level (TaRL)",
+    "highlightEn": "Teaching at the Right Level (TaRL) Approach",
+    "deskripsi": "Paket perangkat ajar berdiferensiasi lengkap: modul ajar terintegrasi profil pelajar Pancasila, pemetaan gaya belajar audio-visual-kinestetik, LKPD bertingkat (scaffolding), dan instrumen asesmen diagnostik hingga formatif berkelanjutan untuk mata pelajaran Informatika SMA Fase E.",
+    "deskripsiEn": "Comprehensive differentiated teaching kits: instructional modules aligned with Pancasila student profiles, diagnostic readiness mapping, tiered worksheets (scaffolding), and formative assessment instruments for High School Phase E Informatics.",
+    "techStack": [
+      "Canva for Education",
+      "Google Docs / PDF",
+      "Rubrik Diferensiasi",
+      "TaRL Framework",
+      "Quizizz / Kahoot"
+    ],
+    "stats": [
+      { "label": "Modul Ajar", "value": "15+ Modul Lengkap" },
+      { "label": "Diferensiasi", "value": "Konten, Proses & Produk" },
+      { "label": "Jenjang", "value": "SMA / Fase E" },
+      { "label": "Format Dokumen", "value": "PDF, DOCX & Slides" }
+    ],
+    "statsEn": [
+      { "label": "Lesson Plans", "value": "15+ Complete Units" },
+      { "label": "Differentiation", "value": "Content, Process, Product" },
+      { "label": "Grade Level", "value": "High School / Phase E" },
+      { "label": "Document Formats", "value": "PDF, DOCX & Slides" }
+    ],
+    "featuredArtifacts": [
+      {
+        "name": "Modul Ajar Berdiferensiasi LK 3.3",
+        "url": "/Artefak PPG/04_Semester_1/05_Pembelajaran_Berdiferensiasi/00_Artefak_Unggulan/LK 3.3. Menyusun modul ajar berdiferensiasi - Ahmad Nursyifa.pdf"
+      },
+      {
+        "name": "Rancangan Pembelajaran & Asesmen Informatika",
+        "url": "/Artefak PPG/04_Semester_1/04_Prinsip_Pengajaran_dan_Asesmen_I/00_Artefak_Unggulan/T7_Unggah Artefak Rancangan Pembelajaran dan Asesmen_Ahmad Nursyifa.pdf"
+      }
+    ],
+    "image": "/img/galeri/ppl-dokumentasi-07.jpeg",
+    "badgeColor": "border-amber-500/40 text-amber-300 bg-amber-950/60"
+  }
+]

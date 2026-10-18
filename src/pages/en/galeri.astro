@@ -1,86 +1,118 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ArtifactViewerModal from '../../components/ArtifactViewerModal.astro';
 import galeri from '../../data/galeri.json';
+import profil from '../../data/profil.json';
+
+const immichAlbumUrl = "https://foto.ahmadnursyifa.my.id/share/kr8hiiBZLT426D9lx8L0ukouIzPXhT8hAHvNJkst-TlxNSA7sJwtJS_CKxSFtzLBc78";
 ---
 
 <Layout
-  title="Teaching Practice & Field Gallery (PPL) — SMAN 15 Bandung"
-  description="Visual documentation of independent teaching practice, assistant teaching, and mentor supervision at SMAN 15 Bandung."
+  title={`Field Practice & Activities Gallery — ${profil.nama}, ${profil.gelar}`}
+  description="Visual documentation of independent teaching practice, Class X-5 algorithmic learning, SIDAKAN IoT exhibition, and mentor supervision at SMAN 15 Bandung."
   isEn={true}
 >
-  <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
     
-    <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-xs font-mono-tech text-slate-400 mb-8">
-      <a href="/en" class="hover:text-cyan-400">Home</a>
-      <span>/</span>
-      <span class="text-cyan-400">PPL Photo Gallery</span>
-    </nav>
-
     <!-- Header -->
-    <div class="mb-10">
-      <div class="tech-badge mb-2">Field Documentation</div>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="tech-badge mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+        Empirical Field Documentation
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
         Classroom Practice & PPL Activities Gallery
       </h1>
-      <p class="text-sm sm:text-base text-slate-300 mt-2 max-w-3xl leading-relaxed">
-        Visual records of teaching and learning activities at computer labs and classrooms of <strong>SMAN 15 Bandung</strong>, guided by Senior Mentor <strong>Andre Dewantara, S.T., Gr.</strong>, showcasing collaborative student engagement.
+      <p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed">
+        Visual records of teaching and learning activities at computer labs and classrooms of <strong>SMAN 15 Bandung</strong>, implementing AlgoCraft-supported Problem-Based Learning (PBL) in Class X-5, demonstrating SIDAKAN IoT, and intensive mentoring with <strong>Andre Dewantara, S.T., Gr.</strong>
       </p>
     </div>
 
+    <!-- Live Cloud Immich Album Banner -->
+    <div class="tech-card p-6 sm:p-8 bg-gradient-to-r from-slate-900/90 via-cyan-950/40 to-slate-900/90 border border-cyan-500/30 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-mono-tech text-cyan-300 bg-cyan-500/20 border border-cyan-500/30 font-bold">
+            ☁️ Self-Hosted Immich Photo Cloud
+          </span>
+          <span class="text-xs font-mono-tech text-slate-400">172+ Raw Full-Resolution Photos</span>
+        </div>
+        <h3 class="text-lg sm:text-xl font-bold text-white">
+          Comprehensive Uncompressed Photo Album
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+          The full archive of teacher certification milestones, classroom microteaching, laboratory instruction, and leadership project exhibitions stored safely on Ahmad Nursyifa's private photo cloud.
+        </p>
+      </div>
+
+      <a
+        href={immichAlbumUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs sm:text-sm font-mono-tech shadow-lg shadow-cyan-500/25 transition-all shrink-0 cursor-pointer"
+      >
+        <span>Open Immich Album (172 Photos)</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+      </a>
+    </div>
+
     <!-- Filter Buttons -->
-    <div class="flex flex-wrap items-center gap-2 mb-8">
+    <div class="flex flex-wrap items-center justify-center gap-2">
       <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-cyan-500 text-slate-950 font-bold shadow-md cursor-pointer" data-filter="all">
-        All Photos ({galeri.length})
-      </button>
-      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/40 cursor-pointer" data-filter="ppl-1">
-        PPL I (Class XI)
+        All Collections ({galeri.length})
       </button>
       <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/40 cursor-pointer" data-filter="ppl-2">
-        PPL II (Class X-5)
+        PPL II SMAN 15 Bandung ({galeri.filter(g => g.kategori === 'ppl-2').length})
+      </button>
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/40 cursor-pointer" data-filter="sidakan">
+        SIDAKAN IoT Project ({galeri.filter(g => g.kategori === 'sidakan').length})
       </button>
     </div>
 
     <!-- Gallery Grid -->
-    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
       {galeri.map(foto => (
         <div
-          class="gallery-item tech-card overflow-hidden group cursor-pointer flex flex-col"
+          class="gallery-item tech-card overflow-hidden group cursor-pointer flex flex-col hover:border-cyan-500/40 transition-all"
           data-category={foto.kategori}
           data-url={foto.url}
           data-title={foto.judul}
           data-meta={`${foto.lokasi} • ${foto.tanggal}`}
         >
-          <div class="terminal-dark relative aspect-4/3 overflow-hidden bg-slate-950">
+          <!-- Image Container with aspect ratio -->
+          <div class="relative aspect-4/3 overflow-hidden bg-slate-950">
             <img
               src={foto.url}
               alt={foto.judul}
               loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
               <span class="text-[11px] font-mono-tech text-cyan-300 font-semibold flex items-center gap-1">
-                🔍 Click to zoom
+                🔍 Click to enlarge
               </span>
             </div>
             <span class="absolute top-2 left-2 text-[10px] font-mono-tech font-bold uppercase px-2 py-0.5 rounded bg-slate-950/80 backdrop-blur-md border border-cyan-500/30 text-cyan-300">
-              {foto.kategori.toUpperCase()}
+              {foto.kategori === 'ppl-2' ? 'PPL II SMAN 15' : 'SIDAKAN IoT'}
             </span>
           </div>
 
+          <!-- Caption & Info -->
           <div class="p-4 flex-1 flex flex-col justify-between">
             <div>
               <h3 class="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-1">
                 {foto.judul}
               </h3>
-              <p class="text-xs text-slate-400 mt-1 line-clamp-2">
+              <p class="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">
                 {foto.deskripsi}
               </p>
             </div>
 
             <div class="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono-tech text-slate-500">
-              <span>📍 {foto.lokasi}</span>
-              <span>{foto.tanggal}</span>
+              <span class="truncate pr-2">📍 {foto.lokasi}</span>
+              <span class="shrink-0">{foto.tanggal}</span>
             </div>
           </div>
         </div>
@@ -88,10 +120,13 @@ import galeri from '../../data/galeri.json';
     </div>
 
   </div>
+
+  <ArtifactViewerModal isEn={true} />
 </Layout>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
+    // Filter functionality
     const filterBtns = document.querySelectorAll('.gallery-filter-btn');
     const items = document.querySelectorAll('.gallery-item');
 
@@ -99,11 +134,13 @@ import galeri from '../../data/galeri.json';
       btn.addEventListener('click', () => {
         const filter = btn.getAttribute('data-filter');
 
+        // Update active button styling
         filterBtns.forEach(b => {
           b.className = 'gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white cursor-pointer';
         });
         btn.className = 'gallery-filter-btn px-4 py-2 rounded-xl text-xs font-semibold font-mono-tech transition-all bg-cyan-500 text-slate-950 font-bold shadow-md cursor-pointer';
 
+        // Filter items
         items.forEach(item => {
           const cat = item.getAttribute('data-category');
           if (filter === 'all' || cat === filter) {
@@ -115,6 +152,7 @@ import galeri from '../../data/galeri.json';
       });
     });
 
+    // Click on photo opens global modal viewer
     items.forEach(item => {
       item.addEventListener('click', () => {
         const url = item.getAttribute('data-url');
