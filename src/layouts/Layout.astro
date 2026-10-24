@@ -11,12 +11,14 @@ interface Props {
   title?: string;
   description?: string;
   isEn?: boolean;
+  noNavbarPadding?: boolean;
 }
 
 const {
   title = "E-Portofolio PPG Prajabatan UPI 2026 — Ahmad Nursyifa",
   description = "Website E-Portofolio Interaktif Perkuliahan PPG Prajabatan Informatika UPI 2026 Ahmad Nursyifa lengkap dengan artefak dan refleksi 4F.",
-  isEn = false
+  isEn = false,
+  noNavbarPadding = false
 } = Astro.props;
 ---
 
@@ -70,7 +72,7 @@ const {
     <Navbar isEn={isEn} />
 
     <!-- Main Content Area -->
-    <main class="flex-1">
+    <main class:list={["flex-1", !noNavbarPadding && "pt-16 sm:pt-20"]}>
       <slot />
     </main>
 
