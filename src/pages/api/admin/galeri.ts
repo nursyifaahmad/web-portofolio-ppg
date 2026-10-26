@@ -21,82 +21,8 @@ export const GET: APIRoute = async ({ cookies }) => {
   });
 };
 
-// POST: Upload and create new galeri photo
-export const POST: APIRoute = async ({ request, cookies }) => {
-  if (!isAdminAuthenticated(cookies)) {
-    return new Response(JSON.stringify({ success: false, message: 'Unauthorized' }), {
-      status: 401,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-
-  try {
-    const formData = await request.formData();
-    const file = formData.get('file') as File | null;
-    const judul = (formData.get('judul') as string) || '';
-    const kategori = (formData.get('kategori') as string) || 'ppl-2';
-    const lokasi = (formData.get('lokasi') as string) || 'SMAN 15 Bandung';
-    const tanggal = (formData.get('tanggal') as string) || new Date().toLocaleDateString('id-ID', { month: 'long', year: 'numeric' });
-    const deskripsi = (formData.get('deskripsi') as string) || '';
-
-    if (!judul.trim()) {
-      return new Response(JSON.stringify({ success: false, message: 'Judul foto wajib diisi.' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-
-    if (!file || file.size === 0) {
-      return new Response(JSON.stringify({ success: false, message: 'Berkas foto wajib diunggah.' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-
-    // Save image
-    const uploadResult = await handleImageUpload(file, 'galeri', judul);
-    if (!uploadResult.success || !uploadResult.url) {
-      return new Response(JSON.stringify({ success: false, message: uploadResult.error || 'Gagal mengunggah foto.' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-
-    // Create item
-    const newItem: GaleriItem = {
-      id: `galeri-${Date.now()}`,
-      url: uploadResult.url,
-      judul: judul.trim(),
-      kategori: kategori.trim(),
-      lokasi: lokasi.trim(),
-      tanggal: tanggal.trim(),
-      deskripsi: deskripsi.trim(),
-    };
-
-    saveGaleriItem(newItem);
-
-    return new Response(JSON.stringify({ success: true, message: 'Foto berhasil ditambahkan.', data: newItem }), {
-      status: 201,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (err: any) {
-    console.error('Error creating galeri item:', err);
-    return new Response(JSON.stringify({ success: false, message: err?.message || 'Server error' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-};
-
-// PUT: Update existing galeri photo
-export const PUT: APIRoute = async ({ request, cookies }) => {
-  if (!isAdminAuthenticated(cookies)) {
-    return new Response(JSON.stringify({ success: false, message: 'Unauthorized' }), {
-      status: 401,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-
+// Internal update logic
+async function handleUpdateGaleri(request: Request): Promise<Response> {
   try {
     const contentType = request.headers.get('content-type') || '';
     let id = '';
@@ -117,7 +43,7 @@ export const PUT: APIRoute = async ({ request, cookies }) => {
       deskripsi = (formData.get('deskripsi') as string) || '';
       file = formData.get('file') as File | null;
     } else {
-      const body = await request.json();
+      const body = await request.json().catch(() => ({}));
       id = body.id || '';
       judul = body.judul || '';
       kategori = body.kategori || '';
@@ -144,10 +70,9 @@ export const PUT: APIRoute = async ({ request, cookies }) => {
     let photoUrl = existingItem.url;
 
     // Replace photo if a new file is uploaded
-    if (file && file.size > 0) {
+    if (file && file instanceof File && file.size > 0 && file.name) {
       const uploadResult = await handleImageUpload(file, 'galeri', judul || existingItem.judul);
       if (uploadResult.success && uploadResult.url) {
-        // Delete old uploaded file if it was in /uploads/
         deleteUploadedFile(existingItem.url);
         photoUrl = uploadResult.url;
       }
@@ -155,10 +80,10 @@ export const PUT: APIRoute = async ({ request, cookies }) => {
 
     const updatedItem: GaleriItem = {
       ...existingItem,
-      judul: judul !== undefined ? judul.trim() : existingItem.judul,
-      kategori: kategori !== undefined ? kategori.trim() : existingItem.kategori,
-      lokasi: lokasi !== undefined ? lokasi.trim() : existingItem.lokasi,
-      tanggal: tanggal !== undefined ? tanggal.trim() : existingItem.tanggal,
+      judul: judul !== undefined && judul.trim() !== '' ? judul.trim() : existingItem.judul,
+      kategori: kategori !== undefined && kategori.trim() !== '' ? kategori.trim() : existingItem.kategori,
+      lokasi: lokasi !== undefined && lokasi.trim() !== '' ? lokasi.trim() : existingItem.lokasi,
+      tanggal: tanggal !== undefined && tanggal.trim() !== '' ? tanggal.trim() : existingItem.tanggal,
       deskripsi: deskripsi !== undefined ? deskripsi.trim() : existingItem.deskripsi,
       url: photoUrl,
     };
@@ -171,15 +96,49 @@ export const PUT: APIRoute = async ({ request, cookies }) => {
     });
   } catch (err: any) {
     console.error('Error updating galeri item:', err);
-    return new Response(JSON.stringify({ success: false, message: err?.message || 'Server error' }), {
+    return new Response(JSON.stringify({ success: false, message: err?.message || 'Gagal memperbarui foto' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
   }
-};
+}
 
-// DELETE: Delete a galeri photo
-export const DELETE: APIRoute = async ({ request, url, cookies }) => {
+// Internal delete logic
+async function handleDeleteGaleri(id: string): Promise<Response> {
+  if (!id) {
+    return new Response(JSON.stringify({ success: false, message: 'ID foto wajib disertakan.' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  const existingItem = getGaleriById(id);
+  if (!existingItem) {
+    return new Response(JSON.stringify({ success: false, message: 'Foto tidak ditemukan.' }), {
+      status: 404,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  // Delete physical file if uploaded
+  deleteUploadedFile(existingItem.url);
+
+  const result = deleteGaleriItem(id);
+  if (!result.success) {
+    return new Response(JSON.stringify({ success: false, message: 'Gagal menghapus item dari basis data.' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  return new Response(JSON.stringify({ success: true, message: 'Foto berhasil dihapus.' }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
+
+// POST: Create, Update (if id present), or Delete (if action=delete)
+export const POST: APIRoute = async ({ request, cookies, url }) => {
   if (!isAdminAuthenticated(cookies)) {
     return new Response(JSON.stringify({ success: false, message: 'Unauthorized' }), {
       status: 401,
@@ -187,46 +146,153 @@ export const DELETE: APIRoute = async ({ request, url, cookies }) => {
     });
   }
 
-  try {
-    let id = url.searchParams.get('id');
-    if (!id) {
-      try {
-        const body = await request.json();
-        id = body.id;
-      } catch {
-        // ignore
+  const queryAction = url.searchParams.get('action');
+  const queryId = url.searchParams.get('id');
+
+  // Handle explicit delete via POST
+  if (queryAction === 'delete') {
+    return handleDeleteGaleri(queryId || '');
+  }
+
+  // Inspect request body
+  const contentType = request.headers.get('content-type') || '';
+  if (contentType.includes('multipart/form-data')) {
+    // Clone request so if needed we can parse formData
+    const formData = await request.formData();
+    const id = (formData.get('id') as string) || '';
+    const action = (formData.get('action') as string) || (formData.get('_method') as string) || '';
+
+    if (action === 'delete') {
+      return handleDeleteGaleri(id);
+    }
+
+    // If ID is provided, this is an UPDATE operation!
+    if (id && id.trim()) {
+      const existingItem = getGaleriById(id);
+      if (existingItem) {
+        const judul = (formData.get('judul') as string) || '';
+        const kategori = (formData.get('kategori') as string) || '';
+        const lokasi = (formData.get('lokasi') as string) || '';
+        const tanggal = (formData.get('tanggal') as string) || '';
+        const deskripsi = (formData.get('deskripsi') as string) || '';
+        const file = formData.get('file') as File | null;
+
+        let photoUrl = existingItem.url;
+        if (file && file instanceof File && file.size > 0 && file.name) {
+          const uploadResult = await handleImageUpload(file, 'galeri', judul || existingItem.judul);
+          if (uploadResult.success && uploadResult.url) {
+            deleteUploadedFile(existingItem.url);
+            photoUrl = uploadResult.url;
+          }
+        }
+
+        const updatedItem: GaleriItem = {
+          ...existingItem,
+          judul: judul.trim() ? judul.trim() : existingItem.judul,
+          kategori: kategori.trim() ? kategori.trim() : existingItem.kategori,
+          lokasi: lokasi.trim() ? lokasi.trim() : existingItem.lokasi,
+          tanggal: tanggal.trim() ? tanggal.trim() : existingItem.tanggal,
+          deskripsi: deskripsi !== undefined ? deskripsi.trim() : existingItem.deskripsi,
+          url: photoUrl,
+        };
+
+        saveGaleriItem(updatedItem);
+        return new Response(JSON.stringify({ success: true, message: 'Foto berhasil diperbarui.', data: updatedItem }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
       }
     }
 
-    if (!id) {
-      return new Response(JSON.stringify({ success: false, message: 'ID foto wajib disertakan.' }), {
+    // Otherwise, this is a CREATE operation
+    const file = formData.get('file') as File | null;
+    const judul = (formData.get('judul') as string) || '';
+    const kategori = (formData.get('kategori') as string) || 'ppl-2';
+    const lokasi = (formData.get('lokasi') as string) || 'SMAN 15 Bandung';
+    const tanggal = (formData.get('tanggal') as string) || new Date().toLocaleDateString('id-ID', { month: 'long', year: 'numeric' });
+    const deskripsi = (formData.get('deskripsi') as string) || '';
+
+    if (!judul.trim()) {
+      return new Response(JSON.stringify({ success: false, message: 'Judul foto wajib diisi.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    const result = deleteGaleriItem(id);
-    if (!result.success) {
-      return new Response(JSON.stringify({ success: false, message: 'Foto tidak ditemukan.' }), {
-        status: 404,
+    if (!file || !(file instanceof File) || file.size === 0 || !file.name) {
+      return new Response(JSON.stringify({ success: false, message: 'Berkas foto wajib diunggah.' }), {
+        status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    // Clean up physical file if it was uploaded
-    if (result.deletedItem?.url) {
-      deleteUploadedFile(result.deletedItem.url);
+    const uploadResult = await handleImageUpload(file, 'galeri', judul);
+    if (!uploadResult.success || !uploadResult.url) {
+      return new Response(JSON.stringify({ success: false, message: uploadResult.error || 'Gagal mengunggah foto.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
-    return new Response(JSON.stringify({ success: true, message: 'Foto berhasil dihapus.' }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (err: any) {
-    console.error('Error deleting galeri item:', err);
-    return new Response(JSON.stringify({ success: false, message: err?.message || 'Server error' }), {
-      status: 500,
+    const newItem: GaleriItem = {
+      id: `galeri-${Date.now()}`,
+      url: uploadResult.url,
+      judul: judul.trim(),
+      kategori: kategori.trim(),
+      lokasi: lokasi.trim(),
+      tanggal: tanggal.trim(),
+      deskripsi: deskripsi.trim(),
+    };
+
+    saveGaleriItem(newItem);
+    return new Response(JSON.stringify({ success: true, message: 'Foto berhasil ditambahkan.', data: newItem }), {
+      status: 201,
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+  // If JSON body
+  const body = await request.json().catch(() => ({}));
+  if (body.action === 'delete' || body._method === 'DELETE') {
+    return handleDeleteGaleri(body.id || '');
+  }
+  if (body.id) {
+    return handleUpdateGaleri(request);
+  }
+
+  return new Response(JSON.stringify({ success: false, message: 'Format data tidak valid.' }), {
+    status: 400,
+    headers: { 'Content-Type': 'application/json' },
+  });
+};
+
+// PUT: Update existing galeri photo
+export const PUT: APIRoute = async ({ request, cookies }) => {
+  if (!isAdminAuthenticated(cookies)) {
+    return new Response(JSON.stringify({ success: false, message: 'Unauthorized' }), {
+      status: 401,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  return handleUpdateGaleri(request);
+};
+
+// DELETE: Remove galeri photo
+export const DELETE: APIRoute = async ({ request, cookies, url }) => {
+  if (!isAdminAuthenticated(cookies)) {
+    return new Response(JSON.stringify({ success: false, message: 'Unauthorized' }), {
+      status: 401,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  let id = url.searchParams.get('id') || '';
+  if (!id) {
+    try {
+      const body = await request.json();
+      id = body.id || '';
+    } catch {}
+  }
+
+  return handleDeleteGaleri(id);
 };

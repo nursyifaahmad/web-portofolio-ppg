@@ -17,6 +17,8 @@ services:
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=ppg2026-syifa
       - ADMIN_SESSION_SECRET=syifa-secret-key-ppg-2026-karya-inovasi
+      - DATA_DIR=/app/data
+      - UPLOADS_DIR=/app/public/uploads
     networks:
       - eportfolio-net
 

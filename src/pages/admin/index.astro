@@ -655,8 +655,15 @@ const stats = getAdminStats();
           if (!confirm(`Hapus foto "${title}"? Berkas yang diunggah juga akan dihapus.`)) return;
 
           try {
-            const res = await fetch(`/api/admin/galeri?id=${encodeURIComponent(id)}`, { method: 'DELETE' });
-            const data = await res.json();
+            const res = await fetch(`/api/admin/galeri?action=delete&id=${encodeURIComponent(id)}`, { method: 'POST' });
+            let data;
+            try {
+              data = await res.json();
+            } catch {
+              const raw = await res.text().catch(() => '');
+              throw new Error(raw || `HTTP ${res.status}`);
+            }
+
             if (data.success) {
               window.showToast('Foto berhasil dihapus.');
               setTimeout(() => window.location.reload(), 600);
@@ -664,7 +671,7 @@ const stats = getAdminStats();
               window.showToast(data.message || 'Gagal menghapus foto', 'error');
             }
           } catch (err) {
-            window.showToast('Gagal menghubungi server.', 'error');
+            window.showToast(err.message || 'Gagal menghubungi server.', 'error');
           }
         });
       });
@@ -679,15 +686,20 @@ const stats = getAdminStats();
         const id = document.getElementById('form-galeri-id').value;
         const formData = new FormData(formGaleri);
 
-        const method = id ? 'PUT' : 'POST';
-
         try {
           const res = await fetch('/api/admin/galeri', {
-            method,
+            method: 'POST',
             body: formData,
           });
 
-          const data = await res.json();
+          let data;
+          try {
+            data = await res.json();
+          } catch {
+            const raw = await res.text().catch(() => '');
+            throw new Error(raw || `HTTP ${res.status}`);
+          }
+
           if (res.ok && data.success) {
             window.showToast(id ? 'Foto berhasil diperbarui!' : 'Foto berhasil ditambahkan!');
             closeGaleriModal();
@@ -698,7 +710,7 @@ const stats = getAdminStats();
             submitBtn.innerHTML = '<span>Simpan Foto</span>';
           }
         } catch (err) {
-          window.showToast('Terjadi kesalahan jaringan.', 'error');
+          window.showToast(err.message || 'Terjadi kesalahan jaringan.', 'error');
           submitBtn.disabled = false;
           submitBtn.innerHTML = '<span>Simpan Foto</span>';
         }
@@ -759,11 +771,18 @@ const stats = getAdminStats();
 
         try {
           const res = await fetch('/api/admin/inovasi', {
-            method: 'PUT',
+            method: 'POST',
             body: formData,
           });
 
-          const data = await res.json();
+          let data;
+          try {
+            data = await res.json();
+          } catch {
+            const raw = await res.text().catch(() => '');
+            throw new Error(raw || `HTTP ${res.status}`);
+          }
+
           if (res.ok && data.success) {
             window.showToast('Foto inovasi berhasil diperbarui!');
             closeInovasiPhotoModal();
@@ -773,8 +792,8 @@ const stats = getAdminStats();
             submitBtn.disabled = false;
             submitBtn.innerHTML = '<span>Simpan Foto Baru</span>';
           }
-        } catch {
-          window.showToast('Terjadi kesalahan jaringan.', 'error');
+        } catch (err) {
+          window.showToast(err.message || 'Terjadi kesalahan jaringan.', 'error');
           submitBtn.disabled = false;
           submitBtn.innerHTML = '<span>Simpan Foto Baru</span>';
         }
@@ -818,11 +837,18 @@ const stats = getAdminStats();
 
         try {
           const res = await fetch('/api/admin/inovasi', {
-            method: 'PUT',
+            method: 'POST',
             body: formData,
           });
 
-          const data = await res.json();
+          let data;
+          try {
+            data = await res.json();
+          } catch {
+            const raw = await res.text().catch(() => '');
+            throw new Error(raw || `HTTP ${res.status}`);
+          }
+
           if (res.ok && data.success) {
             window.showToast('Informasi inovasi berhasil diperbarui!');
             closeInovasiEditModal();
@@ -832,8 +858,8 @@ const stats = getAdminStats();
             submitBtn.disabled = false;
             submitBtn.innerHTML = '<span>Simpan Perubahan</span>';
           }
-        } catch {
-          window.showToast('Terjadi kesalahan jaringan.', 'error');
+        } catch (err) {
+          window.showToast(err.message || 'Terjadi kesalahan jaringan.', 'error');
           submitBtn.disabled = false;
           submitBtn.innerHTML = '<span>Simpan Perubahan</span>';
         }

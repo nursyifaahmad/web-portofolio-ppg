@@ -6,6 +6,9 @@ import node from '@astrojs/node';
 export default defineConfig({
   site: 'https://ppg.ahmadnursyifa.my.id',
   output: 'static',
+  security: {
+    checkOrigin: false,
+  },
   adapter: node({
     mode: 'standalone',
   }),
