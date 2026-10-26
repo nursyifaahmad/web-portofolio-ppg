@@ -25,3 +25,8 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
+
+# Dynamic runtime storage (admin portal)
+data/
+public/uploads/*
+!public/uploads/.gitkeep

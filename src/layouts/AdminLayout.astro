@@ -1,13 +1,5 @@
 ---
-import { isAdminAuthenticated } from '../lib/auth';
 import '../styles/global.css';
-
-export const prerender = false;
-
-const isAuth = isAdminAuthenticated(Astro.cookies);
-if (!isAuth) {
-  return Astro.redirect('/admin/login');
-}
 
 interface Props {
   title?: string;

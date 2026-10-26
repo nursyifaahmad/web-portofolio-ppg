@@ -1,8 +1,13 @@
 ---
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { isAdminAuthenticated } from '../../lib/auth';
 import { getGaleriList, getInovasiList, getAdminStats } from '../../lib/data-store';
 
 export const prerender = false;
+
+if (!isAdminAuthenticated(Astro.cookies)) {
+  return Astro.redirect('/admin/login');
+}
 
 const galeriList = getGaleriList();
 const inovasiList = getInovasiList();
