@@ -1,0 +1,161 @@
+---
+import { isAdminAuthenticated } from '../../lib/auth';
+import '../../styles/global.css';
+
+export const prerender = false;
+
+if (isAdminAuthenticated(Astro.cookies)) {
+  return Astro.redirect('/admin');
+}
+---
+
+<!doctype html>
+<html lang="id" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/AN Logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Admin — E-Portofolio PPG Ahmad Nursyifa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+      .font-mono-tech { font-family: 'Fira Code', monospace; }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[#080d1a] text-slate-100 flex items-center justify-center p-4 relative overflow-hidden">
+    
+    <!-- Ambient glowing backgrounds -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="w-full max-w-md relative z-10">
+      
+      <!-- Card -->
+      <div class="tech-card p-8 sm:p-10 bg-slate-950/80 backdrop-blur-xl border border-cyan-500/30 rounded-2xl shadow-2xl shadow-cyan-950/40">
+        
+        <!-- Header -->
+        <div class="text-center space-y-3 mb-8">
+          <div class="w-16 h-16 rounded-2xl bg-white p-2 mx-auto flex items-center justify-center shadow-lg shadow-cyan-500/25 border-2 border-cyan-400">
+            <img src="/AN Logo.png" alt="AN Logo" class="w-full h-full object-contain" />
+          </div>
+          <div>
+            <h1 class="text-2xl font-extrabold text-white tracking-tight">Portal Admin</h1>
+            <p class="text-xs font-mono-tech text-cyan-400 mt-1">E-Portofolio PPG Ahmad Nursyifa</p>
+            <p class="text-xs text-slate-400 mt-0.5">CRUD Foto & Media Menu Inovasi & Galeri</p>
+          </div>
+        </div>
+
+        <!-- Alert Box -->
+        <div id="error-alert" class="hidden mb-6 p-3.5 rounded-xl bg-rose-950/60 border border-rose-500/30 text-rose-300 text-xs font-mono-tech flex items-center gap-2">
+          <span>⚠️</span>
+          <span id="error-text">Terjadi kesalahan.</span>
+        </div>
+
+        <!-- Form -->
+        <form id="login-form" class="space-y-5">
+          <div class="space-y-1.5">
+            <label for="username" class="block text-xs font-mono-tech text-slate-300 font-semibold">
+              Username Admin
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              autocomplete="username"
+              placeholder="admin"
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-mono-tech"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="password" class="block text-xs font-mono-tech text-slate-300 font-semibold">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              autocomplete="current-password"
+              placeholder="••••••••••••"
+              class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-mono-tech"
+            />
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm font-mono-tech shadow-lg shadow-cyan-500/25 transition-all cursor-pointer flex items-center justify-center gap-2 transform active:scale-98"
+          >
+            <span>Masuk ke Portal Admin</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </button>
+        </form>
+
+        <div class="mt-8 pt-6 border-t border-slate-800 text-center">
+          <a
+            href="/"
+            class="text-xs font-mono-tech text-slate-400 hover:text-cyan-400 transition-colors inline-flex items-center gap-1.5"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            <span>Kembali ke Beranda Website</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script is:inline>
+      const form = document.getElementById('login-form');
+      const errorAlert = document.getElementById('error-alert');
+      const errorText = document.getElementById('error-text');
+      const submitBtn = document.getElementById('submit-btn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorAlert.classList.add('hidden');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Memverifikasi...</span>';
+
+        const username = form.username.value;
+        const password = form.password.value;
+
+        try {
+          const res = await fetch('/api/admin/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok && data.success) {
+            submitBtn.innerHTML = '<span>Login Sukses! Mengalihkan...</span>';
+            submitBtn.classList.add('bg-emerald-500', 'text-white');
+            setTimeout(() => {
+              window.location.href = '/admin';
+            }, 500);
+          } else {
+            errorText.textContent = data.message || 'Login gagal. Periksa kembali username dan password.';
+            errorAlert.classList.remove('hidden');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Masuk ke Portal Admin</span>';
+          }
+        } catch (err) {
+          errorText.textContent = 'Gagal menghubungi server. Periksa koneksi jaringan Anda.';
+          errorAlert.classList.remove('hidden');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Masuk ke Portal Admin</span>';
+        }
+      });
+    </script>
+  </body>
+</html>

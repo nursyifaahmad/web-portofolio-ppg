@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ArtifactViewerModal from '../components/ArtifactViewerModal.astro';
-import galeri from '../data/galeri.json';
+import { getGaleriList } from '../lib/data-store';
 import profil from '../data/profil.json';
 
+export const prerender = false;
+
+const galeri = getGaleriList();
 const immichAlbumUrl = "https://foto.ahmadnursyifa.my.id/share/kr8hiiBZLT426D9lx8L0ukouIzPXhT8hAHvNJkst-TlxNSA7sJwtJS_CKxSFtzLBc78";
 ---
 

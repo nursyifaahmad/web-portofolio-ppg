@@ -1,4 +1,4 @@
-# Multi-stage build for Astro Static Site
+# Multi-stage build for Astro Node Standalone
 FROM node:24-alpine AS builder
 
 WORKDIR /app
@@ -11,19 +11,31 @@ RUN npm ci
 # Copy application source
 COPY . .
 
-# Build static output to /app/dist
+# Build application (server + prerendered static assets)
 RUN npm run build
 
-# Production web server using lightweight Nginx
-FROM nginx:alpine AS runner
+# Production runner with lightweight Node.js 24 runtime
+FROM node:24-alpine AS runner
 
-# Copy custom Nginx configuration
-COPY deploy/nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-# Copy compiled static site
-COPY --from=builder /app/dist /usr/share/nginx/html
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=80
 
-# Expose internal port
+# Install production dependencies only
+COPY package.json package-lock.json* ./
+RUN npm ci --omit=dev
+
+# Copy compiled server & client assets
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/src/data ./src/data
+
+# Ensure data and uploads directories exist
+RUN mkdir -p /app/data /app/public/uploads/galeri /app/public/uploads/inovasi
+
+# Expose internal port 80
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "./dist/server/entry.mjs"]

@@ -7,8 +7,16 @@ services:
       # Port 3070: safe from Immich (2283/3001), Wedding Tracker (3050), and Algocraft (3060)
       - "3070:80"
 
+    volumes:
+      # Persistent storage for JSON data and uploaded images across container updates
+      - /mnt/storage2/eportfolio/data:/app/data
+      - /mnt/storage2/eportfolio/uploads:/app/public/uploads
+
     environment:
       - NODE_ENV=production
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=ppg2026-syifa
+      - ADMIN_SESSION_SECRET=syifa-secret-key-ppg-2026-karya-inovasi
     networks:
       - eportfolio-net
 

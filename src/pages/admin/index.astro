@@ -1,0 +1,838 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { getGaleriList, getInovasiList, getAdminStats } from '../../lib/data-store';
+
+export const prerender = false;
+
+const galeriList = getGaleriList();
+const inovasiList = getInovasiList();
+const stats = getAdminStats();
+---
+
+<AdminLayout title="Dashboard Pengelolaan Foto Inovasi & Galeri">
+  <div class="space-y-8">
+    
+    <!-- Page Header & Title -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Pengelolaan Media & Foto
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-400 font-mono-tech mt-1">
+          CRUD Foto Menu Galeri dan Media Visual Menu Inovasi E-Portofolio
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button
+          id="btn-open-upload-galeri"
+          type="button"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-mono-tech font-bold text-xs shadow-lg shadow-cyan-500/20 transition-all cursor-pointer transform active:scale-95"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+          </svg>
+          <span>Upload Foto Baru</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Stat Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="tech-card p-4 sm:p-5 border border-cyan-500/30 bg-slate-950/70">
+        <span class="text-[11px] font-mono-tech uppercase text-slate-400 block font-semibold">Total Foto Galeri</span>
+        <div class="flex items-baseline gap-2 mt-1">
+          <span class="text-2xl sm:text-3xl font-extrabold text-cyan-400">{stats.totalGaleri}</span>
+          <span class="text-xs font-mono-tech text-slate-500">berkas</span>
+        </div>
+      </div>
+
+      <div class="tech-card p-4 sm:p-5 border border-emerald-500/30 bg-slate-950/70">
+        <span class="text-[11px] font-mono-tech uppercase text-slate-400 block font-semibold">Karya Inovasi</span>
+        <div class="flex items-baseline gap-2 mt-1">
+          <span class="text-2xl sm:text-3xl font-extrabold text-emerald-400">{stats.totalInovasi}</span>
+          <span class="text-xs font-mono-tech text-slate-500">modul</span>
+        </div>
+      </div>
+
+      <div class="tech-card p-4 sm:p-5 border border-purple-500/30 bg-slate-950/70">
+        <span class="text-[11px] font-mono-tech uppercase text-slate-400 block font-semibold">Kategori Terbanyak</span>
+        <div class="flex items-baseline gap-2 mt-1">
+          <span class="text-base sm:text-lg font-bold text-purple-300 truncate">PPL II SMAN 15</span>
+        </div>
+      </div>
+
+      <div class="tech-card p-4 sm:p-5 border border-amber-500/30 bg-slate-950/70">
+        <span class="text-[11px] font-mono-tech uppercase text-slate-400 block font-semibold">Sistem Backend</span>
+        <div class="flex items-baseline gap-2 mt-1">
+          <span class="text-xs sm:text-sm font-mono-tech font-bold text-amber-300 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Node Standalone (Live)
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="flex items-center gap-2 border-b border-slate-800 pb-2 overflow-x-auto">
+      <button
+        id="tab-btn-galeri"
+        class="tab-nav-btn px-4 py-2 rounded-xl font-mono-tech text-xs font-bold transition-all bg-cyan-500 text-slate-950 shadow-md cursor-pointer flex items-center gap-2"
+        data-target="tab-content-galeri"
+      >
+        <span>📸 Galeri Foto ({stats.totalGaleri})</span>
+      </button>
+
+      <button
+        id="tab-btn-inovasi"
+        class="tab-nav-btn px-4 py-2 rounded-xl font-mono-tech text-xs font-semibold transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white cursor-pointer flex items-center gap-2"
+        data-target="tab-content-inovasi"
+      >
+        <span>🚀 Media Inovasi ({stats.totalInovasi})</span>
+      </button>
+
+      <button
+        id="tab-btn-backup"
+        class="tab-nav-btn px-4 py-2 rounded-xl font-mono-tech text-xs font-semibold transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white cursor-pointer flex items-center gap-2"
+        data-target="tab-content-backup"
+      >
+        <span>💾 Cadangan & Ekspor</span>
+      </button>
+    </div>
+
+    <!-- TAB 1: GALERI FOTO MANAGEMENT -->
+    <section id="tab-content-galeri" class="tab-pane space-y-6">
+      <!-- Search & Filters -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+        <div class="relative flex-1 max-w-md">
+          <input
+            type="text"
+            id="galeri-search-input"
+            placeholder="Cari foto berdasarkan judul, lokasi, atau deskripsi..."
+            class="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 text-xs font-mono-tech focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+          />
+          <svg class="w-4 h-4 text-slate-500 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <select
+            id="galeri-category-filter"
+            class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono-tech focus:outline-none focus:border-cyan-400 cursor-pointer"
+          >
+            <option value="all">Semua Kategori</option>
+            <option value="ppl-2">PPL II SMAN 15 Bandung</option>
+            <option value="sidakan">Projek SIDAKAN IoT</option>
+            <option value="ppl-1">PPL I / Lainnya</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Table of Photos -->
+      <div class="tech-card overflow-hidden border border-slate-800 bg-slate-950/70 rounded-2xl shadow-xl">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-900/90 text-slate-400 font-mono-tech border-b border-slate-800 uppercase text-[10px]">
+                <th class="p-3.5 w-20 text-center">Foto</th>
+                <th class="p-3.5">Judul & Keterangan</th>
+                <th class="p-3.5 w-32">Kategori</th>
+                <th class="p-3.5 w-36">Lokasi / Tanggal</th>
+                <th class="p-3.5 w-28 text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="galeri-table-body" class="divide-y divide-slate-800/60 font-mono-tech">
+              {galeriList.map(item => (
+                <tr class="hover:bg-slate-900/40 transition-colors galeri-row" data-id={item.id} data-kategori={item.kategori} data-title={item.judul.toLowerCase()} data-desc={item.deskripsi.toLowerCase()} data-lokasi={item.lokasi.toLowerCase()}>
+                  <!-- Thumbnail -->
+                  <td class="p-3 text-center">
+                    <div class="w-14 h-10 rounded-lg overflow-hidden border border-slate-800 bg-slate-900 mx-auto relative group">
+                      <img src={item.url} alt={item.judul} class="w-full h-full object-cover group-hover:scale-110 transition-transform" loading="lazy" />
+                    </div>
+                  </td>
+
+                  <!-- Judul & Desc -->
+                  <td class="p-3">
+                    <span class="font-bold text-white block text-xs line-clamp-1">{item.judul}</span>
+                    <span class="text-[11px] text-slate-400 block line-clamp-1 mt-0.5 font-sans leading-normal">{item.deskripsi}</span>
+                    <span class="text-[9px] text-slate-600 block mt-0.5">ID: {item.id}</span>
+                  </td>
+
+                  <!-- Kategori -->
+                  <td class="p-3">
+                    <span class={`inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
+                      item.kategori === 'ppl-2'
+                        ? 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/30'
+                        : item.kategori === 'sidakan'
+                        ? 'bg-purple-500/10 text-purple-300 border border-purple-500/30'
+                        : 'bg-slate-800 text-slate-300 border border-slate-700'
+                    }`}>
+                      {item.kategori}
+                    </span>
+                  </td>
+
+                  <!-- Lokasi & Tanggal -->
+                  <td class="p-3 text-slate-400 text-[11px]">
+                    <span class="block truncate">📍 {item.lokasi}</span>
+                    <span class="block text-[10px] text-slate-500 mt-0.5">📅 {item.tanggal}</span>
+                  </td>
+
+                  <!-- Aksi -->
+                  <td class="p-3 text-center">
+                    <div class="flex items-center justify-center gap-1.5">
+                      <button
+                        type="button"
+                        class="btn-edit-galeri p-1.5 rounded-lg bg-slate-900 border border-slate-700 text-cyan-300 hover:bg-cyan-500/20 hover:border-cyan-400 transition-all cursor-pointer"
+                        title="Edit Data Foto"
+                        data-item={JSON.stringify(item)}
+                      >
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn-delete-galeri p-1.5 rounded-lg bg-slate-900 border border-slate-700 text-rose-400 hover:bg-rose-500/20 hover:border-rose-400 transition-all cursor-pointer"
+                        title="Hapus Foto"
+                        data-id={item.id}
+                        data-title={item.judul}
+                      >
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: INOVASI & MEDIA MANAGEMENT -->
+    <section id="tab-content-inovasi" class="tab-pane hidden space-y-6">
+      <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+        <div>
+          <h2 class="text-lg font-bold text-white">Daftar Karya Inovasi & Media Visual</h2>
+          <p class="text-xs text-slate-400 font-mono-tech">Perbarui screenshot aplikasi web AlgoCraft, sistem SIDAKAN IoT, atau karya inovatif lainnya.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {inovasiList.map(inovasi => (
+          <div class="tech-card p-6 border border-slate-800 bg-slate-950/70 rounded-2xl flex flex-col justify-between group hover:border-cyan-500/30 transition-all">
+            <div class="space-y-4">
+              <!-- Image Banner with change button overlay -->
+              <div class="relative aspect-16/9 rounded-xl overflow-hidden border border-slate-800 bg-slate-900">
+                <img src={inovasi.image} alt={inovasi.title} class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" id={`img-preview-${inovasi.id}`} />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-4 justify-between">
+                  <span class="text-[10px] font-mono-tech text-cyan-300 font-bold bg-slate-950/80 px-2.5 py-1 rounded-md border border-cyan-500/30">
+                    {inovasi.category}
+                  </span>
+                  
+                  <button
+                    type="button"
+                    class="btn-trigger-inovasi-photo px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono-tech font-bold text-[11px] shadow-md transition-all cursor-pointer flex items-center gap-1.5"
+                    data-id={inovasi.id}
+                    data-title={inovasi.title}
+                    data-current-img={inovasi.image}
+                  >
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span>Ganti Foto</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Metadata Info -->
+              <div>
+                <h3 class="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  {inovasi.title}
+                </h3>
+                <p class="text-xs text-slate-300 mt-2 line-clamp-3 leading-relaxed">
+                  {inovasi.deskripsi}
+                </p>
+                {inovasi.url && (
+                  <a href={inovasi.url} target="_blank" class="inline-flex items-center gap-1 text-[11px] font-mono-tech text-cyan-400 hover:underline mt-2">
+                    <span>🔗 {inovasi.url}</span>
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono-tech">
+              <span class="text-slate-500 text-[10px]">ID: {inovasi.id}</span>
+              <button
+                type="button"
+                class="btn-edit-inovasi px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
+                data-item={JSON.stringify(inovasi)}
+              >
+                <span>✏️ Edit Teks & Detail</span>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- TAB 3: BACKUP & RESTORE DATA -->
+    <section id="tab-content-backup" class="tab-pane hidden space-y-6">
+      <div class="tech-card p-6 sm:p-8 border border-slate-800 bg-slate-950/70 rounded-2xl space-y-6">
+        <div>
+          <h2 class="text-lg font-bold text-white">Cadangan Data Mandiri (Backup JSON)</h2>
+          <p class="text-xs text-slate-400 font-mono-tech mt-1">
+            Unduh seluruh berkas JSON aktif untuk keperluan arsip lokal atau sinkronisasi balik ke repositori Git.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">📸</span>
+              <h3 class="font-bold text-white text-sm">Database Galeri Foto</h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Memuat seluruh data {stats.totalGaleri} foto, metadata judul, kategori, lokasi, tanggal, dan path berkas.
+            </p>
+            <a
+              href="/api/admin/stats?export=galeri"
+              download="backup-galeri.json"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-mono-tech text-xs font-semibold transition-all cursor-pointer"
+            >
+              <span>📥 Unduh backup-galeri.json</span>
+            </a>
+          </div>
+
+          <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🚀</span>
+              <h3 class="font-bold text-white text-sm">Database Karya Inovasi</h3>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Memuat seluruh data {stats.totalInovasi} inovasi (AlgoCraft, SIDAKAN, dll.), teknologi, dan URL screenshot.
+            </p>
+            <a
+              href="/api/admin/stats?export=inovasi"
+              download="backup-inovasi.json"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono-tech text-xs font-semibold transition-all cursor-pointer"
+            >
+              <span>📥 Unduh backup-inovasi.json</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-cyan-950/20 border border-cyan-500/20 text-xs font-mono-tech text-cyan-200">
+          <strong>ℹ️ Info Penyimpanan Docker di VPS:</strong> Seluruh foto yang diunggah otomatis tersimpan di folder <code class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">/mnt/storage2/eportfolio/uploads</code> dan data di <code class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800">/mnt/storage2/eportfolio/data</code>, sehingga tidak akan pernah hilang meskipun container Docker dimatikan atau di-build ulang.
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- MODAL: UPLOAD / EDIT GALERI FOTO -->
+  <div id="modal-galeri" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="tech-card w-full max-w-xl max-h-[90vh] overflow-y-auto bg-slate-950 border border-cyan-500/30 rounded-2xl shadow-2xl p-6 sm:p-8 space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <h3 id="modal-galeri-title" class="text-lg font-bold text-white">Upload Foto Baru</h3>
+        <button type="button" id="btn-close-modal-galeri" class="text-slate-400 hover:text-white p-1 cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <form id="form-galeri" class="space-y-4 font-mono-tech text-xs">
+        <input type="hidden" id="form-galeri-id" name="id" value="" />
+
+        <!-- Image Upload Dropzone & Preview -->
+        <div class="space-y-2">
+          <label class="block text-slate-300 font-semibold">Berkas Foto (JPG, PNG, WebP max 10MB)</label>
+          <div id="dropzone-galeri" class="border-2 border-dashed border-slate-700 hover:border-cyan-400 rounded-xl p-4 text-center cursor-pointer bg-slate-900/60 transition-all">
+            <input type="file" id="file-galeri-input" name="file" accept="image/jpeg,image/png,image/webp,image/gif" class="hidden" />
+            <div id="dropzone-galeri-placeholder" class="space-y-2 py-4">
+              <svg class="w-8 h-8 text-cyan-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <p class="text-slate-300 font-semibold">Klik atau seret foto ke area ini</p>
+              <p class="text-[10px] text-slate-500">Mendukung format JPG, PNG, atau WebP</p>
+            </div>
+            <!-- Preview Box -->
+            <div id="dropzone-galeri-preview" class="hidden relative aspect-16/9 rounded-lg overflow-hidden bg-slate-950 border border-cyan-500/30">
+              <img id="preview-galeri-img" src="" alt="Pratinjau" class="w-full h-full object-contain" />
+              <button type="button" id="btn-remove-preview" class="absolute top-2 right-2 px-2 py-1 rounded bg-rose-500 text-white text-[10px] font-bold">Ganti</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="form-galeri-judul" class="block text-slate-300 font-semibold">Judul Foto *</label>
+          <input type="text" id="form-galeri-judul" name="judul" required placeholder="Contoh: Praktik Mengajar PPL II Kelas X-5" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1.5">
+            <label for="form-galeri-kategori" class="block text-slate-300 font-semibold">Kategori</label>
+            <select id="form-galeri-kategori" name="kategori" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400 cursor-pointer">
+              <option value="ppl-2">PPL II SMAN 15 Bandung</option>
+              <option value="sidakan">Projek Kepemimpinan SIDAKAN</option>
+              <option value="ppl-1">PPL I / Microteaching</option>
+            </select>
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="form-galeri-lokasi" class="block text-slate-300 font-semibold">Lokasi Kegiatan</label>
+            <input type="text" id="form-galeri-lokasi" name="lokasi" value="SMAN 15 Bandung" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400" />
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="form-galeri-tanggal" class="block text-slate-300 font-semibold">Waktu / Tanggal Pelaksanaan</label>
+          <input type="text" id="form-galeri-tanggal" name="tanggal" placeholder="Contoh: Juli – Oktober 2026 atau 18 September 2026" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="form-galeri-deskripsi" class="block text-slate-300 font-semibold">Deskripsi / Keterangan Dokumentasi</label>
+          <textarea id="form-galeri-deskripsi" name="deskripsi" rows="3" placeholder="Uraikan aktivitas pembelajaran, materi, atau konteks foto..." class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400 font-sans"></textarea>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 flex items-center justify-end gap-2">
+          <button type="button" id="btn-cancel-modal-galeri" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white cursor-pointer">Batal</button>
+          <button type="submit" id="btn-save-galeri" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/25 cursor-pointer flex items-center gap-1.5">
+            <span>Simpan Foto</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: GANTI FOTO INOVASI -->
+  <div id="modal-inovasi-photo" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="tech-card w-full max-w-lg bg-slate-950 border border-cyan-500/30 rounded-2xl shadow-2xl p-6 sm:p-8 space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div>
+          <h3 class="text-base font-bold text-white">Ganti Foto Screenshot Inovasi</h3>
+          <p id="modal-inovasi-target-title" class="text-xs text-cyan-400 font-mono-tech mt-0.5">AlgoCraft</p>
+        </div>
+        <button type="button" id="btn-close-modal-inovasi-photo" class="text-slate-400 hover:text-white p-1 cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <form id="form-inovasi-photo" class="space-y-4 font-mono-tech text-xs">
+        <input type="hidden" id="form-inovasi-photo-id" name="id" value="" />
+
+        <div class="space-y-2">
+          <label class="block text-slate-300 font-semibold">Pilih Berkas Screenshot Baru (JPG, PNG, WebP)</label>
+          <input type="file" id="file-inovasi-input" name="file" required accept="image/jpeg,image/png,image/webp" class="w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-cyan-500/20 file:text-cyan-300 hover:file:bg-cyan-500/30 cursor-pointer" />
+          
+          <div id="inovasi-photo-preview-box" class="hidden aspect-16/9 rounded-xl overflow-hidden border border-slate-800 bg-slate-900 mt-3">
+            <img id="inovasi-photo-preview-img" src="" alt="Pratinjau" class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 flex items-center justify-end gap-2">
+          <button type="button" id="btn-cancel-modal-inovasi-photo" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white cursor-pointer">Batal</button>
+          <button type="submit" id="btn-save-inovasi-photo" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/25 cursor-pointer">
+            <span>Simpan Foto Baru</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: EDIT TEKS INOVASI -->
+  <div id="modal-inovasi-edit" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="tech-card w-full max-w-xl max-h-[90vh] overflow-y-auto bg-slate-950 border border-cyan-500/30 rounded-2xl shadow-2xl p-6 sm:p-8 space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <h3 class="text-base font-bold text-white">Edit Informasi Inovasi</h3>
+        <button type="button" id="btn-close-modal-inovasi-edit" class="text-slate-400 hover:text-white p-1 cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <form id="form-inovasi-edit" class="space-y-4 font-mono-tech text-xs">
+        <input type="hidden" id="form-inovasi-edit-id" name="id" value="" />
+
+        <div class="space-y-1.5">
+          <label for="form-inovasi-title" class="block text-slate-300 font-semibold">Judul Inovasi *</label>
+          <input type="text" id="form-inovasi-title" name="title" required class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="space-y-1.5">
+            <label for="form-inovasi-category" class="block text-slate-300 font-semibold">Kategori</label>
+            <input type="text" id="form-inovasi-category" name="category" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400" />
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="form-inovasi-url" class="block text-slate-300 font-semibold">URL Tautan Live (Opsional)</label>
+            <input type="url" id="form-inovasi-url" name="url" placeholder="https://..." class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400" />
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="form-inovasi-highlight" class="block text-slate-300 font-semibold">Highlight Singkat</label>
+          <input type="text" id="form-inovasi-highlight" name="highlight" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400" />
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="form-inovasi-desc" class="block text-slate-300 font-semibold">Deskripsi Karya</label>
+          <textarea id="form-inovasi-desc" name="deskripsi" rows="4" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400 font-sans"></textarea>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 flex items-center justify-end gap-2">
+          <button type="button" id="btn-cancel-modal-inovasi-edit" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white cursor-pointer">Batal</button>
+          <button type="submit" id="btn-save-inovasi-edit" class="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/25 cursor-pointer">
+            <span>Simpan Perubahan</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Client JavaScript for Tabs, Filters, and CRUD Handlers -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Tab Switching
+      const tabBtns = document.querySelectorAll('.tab-nav-btn');
+      const tabPanes = document.querySelectorAll('.tab-pane');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-target');
+
+          tabBtns.forEach(b => {
+            b.className = 'tab-nav-btn px-4 py-2 rounded-xl font-mono-tech text-xs font-semibold transition-all bg-slate-900 border border-slate-800 text-slate-300 hover:text-white cursor-pointer flex items-center gap-2';
+          });
+          btn.className = 'tab-nav-btn px-4 py-2 rounded-xl font-mono-tech text-xs font-bold transition-all bg-cyan-500 text-slate-950 shadow-md cursor-pointer flex items-center gap-2';
+
+          tabPanes.forEach(pane => {
+            if (pane.id === targetId) {
+              pane.classList.remove('hidden');
+            } else {
+              pane.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 2. Galeri Search & Filter
+      const searchInput = document.getElementById('galeri-search-input');
+      const categoryFilter = document.getElementById('galeri-category-filter');
+      const rows = document.querySelectorAll('.galeri-row');
+
+      function filterGaleriRows() {
+        const query = searchInput.value.toLowerCase().trim();
+        const selectedCat = categoryFilter.value;
+
+        rows.forEach(row => {
+          const title = row.getAttribute('data-title') || '';
+          const desc = row.getAttribute('data-desc') || '';
+          const lokasi = row.getAttribute('data-lokasi') || '';
+          const cat = row.getAttribute('data-kategori') || '';
+
+          const matchCat = (selectedCat === 'all' || cat === selectedCat);
+          const matchQuery = !query || title.includes(query) || desc.includes(query) || lokasi.includes(query);
+
+          if (matchCat && matchQuery) {
+            row.classList.remove('hidden');
+          } else {
+            row.classList.add('hidden');
+          }
+        });
+      }
+
+      searchInput?.addEventListener('input', filterGaleriRows);
+      categoryFilter?.addEventListener('change', filterGaleriRows);
+
+      // 3. Galeri Modal & File Preview
+      const modalGaleri = document.getElementById('modal-galeri');
+      const formGaleri = document.getElementById('form-galeri');
+      const dropzone = document.getElementById('dropzone-galeri');
+      const fileInput = document.getElementById('file-galeri-input');
+      const placeholder = document.getElementById('dropzone-galeri-placeholder');
+      const previewBox = document.getElementById('dropzone-galeri-preview');
+      const previewImg = document.getElementById('preview-galeri-img');
+      const btnRemovePreview = document.getElementById('btn-remove-preview');
+      const modalTitle = document.getElementById('modal-galeri-title');
+
+      function openGaleriModal(isEdit = false, item = null) {
+        formGaleri.reset();
+        previewBox.classList.add('hidden');
+        placeholder.classList.remove('hidden');
+        previewImg.src = '';
+
+        if (isEdit && item) {
+          modalTitle.textContent = 'Edit Foto Galeri';
+          document.getElementById('form-galeri-id').value = item.id;
+          document.getElementById('form-galeri-judul').value = item.judul;
+          document.getElementById('form-galeri-kategori').value = item.kategori;
+          document.getElementById('form-galeri-lokasi').value = item.lokasi;
+          document.getElementById('form-galeri-tanggal').value = item.tanggal;
+          document.getElementById('form-galeri-deskripsi').value = item.deskripsi;
+
+          if (item.url) {
+            previewImg.src = item.url;
+            previewBox.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+          }
+        } else {
+          modalTitle.textContent = 'Upload Foto Baru';
+          document.getElementById('form-galeri-id').value = '';
+        }
+
+        modalGaleri.classList.remove('hidden');
+      }
+
+      function closeGaleriModal() {
+        modalGaleri.classList.add('hidden');
+      }
+
+      document.getElementById('btn-open-upload-galeri')?.addEventListener('click', () => openGaleriModal(false));
+      document.getElementById('btn-close-modal-galeri')?.addEventListener('click', closeGaleriModal);
+      document.getElementById('btn-cancel-modal-galeri')?.addEventListener('click', closeGaleriModal);
+
+      // Dropzone click triggers file input
+      dropzone?.addEventListener('click', (e) => {
+        if (e.target !== btnRemovePreview) {
+          fileInput.click();
+        }
+      });
+
+      // Preview on file choose
+      fileInput?.addEventListener('change', () => {
+        const file = fileInput.files?.[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            previewImg.src = e.target.result;
+            previewBox.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      btnRemovePreview?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fileInput.value = '';
+        previewImg.src = '';
+        previewBox.classList.add('hidden');
+        placeholder.classList.remove('hidden');
+      });
+
+      // Edit Galeri Buttons
+      document.querySelectorAll('.btn-edit-galeri').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const raw = btn.getAttribute('data-item');
+          if (raw) {
+            const item = JSON.parse(raw);
+            openGaleriModal(true, item);
+          }
+        });
+      });
+
+      // Delete Galeri Button
+      document.querySelectorAll('.btn-delete-galeri').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const id = btn.getAttribute('data-id');
+          const title = btn.getAttribute('data-title');
+          if (!confirm(`Hapus foto "${title}"? Berkas yang diunggah juga akan dihapus.`)) return;
+
+          try {
+            const res = await fetch(`/api/admin/galeri?id=${encodeURIComponent(id)}`, { method: 'DELETE' });
+            const data = await res.json();
+            if (data.success) {
+              window.showToast('Foto berhasil dihapus.');
+              setTimeout(() => window.location.reload(), 600);
+            } else {
+              window.showToast(data.message || 'Gagal menghapus foto', 'error');
+            }
+          } catch (err) {
+            window.showToast('Gagal menghubungi server.', 'error');
+          }
+        });
+      });
+
+      // Handle Submit Form Galeri
+      formGaleri?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('btn-save-galeri');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Menyimpan...</span>';
+
+        const id = document.getElementById('form-galeri-id').value;
+        const formData = new FormData(formGaleri);
+
+        const method = id ? 'PUT' : 'POST';
+
+        try {
+          const res = await fetch('/api/admin/galeri', {
+            method,
+            body: formData,
+          });
+
+          const data = await res.json();
+          if (res.ok && data.success) {
+            window.showToast(id ? 'Foto berhasil diperbarui!' : 'Foto berhasil ditambahkan!');
+            closeGaleriModal();
+            setTimeout(() => window.location.reload(), 600);
+          } else {
+            window.showToast(data.message || 'Gagal menyimpan foto.', 'error');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Simpan Foto</span>';
+          }
+        } catch (err) {
+          window.showToast('Terjadi kesalahan jaringan.', 'error');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Simpan Foto</span>';
+        }
+      });
+
+      // 4. Inovasi Photo Modal
+      const modalInovasiPhoto = document.getElementById('modal-inovasi-photo');
+      const formInovasiPhoto = document.getElementById('form-inovasi-photo');
+      const inovasiPhotoInput = document.getElementById('file-inovasi-input');
+      const inovasiPhotoPreview = document.getElementById('inovasi-photo-preview-img');
+      const inovasiPhotoPreviewBox = document.getElementById('inovasi-photo-preview-box');
+
+      document.querySelectorAll('.btn-trigger-inovasi-photo').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-id');
+          const title = btn.getAttribute('data-title');
+          const currentImg = btn.getAttribute('data-current-img');
+
+          document.getElementById('form-inovasi-photo-id').value = id;
+          document.getElementById('modal-inovasi-target-title').textContent = title;
+          inovasiPhotoInput.value = '';
+
+          if (currentImg) {
+            inovasiPhotoPreview.src = currentImg;
+            inovasiPhotoPreviewBox.classList.remove('hidden');
+          }
+
+          modalInovasiPhoto.classList.remove('hidden');
+        });
+      });
+
+      inovasiPhotoInput?.addEventListener('change', () => {
+        const file = inovasiPhotoInput.files?.[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            inovasiPhotoPreview.src = e.target.result;
+            inovasiPhotoPreviewBox.classList.remove('hidden');
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      function closeInovasiPhotoModal() {
+        modalInovasiPhoto.classList.add('hidden');
+      }
+
+      document.getElementById('btn-close-modal-inovasi-photo')?.addEventListener('click', closeInovasiPhotoModal);
+      document.getElementById('btn-cancel-modal-inovasi-photo')?.addEventListener('click', closeInovasiPhotoModal);
+
+      formInovasiPhoto?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('btn-save-inovasi-photo');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Mengunggah...</span>';
+
+        const formData = new FormData(formInovasiPhoto);
+
+        try {
+          const res = await fetch('/api/admin/inovasi', {
+            method: 'PUT',
+            body: formData,
+          });
+
+          const data = await res.json();
+          if (res.ok && data.success) {
+            window.showToast('Foto inovasi berhasil diperbarui!');
+            closeInovasiPhotoModal();
+            setTimeout(() => window.location.reload(), 600);
+          } else {
+            window.showToast(data.message || 'Gagal memperbarui foto.', 'error');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Simpan Foto Baru</span>';
+          }
+        } catch {
+          window.showToast('Terjadi kesalahan jaringan.', 'error');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Simpan Foto Baru</span>';
+        }
+      });
+
+      // 5. Inovasi Edit Text Modal
+      const modalInovasiEdit = document.getElementById('modal-inovasi-edit');
+      const formInovasiEdit = document.getElementById('form-inovasi-edit');
+
+      document.querySelectorAll('.btn-edit-inovasi').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const raw = btn.getAttribute('data-item');
+          if (raw) {
+            const item = JSON.parse(raw);
+            document.getElementById('form-inovasi-edit-id').value = item.id;
+            document.getElementById('form-inovasi-title').value = item.title || '';
+            document.getElementById('form-inovasi-category').value = item.category || '';
+            document.getElementById('form-inovasi-url').value = item.url || '';
+            document.getElementById('form-inovasi-highlight').value = item.highlight || '';
+            document.getElementById('form-inovasi-desc').value = item.deskripsi || '';
+
+            modalInovasiEdit.classList.remove('hidden');
+          }
+        });
+      });
+
+      function closeInovasiEditModal() {
+        modalInovasiEdit.classList.add('hidden');
+      }
+
+      document.getElementById('btn-close-modal-inovasi-edit')?.addEventListener('click', closeInovasiEditModal);
+      document.getElementById('btn-cancel-modal-inovasi-edit')?.addEventListener('click', closeInovasiEditModal);
+
+      formInovasiEdit?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('btn-save-inovasi-edit');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Menyimpan...</span>';
+
+        const formData = new FormData(formInovasiEdit);
+
+        try {
+          const res = await fetch('/api/admin/inovasi', {
+            method: 'PUT',
+            body: formData,
+          });
+
+          const data = await res.json();
+          if (res.ok && data.success) {
+            window.showToast('Informasi inovasi berhasil diperbarui!');
+            closeInovasiEditModal();
+            setTimeout(() => window.location.reload(), 600);
+          } else {
+            window.showToast(data.message || 'Gagal menyimpan inovasi.', 'error');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Simpan Perubahan</span>';
+          }
+        } catch {
+          window.showToast('Terjadi kesalahan jaringan.', 'error');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Simpan Perubahan</span>';
+        }
+      });
+    });
+  </script>
+</AdminLayout>

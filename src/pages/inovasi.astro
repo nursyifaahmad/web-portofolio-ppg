@@ -1,10 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ArtifactViewerModal from '../components/ArtifactViewerModal.astro';
-import inovasiList from '../data/inovasi.json';
+import { getInovasiList } from '../lib/data-store';
 import profil from '../data/profil.json';
 import lk4 from '../data/seminar-lk4.json';
 
+export const prerender = false;
+
+const inovasiList = getInovasiList();
 const algocraft = inovasiList.find(i => i.id === 'algocraft');
 const otherInovasi = inovasiList.filter(i => i.id !== 'algocraft');
 ---
